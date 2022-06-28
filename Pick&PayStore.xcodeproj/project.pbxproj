@@ -101,6 +101,7 @@
 		94CF0B3D286B44420093D0F4 /* Pick&PayStore */ = {
 			isa = PBXGroup;
 			children = (
+				94E9E3AB286B8FF600B3CD2F /* UI */,
 				94CF0B3E286B44420093D0F4 /* AppDelegate.swift */,
 				94CF0B40286B44420093D0F4 /* SceneDelegate.swift */,
 				94CF0B42286B44420093D0F4 /* ViewController.swift */,
@@ -128,6 +129,13 @@
 				94CF0B64286B44460093D0F4 /* Pick_PayStoreUITestsLaunchTests.swift */,
 			);
 			path = "Pick&PayStoreUITests";
+			sourceTree = "<group>";
+		};
+		94E9E3AB286B8FF600B3CD2F /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
