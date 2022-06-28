@@ -1,0 +1,618 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94CF0B3F286B44420093D0F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B3E286B44420093D0F4 /* AppDelegate.swift */; };
+		94CF0B41286B44420093D0F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B40286B44420093D0F4 /* SceneDelegate.swift */; };
+		94CF0B43286B44420093D0F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B42286B44420093D0F4 /* ViewController.swift */; };
+		94CF0B46286B44420093D0F4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CF0B44286B44420093D0F4 /* Main.storyboard */; };
+		94CF0B49286B44420093D0F4 /* Pick_PayStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B47286B44420093D0F4 /* Pick_PayStore.xcdatamodeld */; };
+		94CF0B4B286B44460093D0F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94CF0B4A286B44460093D0F4 /* Assets.xcassets */; };
+		94CF0B4E286B44460093D0F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94CF0B4C286B44460093D0F4 /* LaunchScreen.storyboard */; };
+		94CF0B59286B44460093D0F4 /* Pick_PayStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B58286B44460093D0F4 /* Pick_PayStoreTests.swift */; };
+		94CF0B63286B44460093D0F4 /* Pick_PayStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B62286B44460093D0F4 /* Pick_PayStoreUITests.swift */; };
+		94CF0B65286B44460093D0F4 /* Pick_PayStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B64286B44460093D0F4 /* Pick_PayStoreUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94CF0B55286B44460093D0F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94CF0B33286B44420093D0F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94CF0B3A286B44420093D0F4;
+			remoteInfo = "Pick&PayStore";
+		};
+		94CF0B5F286B44460093D0F4 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94CF0B33286B44420093D0F4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94CF0B3A286B44420093D0F4;
+			remoteInfo = "Pick&PayStore";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		94CF0B3B286B44420093D0F4 /* Pick&PayStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pick&PayStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94CF0B3E286B44420093D0F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		94CF0B40286B44420093D0F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		94CF0B42286B44420093D0F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		94CF0B45286B44420093D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		94CF0B48286B44420093D0F4 /* Pick_PayStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pick_PayStore.xcdatamodel; sourceTree = "<group>"; };
+		94CF0B4A286B44460093D0F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		94CF0B4D286B44460093D0F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		94CF0B4F286B44460093D0F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		94CF0B54286B44460093D0F4 /* Pick&PayStoreTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pick&PayStoreTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94CF0B58286B44460093D0F4 /* Pick_PayStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pick_PayStoreTests.swift; sourceTree = "<group>"; };
+		94CF0B5E286B44460093D0F4 /* Pick&PayStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pick&PayStoreUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94CF0B62286B44460093D0F4 /* Pick_PayStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pick_PayStoreUITests.swift; sourceTree = "<group>"; };
+		94CF0B64286B44460093D0F4 /* Pick_PayStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pick_PayStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94CF0B38286B44420093D0F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94CF0B51286B44460093D0F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94CF0B5B286B44460093D0F4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94CF0B32286B44420093D0F4 = {
+			isa = PBXGroup;
+			children = (
+				94CF0B3D286B44420093D0F4 /* Pick&PayStore */,
+				94CF0B57286B44460093D0F4 /* Pick&PayStoreTests */,
+				94CF0B61286B44460093D0F4 /* Pick&PayStoreUITests */,
+				94CF0B3C286B44420093D0F4 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94CF0B3C286B44420093D0F4 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94CF0B3B286B44420093D0F4 /* Pick&PayStore.app */,
+				94CF0B54286B44460093D0F4 /* Pick&PayStoreTests.xctest */,
+				94CF0B5E286B44460093D0F4 /* Pick&PayStoreUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94CF0B3D286B44420093D0F4 /* Pick&PayStore */ = {
+			isa = PBXGroup;
+			children = (
+				94CF0B3E286B44420093D0F4 /* AppDelegate.swift */,
+				94CF0B40286B44420093D0F4 /* SceneDelegate.swift */,
+				94CF0B42286B44420093D0F4 /* ViewController.swift */,
+				94CF0B44286B44420093D0F4 /* Main.storyboard */,
+				94CF0B4A286B44460093D0F4 /* Assets.xcassets */,
+				94CF0B4C286B44460093D0F4 /* LaunchScreen.storyboard */,
+				94CF0B4F286B44460093D0F4 /* Info.plist */,
+				94CF0B47286B44420093D0F4 /* Pick_PayStore.xcdatamodeld */,
+			);
+			path = "Pick&PayStore";
+			sourceTree = "<group>";
+		};
+		94CF0B57286B44460093D0F4 /* Pick&PayStoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				94CF0B58286B44460093D0F4 /* Pick_PayStoreTests.swift */,
+			);
+			path = "Pick&PayStoreTests";
+			sourceTree = "<group>";
+		};
+		94CF0B61286B44460093D0F4 /* Pick&PayStoreUITests */ = {
+			isa = PBXGroup;
+			children = (
+				94CF0B62286B44460093D0F4 /* Pick_PayStoreUITests.swift */,
+				94CF0B64286B44460093D0F4 /* Pick_PayStoreUITestsLaunchTests.swift */,
+			);
+			path = "Pick&PayStoreUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94CF0B3A286B44420093D0F4 /* Pick&PayStore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94CF0B68286B44460093D0F4 /* Build configuration list for PBXNativeTarget "Pick&PayStore" */;
+			buildPhases = (
+				94CF0B37286B44420093D0F4 /* Sources */,
+				94CF0B38286B44420093D0F4 /* Frameworks */,
+				94CF0B39286B44420093D0F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Pick&PayStore";
+			productName = "Pick&PayStore";
+			productReference = 94CF0B3B286B44420093D0F4 /* Pick&PayStore.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94CF0B53286B44460093D0F4 /* Pick&PayStoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94CF0B6B286B44460093D0F4 /* Build configuration list for PBXNativeTarget "Pick&PayStoreTests" */;
+			buildPhases = (
+				94CF0B50286B44460093D0F4 /* Sources */,
+				94CF0B51286B44460093D0F4 /* Frameworks */,
+				94CF0B52286B44460093D0F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94CF0B56286B44460093D0F4 /* PBXTargetDependency */,
+			);
+			name = "Pick&PayStoreTests";
+			productName = "Pick&PayStoreTests";
+			productReference = 94CF0B54286B44460093D0F4 /* Pick&PayStoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		94CF0B5D286B44460093D0F4 /* Pick&PayStoreUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94CF0B6E286B44460093D0F4 /* Build configuration list for PBXNativeTarget "Pick&PayStoreUITests" */;
+			buildPhases = (
+				94CF0B5A286B44460093D0F4 /* Sources */,
+				94CF0B5B286B44460093D0F4 /* Frameworks */,
+				94CF0B5C286B44460093D0F4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94CF0B60286B44460093D0F4 /* PBXTargetDependency */,
+			);
+			name = "Pick&PayStoreUITests";
+			productName = "Pick&PayStoreUITests";
+			productReference = 94CF0B5E286B44460093D0F4 /* Pick&PayStoreUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94CF0B33286B44420093D0F4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1340;
+				LastUpgradeCheck = 1340;
+				TargetAttributes = {
+					94CF0B3A286B44420093D0F4 = {
+						CreatedOnToolsVersion = 13.4.1;
+					};
+					94CF0B53286B44460093D0F4 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 94CF0B3A286B44420093D0F4;
+					};
+					94CF0B5D286B44460093D0F4 = {
+						CreatedOnToolsVersion = 13.4.1;
+						TestTargetID = 94CF0B3A286B44420093D0F4;
+					};
+				};
+			};
+			buildConfigurationList = 94CF0B36286B44420093D0F4 /* Build configuration list for PBXProject "Pick&PayStore" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 94CF0B32286B44420093D0F4;
+			productRefGroup = 94CF0B3C286B44420093D0F4 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94CF0B3A286B44420093D0F4 /* Pick&PayStore */,
+				94CF0B53286B44460093D0F4 /* Pick&PayStoreTests */,
+				94CF0B5D286B44460093D0F4 /* Pick&PayStoreUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94CF0B39286B44420093D0F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94CF0B4E286B44460093D0F4 /* LaunchScreen.storyboard in Resources */,
+				94CF0B4B286B44460093D0F4 /* Assets.xcassets in Resources */,
+				94CF0B46286B44420093D0F4 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94CF0B52286B44460093D0F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94CF0B5C286B44460093D0F4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94CF0B37286B44420093D0F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94CF0B43286B44420093D0F4 /* ViewController.swift in Sources */,
+				94CF0B3F286B44420093D0F4 /* AppDelegate.swift in Sources */,
+				94CF0B41286B44420093D0F4 /* SceneDelegate.swift in Sources */,
+				94CF0B49286B44420093D0F4 /* Pick_PayStore.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94CF0B50286B44460093D0F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94CF0B59286B44460093D0F4 /* Pick_PayStoreTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94CF0B5A286B44460093D0F4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94CF0B65286B44460093D0F4 /* Pick_PayStoreUITestsLaunchTests.swift in Sources */,
+				94CF0B63286B44460093D0F4 /* Pick_PayStoreUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94CF0B56286B44460093D0F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94CF0B3A286B44420093D0F4 /* Pick&PayStore */;
+			targetProxy = 94CF0B55286B44460093D0F4 /* PBXContainerItemProxy */;
+		};
+		94CF0B60286B44460093D0F4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94CF0B3A286B44420093D0F4 /* Pick&PayStore */;
+			targetProxy = 94CF0B5F286B44460093D0F4 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		94CF0B44286B44420093D0F4 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94CF0B45286B44420093D0F4 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		94CF0B4C286B44460093D0F4 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94CF0B4D286B44460093D0F4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		94CF0B66286B44460093D0F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		94CF0B67286B44460093D0F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94CF0B69286B44460093D0F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pick&PayStore/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sevag.Pick-PayStore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		94CF0B6A286B44460093D0F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Pick&PayStore/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sevag.Pick-PayStore";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		94CF0B6C286B44460093D0F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sevag.Pick-PayStoreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pick&PayStore.app/Pick&PayStore";
+			};
+			name = Debug;
+		};
+		94CF0B6D286B44460093D0F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sevag.Pick-PayStoreTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Pick&PayStore.app/Pick&PayStore";
+			};
+			name = Release;
+		};
+		94CF0B6F286B44460093D0F4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sevag.Pick-PayStoreUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pick&PayStore";
+			};
+			name = Debug;
+		};
+		94CF0B70286B44460093D0F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "Sevag.Pick-PayStoreUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "Pick&PayStore";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94CF0B36286B44420093D0F4 /* Build configuration list for PBXProject "Pick&PayStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94CF0B66286B44460093D0F4 /* Debug */,
+				94CF0B67286B44460093D0F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94CF0B68286B44460093D0F4 /* Build configuration list for PBXNativeTarget "Pick&PayStore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94CF0B69286B44460093D0F4 /* Debug */,
+				94CF0B6A286B44460093D0F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94CF0B6B286B44460093D0F4 /* Build configuration list for PBXNativeTarget "Pick&PayStoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94CF0B6C286B44460093D0F4 /* Debug */,
+				94CF0B6D286B44460093D0F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94CF0B6E286B44460093D0F4 /* Build configuration list for PBXNativeTarget "Pick&PayStoreUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94CF0B6F286B44460093D0F4 /* Debug */,
+				94CF0B70286B44460093D0F4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		94CF0B47286B44420093D0F4 /* Pick_PayStore.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				94CF0B48286B44420093D0F4 /* Pick_PayStore.xcdatamodel */,
+			);
+			currentVersion = 94CF0B48286B44420093D0F4 /* Pick_PayStore.xcdatamodel */;
+			path = Pick_PayStore.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 94CF0B33286B44420093D0F4 /* Project object */;
+}
