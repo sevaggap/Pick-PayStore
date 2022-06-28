@@ -17,6 +17,10 @@
 		94CF0B59286B44460093D0F4 /* Pick_PayStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B58286B44460093D0F4 /* Pick_PayStoreTests.swift */; };
 		94CF0B63286B44460093D0F4 /* Pick_PayStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B62286B44460093D0F4 /* Pick_PayStoreUITests.swift */; };
 		94CF0B65286B44460093D0F4 /* Pick_PayStoreUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B64286B44460093D0F4 /* Pick_PayStoreUITestsLaunchTests.swift */; };
+		94E9E3AD286B92C500B3CD2F /* CustomUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E3AC286B92C400B3CD2F /* CustomUIView.swift */; };
+		94E9E3AF286B92DF00B3CD2F /* CustomUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E3AE286B92DF00B3CD2F /* CustomUIButton.swift */; };
+		94E9E3B1286B92EE00B3CD2F /* CustomUIHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E9E3B0286B92EE00B3CD2F /* CustomUIHeader.swift */; };
+		94E9E3B3286B936400B3CD2F /* UITest.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94E9E3B2286B936400B3CD2F /* UITest.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		94CF0B5E286B44460093D0F4 /* Pick&PayStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Pick&PayStoreUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CF0B62286B44460093D0F4 /* Pick_PayStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pick_PayStoreUITests.swift; sourceTree = "<group>"; };
 		94CF0B64286B44460093D0F4 /* Pick_PayStoreUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pick_PayStoreUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		94E9E3AC286B92C400B3CD2F /* CustomUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIView.swift; sourceTree = "<group>"; };
+		94E9E3AE286B92DF00B3CD2F /* CustomUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIButton.swift; sourceTree = "<group>"; };
+		94E9E3B0286B92EE00B3CD2F /* CustomUIHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomUIHeader.swift; sourceTree = "<group>"; };
+		94E9E3B2286B936400B3CD2F /* UITest.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UITest.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,6 +142,10 @@
 		94E9E3AB286B8FF600B3CD2F /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				94E9E3AC286B92C400B3CD2F /* CustomUIView.swift */,
+				94E9E3AE286B92DF00B3CD2F /* CustomUIButton.swift */,
+				94E9E3B0286B92EE00B3CD2F /* CustomUIHeader.swift */,
+				94E9E3B2286B936400B3CD2F /* UITest.storyboard */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -244,6 +256,7 @@
 			files = (
 				94CF0B4E286B44460093D0F4 /* LaunchScreen.storyboard in Resources */,
 				94CF0B4B286B44460093D0F4 /* Assets.xcassets in Resources */,
+				94E9E3B3286B936400B3CD2F /* UITest.storyboard in Resources */,
 				94CF0B46286B44420093D0F4 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,9 +283,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				94CF0B43286B44420093D0F4 /* ViewController.swift in Sources */,
+				94E9E3AD286B92C500B3CD2F /* CustomUIView.swift in Sources */,
+				94E9E3AF286B92DF00B3CD2F /* CustomUIButton.swift in Sources */,
 				94CF0B3F286B44420093D0F4 /* AppDelegate.swift in Sources */,
 				94CF0B41286B44420093D0F4 /* SceneDelegate.swift in Sources */,
 				94CF0B49286B44420093D0F4 /* Pick_PayStore.xcdatamodeld in Sources */,
+				94E9E3B1286B92EE00B3CD2F /* CustomUIHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
