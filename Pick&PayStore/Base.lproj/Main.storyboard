@@ -32,7 +32,7 @@
                     <navigationItem key="navigationItem" id="6Ho-rC-X18">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="o6d-jS-K3T">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="857-0v-0TA">
-                                <rect key="frame" x="-37" y="-17" width="92" height="33"/>
+                                <rect key="frame" x="302" y="5" width="92" height="34.5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Sign Out"/>
@@ -40,39 +40,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="cr1-CN-Khb">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="tt6-T6-HK3" kind="relationship" relationship="viewControllers" id="R4r-M4-MeX"/>
-                        <segue destination="SiS-5Z-Bc0" kind="relationship" relationship="viewControllers" id="whr-vD-IRo"/>
                         <segue destination="JFB-gu-Ttg" kind="relationship" relationship="viewControllers" id="141-oy-2Ry"/>
-                        <segue destination="HwC-vB-gVz" kind="relationship" relationship="viewControllers" id="bTO-Pt-8yV"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQh-wc-9Kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="83.705357142857139"/>
-        </scene>
-        <!--homeVC-->
-        <scene sceneID="1Qz-84-10x">
-            <objects>
-                <viewControllerPlaceholder storyboardName="HomeScreen" referencedIdentifier="homeVC" id="tt6-T6-HK3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="9Ed-tc-iQ9"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cwJ-W0-TgS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1627" y="-68"/>
-        </scene>
-        <!--loginVC-->
-        <scene sceneID="Xt7-b4-oym">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Account" referencedIdentifier="loginVC" id="SiS-5Z-Bc0" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="eb1-6y-Sf5"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iz4-J0-Ikw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1692" y="-2"/>
         </scene>
         <!--shoppingCartVC-->
         <scene sceneID="2CV-ew-22c">
@@ -83,16 +61,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OL7-Y0-DIo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1680" y="84"/>
-        </scene>
-        <!--productsVC-->
-        <scene sceneID="wrj-9p-i1i">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Products" referencedIdentifier="productsVC" id="HwC-vB-gVz" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="hT9-km-FM2"/>
-                </viewControllerPlaceholder>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="HTt-4q-ySE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1642" y="240"/>
         </scene>
     </scenes>
 </document>

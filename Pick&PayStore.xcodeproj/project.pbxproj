@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2574AA432871EBA1005964E0 /* OrderView_UITableViewCellShipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2574AA422871EBA1005964E0 /* OrderView_UITableViewCellShipping.swift */; };
+		25815B75286E6FC600904C1B /* ShoppingCartView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25815B74286E6FC600904C1B /* ShoppingCartView_UITableViewCell.swift */; };
+		2598BB4E2870C47C00DDB957 /* OrderView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2598BB4D2870C47C00DDB957 /* OrderView_UIViewController.swift */; };
+		25A0CF01286E479D00E4AFA1 /* EmptyCartView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CF00286E479D00E4AFA1 /* EmptyCartView_UIViewController.swift */; };
+		25A0CF03286E61E500E4AFA1 /* ShoppingCartView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25A0CF02286E61E500E4AFA1 /* ShoppingCartView_UIViewController.swift */; };
+		25ADED2A286FE2F8000A0860 /* PaymentMethodView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ADED29286FE2F8000A0860 /* PaymentMethodView_UIViewController.swift */; };
+		25ADED2C286FE576000A0860 /* PaymentMethodView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25ADED2B286FE576000A0860 /* PaymentMethodView_UITableViewCell.swift */; };
+		25D3C946286BB5E400C0C10A /* CheckOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 25D3C945286BB5E400C0C10A /* CheckOut.storyboard */; };
 		94CF0B3F286B44420093D0F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B3E286B44420093D0F4 /* AppDelegate.swift */; };
 		94CF0B41286B44420093D0F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B40286B44420093D0F4 /* SceneDelegate.swift */; };
 		94CF0B43286B44420093D0F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CF0B42286B44420093D0F4 /* ViewController.swift */; };
@@ -41,6 +49,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2574AA422871EBA1005964E0 /* OrderView_UITableViewCellShipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView_UITableViewCellShipping.swift; sourceTree = "<group>"; };
+		25815B74286E6FC600904C1B /* ShoppingCartView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView_UITableViewCell.swift; sourceTree = "<group>"; };
+		2598BB4D2870C47C00DDB957 /* OrderView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView_UIViewController.swift; sourceTree = "<group>"; };
+		25A0CF00286E479D00E4AFA1 /* EmptyCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView_UIViewController.swift; sourceTree = "<group>"; };
+		25A0CF02286E61E500E4AFA1 /* ShoppingCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView_UIViewController.swift; sourceTree = "<group>"; };
+		25ADED29286FE2F8000A0860 /* PaymentMethodView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView_UIViewController.swift; sourceTree = "<group>"; };
+		25ADED2B286FE576000A0860 /* PaymentMethodView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView_UITableViewCell.swift; sourceTree = "<group>"; };
+		25D3C945286BB5E400C0C10A /* CheckOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CheckOut.storyboard; sourceTree = "<group>"; };
 		94CF0B3B286B44420093D0F4 /* Pick&PayStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pick&PayStore.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		94CF0B3E286B44420093D0F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		94CF0B40286B44420093D0F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +102,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25D3C944286BB0B600C0C10A /* CheckOut */ = {
+			isa = PBXGroup;
+			children = (
+				25D3C945286BB5E400C0C10A /* CheckOut.storyboard */,
+				25A0CF00286E479D00E4AFA1 /* EmptyCartView_UIViewController.swift */,
+				25A0CF02286E61E500E4AFA1 /* ShoppingCartView_UIViewController.swift */,
+				25815B74286E6FC600904C1B /* ShoppingCartView_UITableViewCell.swift */,
+				25ADED29286FE2F8000A0860 /* PaymentMethodView_UIViewController.swift */,
+				25ADED2B286FE576000A0860 /* PaymentMethodView_UITableViewCell.swift */,
+				2598BB4D2870C47C00DDB957 /* OrderView_UIViewController.swift */,
+				2574AA422871EBA1005964E0 /* OrderView_UITableViewCellShipping.swift */,
+			);
+			path = CheckOut;
+			sourceTree = "<group>";
+		};
 		94CF0B32286B44420093D0F4 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +140,7 @@
 		94CF0B3D286B44420093D0F4 /* Pick&PayStore */ = {
 			isa = PBXGroup;
 			children = (
+				25D3C944286BB0B600C0C10A /* CheckOut */,
 				94E9E3AB286B8FF600B3CD2F /* UI */,
 				94CF0B3E286B44420093D0F4 /* AppDelegate.swift */,
 				94CF0B40286B44420093D0F4 /* SceneDelegate.swift */,
@@ -256,6 +288,7 @@
 			files = (
 				94CF0B4E286B44460093D0F4 /* LaunchScreen.storyboard in Resources */,
 				94CF0B4B286B44460093D0F4 /* Assets.xcassets in Resources */,
+				25D3C946286BB5E400C0C10A /* CheckOut.storyboard in Resources */,
 				94E9E3B3286B936400B3CD2F /* UITest.storyboard in Resources */,
 				94CF0B46286B44420093D0F4 /* Main.storyboard in Resources */,
 			);
@@ -282,13 +315,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				25ADED2C286FE576000A0860 /* PaymentMethodView_UITableViewCell.swift in Sources */,
+				25A0CF03286E61E500E4AFA1 /* ShoppingCartView_UIViewController.swift in Sources */,
+				2598BB4E2870C47C00DDB957 /* OrderView_UIViewController.swift in Sources */,
+				2574AA432871EBA1005964E0 /* OrderView_UITableViewCellShipping.swift in Sources */,
+				25ADED2A286FE2F8000A0860 /* PaymentMethodView_UIViewController.swift in Sources */,
 				94CF0B43286B44420093D0F4 /* ViewController.swift in Sources */,
 				94E9E3AD286B92C500B3CD2F /* CustomUIView.swift in Sources */,
 				94E9E3AF286B92DF00B3CD2F /* CustomUIButton.swift in Sources */,
+				25815B75286E6FC600904C1B /* ShoppingCartView_UITableViewCell.swift in Sources */,
 				94CF0B3F286B44420093D0F4 /* AppDelegate.swift in Sources */,
 				94CF0B41286B44420093D0F4 /* SceneDelegate.swift in Sources */,
 				94CF0B49286B44420093D0F4 /* Pick_PayStore.xcdatamodeld in Sources */,
 				94E9E3B1286B92EE00B3CD2F /* CustomUIHeader.swift in Sources */,
+				25A0CF01286E479D00E4AFA1 /* EmptyCartView_UIViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
