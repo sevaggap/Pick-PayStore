@@ -67,7 +67,7 @@
         <!--Empty Cart-->
         <scene sceneID="hIz-V5-XNp">
             <objects>
-                <viewController storyboardIdentifier="shoppingCartVC" id="Bsg-8b-7ze" userLabel="Empty Cart" customClass="EmptyCartView_UIViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Bsg-8b-7ze" userLabel="Empty Cart" customClass="EmptyCartView_UIViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F4O-CI-NCb">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -118,7 +118,7 @@
         <!--Shopping Cart ViewUI View Controller-->
         <scene sceneID="gYQ-yo-2db">
             <objects>
-                <viewController id="XsU-Tz-nzc" customClass="ShoppingCartView_UIViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="shoppingCartVC" id="XsU-Tz-nzc" customClass="ShoppingCartView_UIViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z8C-de-fdU">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -551,6 +551,9 @@
                                     <color key="baseForegroundColor" systemColor="labelColor"/>
                                     <color key="baseBackgroundColor" red="0.97254908080000002" green="0.85098040100000005" blue="0.29803922770000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonPlaceOrder:" destination="riJ-Mb-NUT" eventType="touchUpInside" id="Zhe-z2-eEF"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YP5-Ip-G0P">
                                 <rect key="frame" x="20" y="568" width="374" height="231"/>

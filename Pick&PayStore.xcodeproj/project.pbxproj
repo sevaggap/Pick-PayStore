@@ -51,6 +51,7 @@
 /* Begin PBXFileReference section */
 		2574AA422871EBA1005964E0 /* OrderView_UITableViewCellShipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView_UITableViewCellShipping.swift; sourceTree = "<group>"; };
 		25815B74286E6FC600904C1B /* ShoppingCartView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView_UITableViewCell.swift; sourceTree = "<group>"; };
+		2588592528737CDB0079F750 /* Pick&PayStore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Pick&PayStore.entitlements"; sourceTree = "<group>"; };
 		2598BB4D2870C47C00DDB957 /* OrderView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView_UIViewController.swift; sourceTree = "<group>"; };
 		25A0CF00286E479D00E4AFA1 /* EmptyCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView_UIViewController.swift; sourceTree = "<group>"; };
 		25A0CF02286E61E500E4AFA1 /* ShoppingCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView_UIViewController.swift; sourceTree = "<group>"; };
@@ -140,6 +141,7 @@
 		94CF0B3D286B44420093D0F4 /* Pick&PayStore */ = {
 			isa = PBXGroup;
 			children = (
+				2588592528737CDB0079F750 /* Pick&PayStore.entitlements */,
 				25D3C944286BB0B600C0C10A /* CheckOut */,
 				94E9E3AB286B8FF600B3CD2F /* UI */,
 				94CF0B3E286B44420093D0F4 /* AppDelegate.swift */,
@@ -503,8 +505,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Pick&PayStore/Pick&PayStore.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = R32QX33ST9;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Pick&PayStore/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -530,6 +534,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "Pick&PayStore/Pick&PayStore.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
