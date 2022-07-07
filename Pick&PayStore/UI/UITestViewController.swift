@@ -2,20 +2,34 @@
 //  UITestViewController.swift
 //  Pick&PayStore
 //
-//  Created by Sevag Gaprielian on 2022-07-03.
+//  Created   on 2022-07-03.
 //
 
 import UIKit
+import MapKit
+import CoreLocation
+import AVFoundation
 
 class UITestViewController: UIViewController {
-    
+     var productIds = [NSNumber]()
     var productData = [Product]()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        ProductsService.productsServiceInstance.resetData()
-        ProductsService.productsServiceInstance.addData()
-        productData = ProductsService.productsServiceInstance.getData()
+        if productIds.count != 0{
+            for id in productIds{
+                let product = ProductsHelper.productsHelper.getProduct(id: Int64(id))
+                productData.append(product)
+            }
+        }
+            else {
+                
+                ProductsService.productsServiceInstance.resetData()
+                ProductsService.productsServiceInstance.addData()
+                productData = ProductsService.productsServiceInstance.getData()
+            }
+        
+   
     }
 
 }
@@ -38,6 +52,60 @@ extension UITestViewController : UITableViewDataSource {
         return cell
     }
     
+    // barcode
     
+  //var captureSession: AVCaptureSession!
+    //var previewLayer: AVCaptureVideoPreviewLayer!
+    
+    
+    //location
+    
+   
+   
+
+//    class ViewController: UIViewController, CLLocationManagerDelegate {
+//        let locationManager = CLLocationManager()
+//
+//        override func viewDidLoad() {
+//            super.viewDidLoad()
+//            locationManager.requestAlwaysAuthorization()
+//            locationManager.requestWhenInUseAuthorization()
+//            if CLLocationManager.locationServicesEnabled() {
+//                locationManager.delegate = self
+//                locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+//                locationManager.startUpdatingLocation()
+//            }
+//        }
+//
+//        func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+//            guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+//            print("locations = \(locValue.latitude) \(locValue.longitude)")
+//        }
+//    }
+    
+    //Search Bar
+    
+    
+    //
+    //    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+    ////        filteredData = []
+    //
+    //        if (searchText == ""){
+    ////            noteObject = filteredData
+    //            arrayObject = NoteDBHelp.dbHelper.getAllUserNotes(searchParameter: UserSingleton.userData.currentUsername)
+    //        } else{
+    ////            for searchedbar in arrayObject{
+    ////                if searchedbar.title.lowercased().contains(searchText.lowercased()){
+    ////                    filteredData.append(searchedbar)
+    ////                }
+    //
+    //            arrayObject = NoteDBHelp.dbHelper.searchNote(searchParameter: searchText.lowercased())
+    //
+    //        }
+    //
+    //        self.tableView.reloadData()
+    //
+    //    }
+    //    scanning barsc
     
 }

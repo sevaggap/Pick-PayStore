@@ -16,8 +16,8 @@ class ProductsService {
     }
     
     func addData(){
-        ProductsHelper.productsHelper.addProduct(name: "Toaster", price: 18.99, quantity: 10, category: 1, image: "online-shopping")
-        ProductsHelper.productsHelper.addProduct(name: "Stove", price: 99.99, quantity: 1, category: 1, image: "open-box")
+        ProductsHelper.productsHelper.addProduct(name: "Toaster", price: 18.99, quantity: 10, category: 1, image: "online-shopping", id:1)
+        ProductsHelper.productsHelper.addProduct(name: "Stove", price: 99.99, quantity: 1, category: 1, image: "open-box", id:2)
     }
     
     func getData() -> [Product]{

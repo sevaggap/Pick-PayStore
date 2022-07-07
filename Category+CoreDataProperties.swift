@@ -19,7 +19,7 @@ extension Category {
     @NSManaged public var id: Int64
     @NSManaged public var name: String?
     @NSManaged public var image: String?
-    @NSManaged public var products: [Product]?
+    @NSManaged public var products: [NSNumber]?
 
 }
 
