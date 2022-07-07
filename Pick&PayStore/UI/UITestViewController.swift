@@ -21,15 +21,10 @@ class UITestViewController: UIViewController {
                 let product = ProductsHelper.productsHelper.getProduct(id: Int64(id))
                 productData.append(product)
             }
+        } else {
+            productData = ProductsService.productsServiceInstance.getData()
         }
-            else {
-                
-                ProductsService.productsServiceInstance.resetData()
-                ProductsService.productsServiceInstance.addData()
-                productData = ProductsService.productsServiceInstance.getData()
-            }
         
-   
     }
 
 }

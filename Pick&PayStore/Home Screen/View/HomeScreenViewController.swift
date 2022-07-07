@@ -13,8 +13,8 @@ class HomeScreenViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         CategoryService.categoryServiceInstance.resetData()
-        CategoryService.categoryServiceInstance.addData()
-        CategoryService.categoryServiceInstance.addProductData()
+        CategoryService.categoryServiceInstance.addCategoryData()
+        CategoryService.categoryServiceInstance.addProductsToCategories()
         categoryData = CategoryService.categoryServiceInstance.getData()
        
         ProductsService.productsServiceInstance.resetData()
