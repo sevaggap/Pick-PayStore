@@ -14,7 +14,7 @@ class ProductsHelper{
     
     let context  = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
     
-    func addProduct(name : String, price : Float, quantity : Int64, category : Int64, image : String){
+    func addProduct(name : String, price : Float, quantity : Int64, category : Int64, image : String, id: Int64){
         
         let product = NSEntityDescription.insertNewObject(forEntityName: "Product", into: context!) as! Product
         
@@ -23,7 +23,8 @@ class ProductsHelper{
         product.quantity = quantity
         product.category = category
         product.image = image
-        product.id = Int64.random(in: 1...999)
+        product.id = id
+       // product.id = Int64.random(in: 1...999)
         product.reviews = nil
         
         do {
@@ -50,6 +51,24 @@ class ProductsHelper{
         return products
         
     }
+    
+    func getProduct(id : Int64) -> Product {
+
+            var product = Product()
+            let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
+            fetchRequest.predicate = NSPredicate(format: "id == %@", String(id))
+
+            do {
+                let fetchedCategory =  try context?.fetch(fetchRequest)
+                if fetchedCategory?.count != 0 {
+                    product = fetchedCategory?.first as! Product
+                }
+            } catch {
+                print("error getting product")
+            }
+
+            return product
+        }
     
     func resetProdcuts(){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
