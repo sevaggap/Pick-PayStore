@@ -57,39 +57,69 @@ class ShoppingCartView_UIViewController: UIViewController {
 }
 // MARK: CART SUMMARY VIEW CONFIGURATION
 extension ShoppingCartView_UIViewController {
-    func shoppingCartView_GetCartSummary() -> (cartTotalBeforeTax: Float,
-                                               isFreeShipping: Bool,
-                                               shippingFee: Float,
-                                               countOfItems: Int64,
-                                               hasInsufficientStock: Bool) {
-        var cartTotalBeforeTax: Float = 0
-        var isFreeShipping = false
-        var shippingFee: Float = 0
-        var totalCartQty: Int64 = 0
-        var totalStockQty: Int64 = 0
-        var hasInsufficientStock: Bool = false
-        
-        for item in cartDetailItems {
-            cartTotalBeforeTax += item.price * Float(item.cartQty)
-            totalCartQty += item.cartQty
-            if hasInsufficientStock {
-                continue
-            } else {
-                if item.cartQty > item.stockQty {
-                    hasInsufficientStock = true
+    
+    func shoppingCartView_GetCartSummary() -> (
+        AMOUNT_ITEMS: Float,
+        AMOUNT_SHIPPING: Float,
+        AMOUNT_TAX: Float,
+        AMOUNT_GRDTTL: Float,
+        cartTotalBeforeTax: Float,
+        isFreeShipping: Bool,
+        shippingFee: Float,
+        countOfItems: Int64,
+        hasInsufficientStock: Bool) {
+            
+            var AMOUNT_ITEMS: Float = 0
+            var AMOUNT_SHIPPING: Float = 0
+            var AMOUNT_TAX: Float = 0
+            var AMOUNT_GRDTTL: Float = 0
+            var cartTotalBeforeTax: Float = 0
+            var isFreeShipping = false
+            var shippingFee: Float = 0
+            var totalCartQty: Int64 = 0
+            var totalStockQty: Int64 = 0
+            var hasInsufficientStock: Bool = false
+            var countOfItems: Int64 = 0
+            
+            for item in cartDetailItems {
+                countOfItems += item.cartQty
+                
+                cartTotalBeforeTax += item.price * Float(item.cartQty)
+                totalCartQty += item.cartQty
+                if hasInsufficientStock {
+                    continue
+                } else {
+                    if item.cartQty > item.stockQty {
+                        hasInsufficientStock = true
+                    }
                 }
             }
+            AMOUNT_ITEMS = cartTotalBeforeTax
+            
+            if cartTotalBeforeTax >= 200 {
+                shippingFee = 0
+                AMOUNT_SHIPPING = 0
+                isFreeShipping = true
+            } else {
+                shippingFee = 10
+                AMOUNT_SHIPPING = 10
+            }
+            
+            AMOUNT_TAX = (AMOUNT_ITEMS + AMOUNT_SHIPPING) * 0.13
+            AMOUNT_GRDTTL = AMOUNT_ITEMS + AMOUNT_SHIPPING + AMOUNT_TAX
+
+            
+            return (
+                AMOUNT_ITEMS,
+                AMOUNT_SHIPPING,
+                AMOUNT_TAX,
+                AMOUNT_GRDTTL,
+                cartTotalBeforeTax,
+                isFreeShipping,
+                shippingFee,
+                countOfItems,
+                hasInsufficientStock)
         }
-        
-        if cartTotalBeforeTax >= 200 {
-            shippingFee = 0
-            isFreeShipping = true
-        } else {
-            shippingFee = 10
-        }
-        
-        return (cartTotalBeforeTax, isFreeShipping, shippingFee, totalCartQty, hasInsufficientStock)
-    }
     
     func shoppingCartSummaryView_ReloadData() {
         labelSubtotalAmount.text = "$" + String(format: "%.2f", shoppingCartView_GetCartSummary().cartTotalBeforeTax)

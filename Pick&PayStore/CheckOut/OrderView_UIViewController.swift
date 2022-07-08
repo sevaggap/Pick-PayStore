@@ -11,6 +11,13 @@ import PassKit
 var grandTotal: Float = 0.00
 class OrderView_UIViewController: UIViewController {
     
+    @IBOutlet weak var textFieldSA_Country: UITextField!
+    @IBOutlet weak var textFieldSA_PostalCode: UITextField!
+    @IBOutlet weak var textFieldSA_City: UITextField!
+    @IBOutlet weak var textFieldSA_Province: UITextField!
+    @IBOutlet weak var textFieldSA_AddressL2: UITextField!
+    @IBOutlet weak var textFieldSA_AddressL1: UITextField!
+    @IBOutlet weak var textFieldSA_Name: UITextField!
     @IBAction func buttonPlaceOrder(_ sender: Any) {
         buttonPlaceOrder_DidTouchUpInside()
     }
@@ -36,6 +43,10 @@ class OrderView_UIViewController: UIViewController {
         //TODO: UPDATE ACCORDING TO APP LIFECYCLE
         OrderDBHelper.dbHelper.prepareDatabase()
         OrderDBHelper.dbHelper.prepareOrderTables()
+        
+        //TODO: UPDATE WITH TEXT FIELDS
+        viewBillingAddress.removeFromSuperview()
+        viewShippingAddress.removeFromSuperview()
     }
     
     
@@ -45,6 +56,19 @@ class OrderView_UIViewController: UIViewController {
         let shippingFee: Float = cartSummary.shippingFee
         let orderTotal: Float = (itemSubtotal + shippingFee) * 1.13
         return orderTotal
+    }
+    
+    func orderSummary() -> (
+        AMOUNT_ITEMS: Float,
+        AMOUNT_SHIPPING: Float,
+        AMOUNT_TAX: Float,
+        AMOUNT_GRDTTL: Float,
+        cartTotalBeforeTax: Float,
+        isFreeShipping: Bool,
+        shippingFee: Float,
+        countOfItems: Int64,
+        hasInsufficientStock: Bool) {
+        return ShoppingCartView_UIViewController().shoppingCartView_GetCartSummary()
     }
     
     // MARK: ORDER SUMMARY VIEW CONFIGURATION
@@ -130,7 +154,18 @@ extension OrderView_UIViewController: PKPaymentAuthorizationViewControllerDelega
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
         completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
         print("Payment authorized.")
-        OrderDBHelper.dbHelper.orderDB_CRUD_CreateOrderHeader()
+        OrderDBHelper.dbHelper.orderDB_CRUD_CreateOrderHeader(AMOUNT_ITEMS: orderSummary().AMOUNT_ITEMS,
+                                                              AMOUNT_SHIPPING: orderSummary().AMOUNT_SHIPPING,
+                                                              AMOUNT_TAX: orderSummary().AMOUNT_TAX,
+                                                              AMOUNT_GRDTTL: orderSummary().AMOUNT_GRDTTL,
+                                                              SA_NAME: textFieldSA_Name.text!,
+                                                              SA_ADDRLINE1: textFieldSA_AddressL1.text!,
+                                                              SA_ADDRLINE2: textFieldSA_AddressL2.text ?? "",
+                                                              SA_CITY: textFieldSA_City.text!,
+                                                              SA_PROVINCE: textFieldSA_Province.text!,
+                                                              SA_ZIPCODE: textFieldSA_PostalCode.text!,
+                                                              SA_COUNTRY: textFieldSA_Country.text!,
+                                                              ORDERH_TENDERTYPE: selectedTenderType!)
     }
     
     func configureTenderType_ApplePay() {
@@ -252,7 +287,20 @@ class OrderDBHelper {
     }
     
     ///CRUD - Create/Insert
-    func orderDB_CRUD_CreateOrderHeader() {
+    func orderDB_CRUD_CreateOrderHeader(
+        AMOUNT_ITEMS: Float,
+        AMOUNT_SHIPPING: Float,
+        AMOUNT_TAX: Float,
+        AMOUNT_GRDTTL: Float,
+        SA_NAME: String,
+        SA_ADDRLINE1: String,
+        SA_ADDRLINE2: String,
+        SA_CITY: String,
+        SA_PROVINCE: String,
+        SA_ZIPCODE: String,
+        SA_COUNTRY: String,
+        ORDERH_TENDERTYPE: Int
+    ) {
         var textToInser = ""
         var statement: OpaquePointer?
         sqlStatement = """
@@ -275,40 +323,40 @@ class OrderDBHelper {
         if sqlite3_prepare(dbpointer, sqlStatement, -1, &statement, nil) != SQLITE_OK {
             printSQLiteErrorMsg()
         } else {
-            if sqlite3_bind_double(statement, 1, 100.10) != SQLITE_OK {
+            if sqlite3_bind_double(statement, 1, Double(AMOUNT_ITEMS)) != SQLITE_OK {
                 printSQLiteErrorMsg()
             } else {
-                if sqlite3_bind_double(statement, 2, 0.0) != SQLITE_OK {
+                if sqlite3_bind_double(statement, 2, Double(AMOUNT_SHIPPING)) != SQLITE_OK {
                     printSQLiteErrorMsg()
                 } else {
-                    if sqlite3_bind_double(statement, 3, 13.01) != SQLITE_OK {
+                    if sqlite3_bind_double(statement, 3, Double(AMOUNT_TAX)) != SQLITE_OK {
                         printSQLiteErrorMsg()
                     } else {
-                        if sqlite3_bind_double(statement, 4, 113.01) != SQLITE_OK {
+                        if sqlite3_bind_double(statement, 4, Double(AMOUNT_GRDTTL)) != SQLITE_OK {
                             printSQLiteErrorMsg()
                         } else {
-                            if sqlite3_bind_text(statement, 5, ("Jacky" as! NSString).utf8String, -1, nil) != SQLITE_OK {
+                            if sqlite3_bind_text(statement, 5, (SA_NAME as! NSString).utf8String, -1, nil) != SQLITE_OK {
                                 printSQLiteErrorMsg()
                             } else {
-                                if sqlite3_bind_text(statement, 6, ("4900 Yonge St" as! NSString).utf8String, -1, nil) != SQLITE_OK {
+                                if sqlite3_bind_text(statement, 6, (SA_ADDRLINE1 as! NSString).utf8String, -1, nil) != SQLITE_OK {
                                     printSQLiteErrorMsg()
                                 } else {
-                                    if sqlite3_bind_text(statement, 7, ("" as! NSString).utf8String, -1, nil) != SQLITE_OK {
+                                    if sqlite3_bind_text(statement, 7, (SA_ADDRLINE2 as! NSString).utf8String, -1, nil) != SQLITE_OK {
                                         printSQLiteErrorMsg()
                                     } else {
-                                        if sqlite3_bind_text(statement, 8, ("Toronto" as! NSString).utf8String, -1, nil) != SQLITE_OK {
+                                        if sqlite3_bind_text(statement, 8, (SA_CITY as! NSString).utf8String, -1, nil) != SQLITE_OK {
                                             printSQLiteErrorMsg()
                                         } else {
-                                            if sqlite3_bind_text(statement, 9, ("ON" as! NSString).utf8String, -1, nil) != SQLITE_OK {
+                                            if sqlite3_bind_text(statement, 9, (SA_PROVINCE as! NSString).utf8String, -1, nil) != SQLITE_OK {
                                                 printSQLiteErrorMsg()
                                             } else {
-                                                if sqlite3_bind_text(statement, 10, ("M2M 2R9" as! NSString).utf8String, -1, nil) != SQLITE_OK {
+                                                if sqlite3_bind_text(statement, 10, (SA_ZIPCODE as! NSString).utf8String, -1, nil) != SQLITE_OK {
                                                     printSQLiteErrorMsg()
                                                 } else {
-                                                    if sqlite3_bind_text(statement, 11, ("Canada" as! NSString).utf8String, -1, nil) != SQLITE_OK {
+                                                    if sqlite3_bind_text(statement, 11, (SA_COUNTRY as! NSString).utf8String, -1, nil) != SQLITE_OK {
                                                         printSQLiteErrorMsg()
                                                     } else {
-                                                        if sqlite3_bind_int(statement, 12, 2) != SQLITE_OK {
+                                                        if sqlite3_bind_int(statement, 12, Int32(ORDERH_TENDERTYPE)) != SQLITE_OK {
                                                             printSQLiteErrorMsg()
                                                         } else {
                                                             if sqlite3_bind_text(statement, 13, (currentDate_FormattedForSQLDB() as! NSString).utf8String, -1, nil) != SQLITE_OK {
@@ -320,11 +368,11 @@ class OrderDBHelper {
                                                                     if sqlite3_step(statement) == SQLITE_DONE {
                                                                         print("Order Header Saved. Please create corresponding item records.")
                                                                         let orderHID = (OrderDBHelper.dbHelper.orderDB_CRUD_ReadOrderHeader_byUserID(userID: "54322", isFetchingLatest: true)[0])
-                                                                        //TODO: FOR EACH ITEM CALL THIS FUNCTION
-                                                                        orderDB_CRUD_CreateOrderItem(ORDERH_ID: orderHID, ITEM_PRODUCTID: 100)
-                                                                        orderDB_CRUD_CreateOrderItem(ORDERH_ID: orderHID, ITEM_PRODUCTID: 200)
-                                                                        orderDB_CRUD_CreateOrderItem(ORDERH_ID: orderHID, ITEM_PRODUCTID: 600)
-                                                                        orderDB_CRUD_CreateOrderItem(ORDERH_ID: orderHID, ITEM_PRODUCTID: 800)
+
+                                                                        
+                                                                        for item in cartDetailItems {
+                                                                            orderDB_CRUD_CreateOrderItem(ORDERH_ID: orderHID, ITEM_PRODUCTID: Int(item.productID), ITEM_CARTQTY: Int(item.cartQty))
+                                                                        }
                                                                         
                                                                         print("Items in order: \(orderDB_CRUD_ReadOrderItem_byOrderHID(orderID: orderHID))")
                                                                         
@@ -436,7 +484,7 @@ class OrderDBHelper {
     }
     
     
-    func orderDB_CRUD_CreateOrderItem(ORDERH_ID: Int, ITEM_PRODUCTID: Int) {
+    func orderDB_CRUD_CreateOrderItem(ORDERH_ID: Int, ITEM_PRODUCTID: Int, ITEM_CARTQTY: Int) {
         var statement: OpaquePointer?
         sqlStatement = """
             INSERT INTO T_ORDER_I (
@@ -458,7 +506,7 @@ class OrderDBHelper {
                     if sqlite3_bind_text(statement, 3, ("\(ITEM_PRODUCTID)" as! NSString).utf8String, -1, nil) != SQLITE_OK {
                         printSQLiteErrorMsg()
                     } else {
-                        if sqlite3_bind_int(statement, 4, 2) != SQLITE_OK {
+                        if sqlite3_bind_int(statement, 4, Int32(ITEM_CARTQTY)) != SQLITE_OK {
                             printSQLiteErrorMsg()
                         } else {
                             if sqlite3_step(statement) != SQLITE_DONE {
