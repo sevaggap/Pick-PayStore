@@ -18,6 +18,7 @@ class ProductsVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureSearchController()
+        //Testing
         
     }
    
