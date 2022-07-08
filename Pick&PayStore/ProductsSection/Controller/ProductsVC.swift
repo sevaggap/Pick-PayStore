@@ -10,7 +10,7 @@ import UIKit
 class ProductsVC: UIViewController {
 
 
-    var productList = [ProductData(itemNamePD: "Prime", itemImagePD: "img1"),ProductData(itemNamePD: "Deals & Savings", itemImagePD: "img2"),ProductData(itemNamePD: "Electronic Devices", itemImagePD: "img3"),ProductData(itemNamePD: "Fashion & Beauty", itemImagePD: "img4"),ProductData(itemNamePD: "Grocery", itemImagePD: "img5"),ProductData(itemNamePD: "Health & Personal Items", itemImagePD: "img6"),ProductData(itemNamePD: "Home, Furniture & Appliances", itemImagePD: "img7"),ProductData(itemNamePD: "Music, Video & Gaming", itemImagePD: "img8"),ProductData(itemNamePD: "FunZone & Inspiration", itemImagePD: "img9"),ProductData(itemNamePD: "Books and Education", itemImagePD: "img10"),ProductData(itemNamePD: "Toys, Children & Baby", itemImagePD: "img11"),ProductData(itemNamePD: "Automotive", itemImagePD: "img12"),ProductData(itemNamePD: "Office & Professional", itemImagePD: "img13"),ProductData(itemNamePD: "Sports, Outdoor & Travel", itemImagePD: "img14"),ProductData(itemNamePD: "Gifting", itemImagePD: "img15")]
+    var productList = ProductService.productServiceInstance.getData()
     
     var searching = false
     let searchController = UISearchController(searchResultsController: nil)
@@ -49,7 +49,6 @@ extension ProductsVC: UISearchResultsUpdating, UISearchBarDelegate
     }
 }
 
-
 extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -65,6 +64,16 @@ extension ProductsVC: UICollectionViewDelegate,UICollectionViewDataSource
         print(viewModel.itemNamePVM)
         print(viewModel.itemImagePVM)
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath)
+    {
+        let model = productList[indexPath.row]
+        let viewModel = ProductViewModel(itemNamePVM: model.itemNamePD, itemImagePVM: model.itemImagePD)
+        let vc = self.storyboard?.instantiateViewController(withIdentifier: "ProductListVC") as! ProductListVC
+        vc.itemList = viewModel.itemNamePVM
+        self.present(vc, animated:  true, completion: nil)
+        print(viewModel.itemNamePVM)
     }
     
     
