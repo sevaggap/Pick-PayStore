@@ -45,12 +45,25 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="JFB-gu-Ttg" kind="relationship" relationship="viewControllers" id="141-oy-2Ry"/>
+                        <segue destination="dTr-p1-XTo" kind="relationship" relationship="viewControllers" id="W4S-az-CTN"/>
+                        <segue destination="ZgK-YV-jCC" kind="relationship" relationship="viewControllers" id="TEi-om-CsX"/>
+                        <segue destination="JFB-gu-Ttg" kind="relationship" relationship="viewControllers" id="nAS-0P-clg"/>
+                        <segue destination="FDd-bD-8PK" kind="relationship" relationship="viewControllers" id="AeN-A6-neS"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQh-wc-9Kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="944.92753623188412" y="83.705357142857139"/>
+        </scene>
+        <!--loginVC-->
+        <scene sceneID="ZNu-J1-xPR">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Account" referencedIdentifier="loginVC" id="ZgK-YV-jCC" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="TYm-EK-8p1"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="p3s-W4-Onq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1656" y="31"/>
         </scene>
         <!--shoppingCartVC-->
         <scene sceneID="2CV-ew-22c">
@@ -61,6 +74,26 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OL7-Y0-DIo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1680" y="84"/>
+        </scene>
+        <!--productsVC-->
+        <scene sceneID="12r-GU-kz4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Products" referencedIdentifier="productsVC" id="FDd-bD-8PK" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="umS-3y-ZgA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3ea-li-SIy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1622" y="143"/>
+        </scene>
+        <!--homeVC-->
+        <scene sceneID="6BD-9L-D4d">
+            <objects>
+                <viewControllerPlaceholder storyboardName="HomeScreen" referencedIdentifier="homeVC" id="dTr-p1-XTo" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="1d5-vI-xfA"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="861-Ev-ZZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1586" y="-81"/>
         </scene>
     </scenes>
 </document>
