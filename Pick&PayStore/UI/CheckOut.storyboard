@@ -8,7 +8,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Congifurable Cart ViewUI View Controller-->
+        <!--Shopping Cart-->
         <scene sceneID="pdE-bm-es2">
             <objects>
                 <viewController storyboardIdentifier="shoppingCartVC" id="BVL-hn-yQZ" customClass="CongifurableCartView_UIViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,6 +18,8 @@
                         <viewLayoutGuide key="safeArea" id="sZC-cN-gp8"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="cart" catalog="system" id="Lz3-pW-0mB"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a4g-iv-LvJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -58,7 +60,7 @@
                         <viewLayoutGuide key="safeArea" id="xDh-Ot-18U"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="cart.fill" catalog="system" id="O1H-JE-QJC"/>
+                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="cart" catalog="system" id="O1H-JE-QJC"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="viewButtonsEmptyCart" destination="VRC-oq-3f4" id="xHv-AG-JAn"/>
@@ -1050,7 +1052,7 @@
         <scene sceneID="rBa-yk-6iS">
             <objects>
                 <navigationController storyboardIdentifier="cartVC" automaticallyAdjustsScrollViewInsets="NO" id="0rt-EE-lrU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="cart.fill" catalog="system" id="I1y-Nj-Rdc"/>
+                    <tabBarItem key="tabBarItem" title="Shopping Cart" image="cart" catalog="system" id="I1y-Nj-Rdc"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="JYq-58-vUN">
@@ -1073,7 +1075,7 @@
         <image name="OrderConfirmation" width="512" height="512"/>
         <image name="TenderType-ApplePay" width="512" height="512"/>
         <image name="TenderType-CoD" width="512" height="512"/>
-        <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="cart" catalog="system" width="128" height="102"/>
         <image name="creditcard.fill" catalog="system" width="128" height="88"/>
         <image name="minus.circle" catalog="system" width="128" height="121"/>
         <image name="plus.circle" catalog="system" width="128" height="121"/>
