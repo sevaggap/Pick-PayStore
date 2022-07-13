@@ -39,11 +39,9 @@ class ReviewDBHelper {
             let fetchedProduct = try context?.fetch(fetchRequest)
             if fetchedProduct?.count != 0 {
                 product = fetchedProduct?.first as! Product
-                print(product.reviews)
                 product.reviews?.append(NSNumber(value: review.id))
-                print(product.reviews)
                 try context?.save()
-                print("review added to category")
+                print("review added to product")
             }
             
         } catch{
@@ -51,11 +49,11 @@ class ReviewDBHelper {
         }
     }
     
-    func getReview(id : Int64) -> Review{
+    func getReview(reviewId : Int64) -> Review{
         
         var review = Review()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Review")
-        fetchRequest.predicate = NSPredicate(format: "id == %@", String(id))
+        fetchRequest.predicate = NSPredicate(format: "id == %@", String(reviewId))
         
         do {
             let fetchedReview = try context?.fetch(fetchRequest)
@@ -69,6 +67,7 @@ class ReviewDBHelper {
         return review
         
     }
+    
     
     func resetReviews() {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Review")

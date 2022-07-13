@@ -27,8 +27,8 @@ class CartService {
         CartDBHelper.cartDBHelper.resetCart()
     }
     
-    func removeItemFromCart(itemId : Int64, quantity : Int){
-        CartDBHelper.cartDBHelper.removeItemFromCart()
+    func removeItemFromCart(itemId : Int64){
+        CartDBHelper.cartDBHelper.removeItemFromCart(itemId: itemId)
     }
     
 }

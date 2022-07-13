@@ -76,9 +76,7 @@ class CategoryDBHelper
                 let fetchedCategory =  try context?.fetch(fetchRequest)
                 if fetchedCategory?.count != 0 {
                     category = fetchedCategory?.first as! Category
-                    print(category.products)
                     category.products?.append(NSNumber(value: productId))
-                    print(category.products)
                     try context?.save()
                     print("product added to category")
                 }

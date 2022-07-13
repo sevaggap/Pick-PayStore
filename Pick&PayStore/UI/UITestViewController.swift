@@ -13,6 +13,7 @@ import AVFoundation
 class UITestViewController: UIViewController {
     static var productIds = [NSNumber]()
     var productData = [Product]()
+    var productReviews = [Review]()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -25,15 +26,21 @@ class UITestViewController: UIViewController {
         super.viewWillAppear(true)
         print("viewWillAppear")
         productData = []
+        productReviews = []
         if UITestViewController.productIds.count != 0{
             for id in UITestViewController.productIds{
                 let product = ProductsService.productsServiceInstance.getOneProduct(id: Int64(id))
                 productData.append(product)
             }
-//            let review = ReviewDBHelper.reviewDBHelper.getReview(id: Int64(productData[0].reviews![0]))
+            
+            for i in 0..<productData[0].reviews!.count {
+                let review = ReviewService.reviewServiceInstance.getReview(reviewId: Int64(productData[0].reviews![i]))
+                productReviews.append(review)
+            }
+            
             let cart = CartService.cartServiceInstance.getCart()
-//            print((review.text != nil) ? review.text! : "nothing")
-//            ProductsService.productsServiceInstance.updateProductStock(id: 1, amount: 3)
+            print(productReviews.count)
+            // ProductsService.productsServiceInstance.updateProductStock(id: 1, amount: 3)
             print(cart.items!, cart.quantity!, cart.lastUpdated!)
             for product in productData {
                 print(product.quantity)
