@@ -2,7 +2,7 @@
 //  Cart+CoreDataProperties.swift
 //  Pick&PayStore
 //
-//  Created by Sevag Gaprielian on 2022-07-12.
+//  Created by Sevag Gaprielian on 2022-07-13.
 //
 //
 

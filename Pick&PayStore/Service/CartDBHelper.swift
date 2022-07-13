@@ -26,7 +26,7 @@ class CartDBHelper {
         
         do {
             try context?.save()
-            print("cart created")
+            print("cart created", cart.quantity)
         } catch {
             print("error creating cart")
         }
@@ -62,6 +62,7 @@ class CartDBHelper {
                 
                 for i in 0..<cart.items!.count {
                     if cart.items![i] == NSNumber(value: itemId){
+                        print(cart.quantity)
                         cart.quantity![i] = NSNumber(value : (Int(cart.quantity![i]) + quantity))
                         cart.lastUpdated = Date()
                         try context?.save()
@@ -87,6 +88,25 @@ class CartDBHelper {
     
     func removeItemFromCart() {
         
+    }
+    
+    func resetCarts() {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
+        
+        do {
+            let carts = try context?.fetch(fetchRequest)
+            if carts?.count != 0 {
+                for cart in carts! {
+                    print(cart, "CARTS")
+                    context?.delete(cart as! Cart)
+                }
+                try context?.save()
+                print("carts deleted")
+            }
+            
+        } catch {
+            
+        }
     }
     
     func resetCart() {
