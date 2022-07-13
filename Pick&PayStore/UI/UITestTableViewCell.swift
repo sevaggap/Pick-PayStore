@@ -13,6 +13,8 @@ class UITestTableViewCell: UITableViewCell {
     @IBOutlet weak var productPrice: UILabel!
     
     @IBOutlet weak var productImage: UIImageView!
+    var productID : Int64 = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -28,6 +30,13 @@ class UITestTableViewCell: UITableViewCell {
         self.productName.text = viewModel.name
         self.productPrice.text = String(viewModel.price)
         self.productImage.image = UIImage(named: viewModel.image)
+        self.productID = viewModel.id
     }
+    
+    @IBAction func addToCart(_ sender: Any) {
+        print("adding to cart")
+        CartService.cartServiceInstance.addUpdateItemToCart(itemId: productID, quantity: 1)
+    }
+    
 
 }
