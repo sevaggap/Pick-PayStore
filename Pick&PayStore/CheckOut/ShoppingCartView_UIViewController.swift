@@ -36,48 +36,50 @@ class ShoppingCartView_UIViewController: UIViewController {
         // TODO: GET SHOPPING CART ITEMS
         ProductsService.productsServiceInstance.addData()
         
-        cartDetailItems.append((productID: 20,
-                                productName: ProductsHelper.productsHelper.getProduct(id: 20).name!,
-                                stockQty: ProductsHelper.productsHelper.getProduct(id: 20).quantity,
-                                cartQty: 11,
-                                price: ProductsHelper.productsHelper.getProduct(id: 20).price,
-                                imageName: ProductsHelper.productsHelper.getProduct(id: 20).image!))
-        cartDetailItems.append((productID: 3,
-                                productName: ProductsHelper.productsHelper.getProduct(id: 3).name!,
-                                stockQty: ProductsHelper.productsHelper.getProduct(id: 3).quantity,
-                                cartQty: 1,
-                                price: ProductsHelper.productsHelper.getProduct(id: 3).price,
-                                imageName: ProductsHelper.productsHelper.getProduct(id: 3).image!))
-        cartDetailItems.append((productID: 4,
-                                productName: ProductsHelper.productsHelper.getProduct(id: 4).name!,
-                                stockQty: ProductsHelper.productsHelper.getProduct(id: 4).quantity,
-                                cartQty: 1,
-                                price: ProductsHelper.productsHelper.getProduct(id: 4).price,
-                                imageName: ProductsHelper.productsHelper.getProduct(id: 4).image!))
-        cartDetailItems.append((productID: 2,
-                                productName: ProductsHelper.productsHelper.getProduct(id: 2).name!,
-                                stockQty: ProductsHelper.productsHelper.getProduct(id: 2).quantity,
-                                cartQty: 1,
-                                price: ProductsHelper.productsHelper.getProduct(id: 2).price,
-                                imageName: ProductsHelper.productsHelper.getProduct(id: 2).image!))
-        cartDetailItems.append((productID: 5,
-                                productName: ProductsHelper.productsHelper.getProduct(id: 5).name!,
-                                stockQty: ProductsHelper.productsHelper.getProduct(id: 5).quantity,
-                                cartQty: 1,
-                                price: ProductsHelper.productsHelper.getProduct(id: 5).price,
-                                imageName: ProductsHelper.productsHelper.getProduct(id: 5).image!))
-        cartDetailItems.append((productID: 7,
-                                productName: ProductsHelper.productsHelper.getProduct(id: 7).name!,
-                                stockQty: ProductsHelper.productsHelper.getProduct(id: 7).quantity,
-                                cartQty: 1,
-                                price: ProductsHelper.productsHelper.getProduct(id: 7).price,
-                                imageName: ProductsHelper.productsHelper.getProduct(id: 7).image!))
-        cartDetailItems.append((productID: 8,
-                                productName: ProductsHelper.productsHelper.getProduct(id: 8).name!,
-                                stockQty: ProductsHelper.productsHelper.getProduct(id: 8).quantity,
-                                cartQty: 1,
-                                price: ProductsHelper.productsHelper.getProduct(id: 8).price,
-                                imageName: ProductsHelper.productsHelper.getProduct(id: 8).image!))
+        getDataFromCartAndProduct()
+//
+//        cartDetailItems.append((productID: 20,
+//                                productName: ProductsHelper.productsHelper.getProduct(id: 20).name!,
+//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 20).quantity,
+//                                cartQty: 11,
+//                                price: ProductsHelper.productsHelper.getProduct(id: 20).price,
+//                                imageName: ProductsHelper.productsHelper.getProduct(id: 20).image!))
+//        cartDetailItems.append((productID: 3,
+//                                productName: ProductsHelper.productsHelper.getProduct(id: 3).name!,
+//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 3).quantity,
+//                                cartQty: 1,
+//                                price: ProductsHelper.productsHelper.getProduct(id: 3).price,
+//                                imageName: ProductsHelper.productsHelper.getProduct(id: 3).image!))
+//        cartDetailItems.append((productID: 4,
+//                                productName: ProductsHelper.productsHelper.getProduct(id: 4).name!,
+//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 4).quantity,
+//                                cartQty: 1,
+//                                price: ProductsHelper.productsHelper.getProduct(id: 4).price,
+//                                imageName: ProductsHelper.productsHelper.getProduct(id: 4).image!))
+//        cartDetailItems.append((productID: 2,
+//                                productName: ProductsHelper.productsHelper.getProduct(id: 2).name!,
+//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 2).quantity,
+//                                cartQty: 1,
+//                                price: ProductsHelper.productsHelper.getProduct(id: 2).price,
+//                                imageName: ProductsHelper.productsHelper.getProduct(id: 2).image!))
+//        cartDetailItems.append((productID: 5,
+//                                productName: ProductsHelper.productsHelper.getProduct(id: 5).name!,
+//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 5).quantity,
+//                                cartQty: 1,
+//                                price: ProductsHelper.productsHelper.getProduct(id: 5).price,
+//                                imageName: ProductsHelper.productsHelper.getProduct(id: 5).image!))
+//        cartDetailItems.append((productID: 7,
+//                                productName: ProductsHelper.productsHelper.getProduct(id: 7).name!,
+//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 7).quantity,
+//                                cartQty: 1,
+//                                price: ProductsHelper.productsHelper.getProduct(id: 7).price,
+//                                imageName: ProductsHelper.productsHelper.getProduct(id: 7).image!))
+//        cartDetailItems.append((productID: 8,
+//                                productName: ProductsHelper.productsHelper.getProduct(id: 8).name!,
+//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 8).quantity,
+//                                cartQty: 1,
+//                                price: ProductsHelper.productsHelper.getProduct(id: 8).price,
+//                                imageName: ProductsHelper.productsHelper.getProduct(id: 8).image!))
         shoppingCartSummaryView_ReloadData()
         
     }
@@ -254,7 +256,10 @@ extension ShoppingCartView_UIViewController: ShoppingCartView_UITableViewCellDel
     }
     
     func buttonIncreaseQty_DidTouchUpInside(currentRow: Int) {
+        
         cartDetailItems[currentRow].cartQty += 1
+        setDataToCart_UpdateStkQty(productID: cartDetailItems[currentRow].productID, updatedQty: cartDetailItems[currentRow].cartQty)
+        print("Cart Qty of \(cartDetailItems[currentRow].productID) is updated.)")
         tableViewCartDetail.reloadData()
         shoppingCartSummaryView_ReloadData()
     }
@@ -263,6 +268,7 @@ extension ShoppingCartView_UIViewController: ShoppingCartView_UITableViewCellDel
             buttonDeleteItem_DidTouchUpInside(currentRow: currentRow)
         } else {
             cartDetailItems[currentRow].cartQty -= 1
+            setDataToCart_UpdateStkQty(productID: cartDetailItems[currentRow].productID, updatedQty: cartDetailItems[currentRow].cartQty)
             tableViewCartDetail.reloadData()
             shoppingCartSummaryView_ReloadData()
         }
@@ -271,6 +277,8 @@ extension ShoppingCartView_UIViewController: ShoppingCartView_UITableViewCellDel
         
         let alertBeforeRemoval = UIAlertController(title: "Delete Item?", message: "You're about to delete the item from your cart. Please select Confirm to proceed or Cancel to go back.", preferredStyle: .alert)
         let alertBeforeRemoval_ActionContinue = UIAlertAction(title: "Continue", style: .destructive, handler: {_ in
+            
+            self.setDataToCart_DeleteItemFromCart(productID: cartDetailItems[currentRow].productID)
             cartDetailItems.remove(at: currentRow)
             self.tableViewCartDetail.reloadData()
             self.shoppingCartSummaryView_ReloadData()
@@ -280,5 +288,40 @@ extension ShoppingCartView_UIViewController: ShoppingCartView_UITableViewCellDel
         alertBeforeRemoval.addAction(alertBeforeRemoval_ActionCancel)
         present(alertBeforeRemoval, animated: true)
         
+    }
+}
+
+
+// MARK: DATA INTERACTION - CART & PRODUCT
+extension ShoppingCartView_UIViewController {
+
+    func getDataFromCartAndProduct() {
+        let cart: Cart = CartService.cartServiceInstance.getCart()
+        for i in 0...cart.items!.count-1 {
+            let productID = cart.items![i] as! Int64
+            let product = ProductsService.productsServiceInstance.getOneProduct(id: productID as! Int64)
+            let productName = product.name!
+            let stockQty = product.quantity as! Int64
+            let cartQty = cart.quantity![i] as! Int64
+            let price = product.price
+            let imageName = product.image!
+            
+            cartDetailItems.append((productID: productID,
+                                    productName: productName,
+                                    stockQty: stockQty,
+                                    cartQty: cartQty,
+                                    price: price,
+                                    imageName: imageName))
+        }
+    }
+    
+    func setDataToCart_UpdateStkQty(productID: Int64, updatedQty: Int64) {
+        CartService.cartServiceInstance.addUpdateItemToCart(itemId: productID, quantity: Int(updatedQty))
+        print("Item: \(productID)'s cart qty is updated to: \(updatedQty)")
+    }
+    
+    func setDataToCart_DeleteItemFromCart(productID: Int64) {
+        CartService.cartServiceInstance.removeItemFromCart(itemId: productID)
+        print("Item: \(productID) has been removed from cart.")
     }
 }
