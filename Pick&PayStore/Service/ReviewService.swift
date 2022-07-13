@@ -18,4 +18,11 @@ class ReviewService {
     func resetReview(){
         ReviewDBHelper.reviewDBHelper.resetReviews()
     }
+    
+    func getReview(reviewId : Int64) -> Review {
+        let review = ReviewDBHelper.reviewDBHelper.getReview(reviewId: reviewId)
+        
+        return review
+    }
+    
 }

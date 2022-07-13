@@ -50,7 +50,7 @@ class CartDBHelper {
         
     }
 
-    func addUpdateItemToCart(itemId : Int64, quantity : Int){
+    func addUpdateItemToCart(itemId : Int64, quantity : Int) {
         
         var cart = Cart()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
@@ -86,8 +86,29 @@ class CartDBHelper {
     
     
     
-    func removeItemFromCart() {
+    func removeItemFromCart(itemId : Int64) {
+        var cart = Cart()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Cart")
         
+        do {
+            let fetchedCart = try context?.fetch(fetchRequest)
+            if fetchedCart!.count != 0 {
+                cart = fetchedCart?.first as! Cart
+                
+                for i in 0..<cart.items!.count {
+                    if cart.items![i] == NSNumber(value: itemId){
+                        cart.items?.remove(at: i)
+                        cart.quantity?.remove(at: i)
+                        try context?.save()
+                        print("item removed from cart")
+                    }
+                    
+                }
+            }
+            
+        } catch {
+            print("error in removing item from cart")
+        }
     }
     
     func resetCarts() {
@@ -105,7 +126,7 @@ class CartDBHelper {
             }
             
         } catch {
-            
+            print("error resetting carts")
         }
     }
     
