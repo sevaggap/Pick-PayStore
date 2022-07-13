@@ -321,7 +321,7 @@ extension ShoppingCartView_UIViewController {
     }
     
     func setDataToCart_DeleteItemFromCart(productID: Int64) {
-        CartService.cartServiceInstance.removeItemFromCart(itemId: productID, quantity: 0)
+        CartService.cartServiceInstance.removeItemFromCart(itemId: productID)
         print("Item: \(productID) has been removed from cart.")
     }
 }
