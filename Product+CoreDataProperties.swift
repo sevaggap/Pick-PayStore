@@ -22,7 +22,7 @@ extension Product {
     @NSManaged public var category: Int64
     @NSManaged public var image: String?
     @NSManaged public var id: Int64
-    @NSManaged public var reviews: [Review]?
+    @NSManaged public var reviews: [NSNumber]?
 
 }
 

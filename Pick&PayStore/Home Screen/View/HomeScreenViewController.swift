@@ -20,9 +20,19 @@ class HomeScreenViewController: UIViewController {
         ProductsService.productsServiceInstance.resetData()
         ProductsService.productsServiceInstance.addData()
         
-
+        ReviewService.reviewServiceInstance.addReview(text: "this is a test review", productID: 1)
+//        CartService.cartServiceInstance.resetCart()
+//        CartService.cartServiceInstance.createCart()
+        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
+        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
+        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
+        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 1, quantity: 5)
+        
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        UITestViewController.productIds = []
+    }
     
 }
 
@@ -49,10 +59,12 @@ extension HomeScreenViewController: UICollectionViewDelegate,
         let category = CategoryDBHelper.categoryDBHelper.getCategory(id: id)
         print("this is the category",category.products)
         
-        let storyboard = UIStoryboard(name:"Products", bundle:nil)
-        let productScreen = storyboard.instantiateViewController(withIdentifier: "productsVC") as! UITestViewController
-        productScreen.productIds = category.products!
-        navigationController?.pushViewController(productScreen,animated: true)
+//        let storyboard = UIStoryboard(name:"Products", bundle:nil)
+//        let productScreen = storyboard.instantiateViewController(withIdentifier: "productsVC") as! UITestViewController
+        UITestViewController.productIds = category.products!
+//        navigationController?.pushViewController(productScreen,animated: true)
+        
+        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![3]
                                                  
     }
-                                                 }
+}

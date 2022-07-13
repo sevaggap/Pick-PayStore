@@ -11,4 +11,5 @@ struct TestProductsViewModel {
     var name : String
     var price : Float
     var image : String
+    var id : Int64
 }

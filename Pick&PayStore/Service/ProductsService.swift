@@ -97,4 +97,14 @@ class ProductsService {
         
         return products
     }
+    
+    func getOneProduct(id : Int64) -> Product {
+        let product = ProductsHelper.productsHelper.getProduct(id: id)
+        
+        return product
+    }
+    
+    func updateProductStock(id : Int64, amount : Int64){
+        ProductsHelper.productsHelper.updateQuantity(id: id, amount: amount)
+    }
 }
