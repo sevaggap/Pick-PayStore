@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2553B03C287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553B03B287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift */; };
 		2556F7972877306400312919 /* ShoppingCartView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556F7962877306400312919 /* ShoppingCartView_UIViewController.swift */; };
 		2556F7992877317C00312919 /* ShoppingCartView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556F7982877317C00312919 /* ShoppingCartView_UITableViewCell.swift */; };
 		2556F79B287731C000312919 /* PaymentMethodView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556F79A287731C000312919 /* PaymentMethodView_UIViewController.swift */; };
@@ -15,6 +16,9 @@
 		2556F7A12877327E00312919 /* OrderView_UITableViewCellShipping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556F7A02877327E00312919 /* OrderView_UITableViewCellShipping.swift */; };
 		258A8F7428772DBA00A91621 /* CheckOut.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 258A8F7328772DBA00A91621 /* CheckOut.storyboard */; };
 		258A8F7628772E8B00A91621 /* EmptyCartView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258A8F7528772E8B00A91621 /* EmptyCartView_UIViewController.swift */; };
+		258FD813287899EB00BFD7A2 /* OrderConfirmationView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258FD812287899EB00BFD7A2 /* OrderConfirmationView_UIViewController.swift */; };
+		258FD81528789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258FD81428789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift */; };
+		25AF154B287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF154A287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift */; };
 		944DB0612872322C00FDDE4C /* ProductsHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DB0602872322C00FDDE4C /* ProductsHelper.swift */; };
 		944DB065287233E400FDDE4C /* TestProductsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DB064287233E400FDDE4C /* TestProductsViewModel.swift */; };
 		944DB0672872340F00FDDE4C /* ProductsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 944DB0662872340F00FDDE4C /* ProductsService.swift */; };
@@ -72,6 +76,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2553B03B287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfoView_UIViewController.swift; sourceTree = "<group>"; };
 		2556F7962877306400312919 /* ShoppingCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView_UIViewController.swift; sourceTree = "<group>"; };
 		2556F7982877317C00312919 /* ShoppingCartView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView_UITableViewCell.swift; sourceTree = "<group>"; };
 		2556F79A287731C000312919 /* PaymentMethodView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentMethodView_UIViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +85,9 @@
 		2556F7A02877327E00312919 /* OrderView_UITableViewCellShipping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView_UITableViewCellShipping.swift; sourceTree = "<group>"; };
 		258A8F7328772DBA00A91621 /* CheckOut.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CheckOut.storyboard; sourceTree = "<group>"; };
 		258A8F7528772E8B00A91621 /* EmptyCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView_UIViewController.swift; sourceTree = "<group>"; };
+		258FD812287899EB00BFD7A2 /* OrderConfirmationView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView_UIViewController.swift; sourceTree = "<group>"; };
+		258FD81428789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView_UITableViewCell.swift; sourceTree = "<group>"; };
+		25AF154A287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongifurableCartView_UIViewController.swift; sourceTree = "<group>"; };
 		944DB0602872322C00FDDE4C /* ProductsHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsHelper.swift; sourceTree = "<group>"; };
 		944DB064287233E400FDDE4C /* TestProductsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestProductsViewModel.swift; sourceTree = "<group>"; };
 		944DB0662872340F00FDDE4C /* ProductsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsService.swift; sourceTree = "<group>"; };
@@ -153,12 +161,16 @@
 			children = (
 				258A8F7328772DBA00A91621 /* CheckOut.storyboard */,
 				258A8F7528772E8B00A91621 /* EmptyCartView_UIViewController.swift */,
+				25AF154A287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift */,
 				2556F7962877306400312919 /* ShoppingCartView_UIViewController.swift */,
 				2556F7982877317C00312919 /* ShoppingCartView_UITableViewCell.swift */,
 				2556F79A287731C000312919 /* PaymentMethodView_UIViewController.swift */,
 				2556F79C287731F100312919 /* PaymentMethodView_UITableViewCell.swift */,
 				2556F79E2877326600312919 /* OrderView_UIViewController.swift */,
 				2556F7A02877327E00312919 /* OrderView_UITableViewCellShipping.swift */,
+				258FD812287899EB00BFD7A2 /* OrderConfirmationView_UIViewController.swift */,
+				258FD81428789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift */,
+				2553B03B287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift */,
 			);
 			path = CheckOut;
 			sourceTree = "<group>";
@@ -408,7 +420,6 @@
 				94CF0B4B286B44460093D0F4 /* Assets.xcassets in Resources */,
 				94E9E3B3286B936400B3CD2F /* UITest.storyboard in Resources */,
 				944DB06D287247D500FDDE4C /* Account.storyboard in Resources */,
-				944DB06F287247F200FDDE4C /* CheckOut.storyboard in Resources */,
 				EBAF571728773CC3009D411D /* HomeScreen.storyboard in Resources */,
 				94CF0B46286B44420093D0F4 /* Main.storyboard in Resources */,
 				944DB071287247F800FDDE4C /* Products.storyboard in Resources */,
@@ -438,12 +449,15 @@
 			files = (
 				94CF0B43286B44420093D0F4 /* ViewController.swift in Sources */,
 				94F83DCA286E31ED001DAEA2 /* Cart+CoreDataClass.swift in Sources */,
+				258FD81528789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift in Sources */,
 				94E9E3AD286B92C500B3CD2F /* CustomUIView.swift in Sources */,
+				25AF154B287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift in Sources */,
 				2556F7972877306400312919 /* ShoppingCartView_UIViewController.swift in Sources */,
 				94F83DC6286E31AC001DAEA2 /* User+CoreDataClass.swift in Sources */,
 				2556F79B287731C000312919 /* PaymentMethodView_UIViewController.swift in Sources */,
 				EBAF571D28773EBF009D411D /* CategoryCollectionViewCell.swift in Sources */,
 				94F83DC5286E31AC001DAEA2 /* Product+CoreDataProperties.swift in Sources */,
+				2553B03C287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift in Sources */,
 				94F83DC4286E31AC001DAEA2 /* Product+CoreDataClass.swift in Sources */,
 				944DB0692872357900FDDE4C /* UITestViewController.swift in Sources */,
 				94E9E3AF286B92DF00B3CD2F /* CustomUIButton.swift in Sources */,
@@ -452,6 +466,7 @@
 				94F83DD3286E3423001DAEA2 /* Category+CoreDataProperties.swift in Sources */,
 				EBAF570D2877324F009D411D /* HomeCategoryViewModel.swift in Sources */,
 				944DB0672872340F00FDDE4C /* ProductsService.swift in Sources */,
+				258FD813287899EB00BFD7A2 /* OrderConfirmationView_UIViewController.swift in Sources */,
 				944DB06B2872370F00FDDE4C /* UITestTableViewCell.swift in Sources */,
 				94CF0B41286B44420093D0F4 /* SceneDelegate.swift in Sources */,
 				2556F79D287731F100312919 /* PaymentMethodView_UITableViewCell.swift in Sources */,

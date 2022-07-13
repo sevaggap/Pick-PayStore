@@ -9,17 +9,17 @@ import UIKit
 
 var selectedTenderType: Int?
 
-var tenderTypes: [(tenderTypeID: Int, imageName: String, tenderTypeDesc: String)] = [
-    (tenderTypeID: 0, imageName: "TenderType-CoD", tenderTypeDesc: "Cash on Delivery"), //only for orders under $300
-    (tenderTypeID: 1, imageName: "creditcard.fill", tenderTypeDesc: "Debit/Credit Card"),
-    (tenderTypeID: 2, imageName: "TenderType-ApplePay", tenderTypeDesc: "Apple Pay")
-]
+var tenderTypes: [(tenderTypeID: Int, imageName: String, tenderTypeDesc: String)] = []
 
 class PaymentMethodView_UIViewController: UIViewController {
-    
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        paymentMethodView_ReloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        paymentMethodView_ReloadData()
+        
     }
 }
 
@@ -48,8 +48,9 @@ extension PaymentMethodView_UIViewController: UITableViewDelegate, UITableViewDa
         selectedTenderType = tenderTypes[indexPath.row].tenderTypeID
         let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
         let paymentVC = storyboard.instantiateViewController(withIdentifier: "orderVC")
-        paymentVC.modalPresentationStyle = .fullScreen
-        self.present(paymentVC, animated: true)
+//        paymentVC.modalPresentationStyle = .fullScreen
+//        self.present(paymentVC, animated: true)
+        navigationController?.pushViewController(paymentVC, animated: true)
     }
     
 }
@@ -61,8 +62,17 @@ extension PaymentMethodView_UIViewController {
         let vc = ShoppingCartView_UIViewController()
         //TODO: CONFIRM IF INCLUDE SHIPPING FEE?
         let totalAmountBeforeTax = vc.shoppingCartView_GetCartSummary().cartTotalBeforeTax
-        if totalAmountBeforeTax >= 200 {
-            tenderTypes.remove(at: 0)
+        if totalAmountBeforeTax < 200 {
+            tenderTypes = [
+                (tenderTypeID: 0, imageName: "TenderType-CoD", tenderTypeDesc: "Cash on Delivery"),
+                (tenderTypeID: 1, imageName: "creditcard.fill", tenderTypeDesc: "Debit/Credit Card"),
+                (tenderTypeID: 2, imageName: "TenderType-ApplePay", tenderTypeDesc: "Apple Pay")
+            ]
+        } else {
+            tenderTypes = [
+                (tenderTypeID: 1, imageName: "creditcard.fill", tenderTypeDesc: "Debit/Credit Card"),
+                (tenderTypeID: 2, imageName: "TenderType-ApplePay", tenderTypeDesc: "Apple Pay")
+            ]
         }
     }
 }

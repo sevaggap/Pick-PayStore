@@ -20,7 +20,7 @@ var cartDetailItems: [(productID: Int64,
 
 class ShoppingCartView_UIViewController: UIViewController {
     
-
+    
     @IBOutlet weak var tableViewCartDetail: UITableView!
     @IBAction func buttonProceedToCheckOut(_ sender: Any) {
         buttonProceedToCheckOut_DidTouchUpInside()
@@ -34,25 +34,52 @@ class ShoppingCartView_UIViewController: UIViewController {
         super.viewDidLoad()
         
         // TODO: GET SHOPPING CART ITEMS
-        cartDetailItems.append((productID: 1,
-                                productName: "TestProduct 1",
-                                stockQty: 2,
-                                cartQty: 5,
-                                price: 1200,
-                                imageName: "Checkout-SampleItem"))
-        cartDetailItems.append((productID: 2,
-                                productName: "TestProduct 2",
-                                stockQty: 5,
-                                cartQty: 2,
-                                price: 10,
-                                imageName: "Checkout-SampleItem"))
+        ProductsService.productsServiceInstance.addData()
+        
+        cartDetailItems.append((productID: 20,
+                                productName: ProductsHelper.productsHelper.getProduct(id: 20).name!,
+                                stockQty: ProductsHelper.productsHelper.getProduct(id: 20).quantity,
+                                cartQty: 11,
+                                price: ProductsHelper.productsHelper.getProduct(id: 20).price,
+                                imageName: ProductsHelper.productsHelper.getProduct(id: 20).image!))
         cartDetailItems.append((productID: 3,
-                                productName: "TestProduct 3",
-                                stockQty: 5,
+                                productName: ProductsHelper.productsHelper.getProduct(id: 3).name!,
+                                stockQty: ProductsHelper.productsHelper.getProduct(id: 3).quantity,
                                 cartQty: 1,
-                                price: 6.5,
-                                imageName: "Checkout-SampleItem"))
-    shoppingCartSummaryView_ReloadData()
+                                price: ProductsHelper.productsHelper.getProduct(id: 3).price,
+                                imageName: ProductsHelper.productsHelper.getProduct(id: 3).image!))
+        cartDetailItems.append((productID: 4,
+                                productName: ProductsHelper.productsHelper.getProduct(id: 4).name!,
+                                stockQty: ProductsHelper.productsHelper.getProduct(id: 4).quantity,
+                                cartQty: 1,
+                                price: ProductsHelper.productsHelper.getProduct(id: 4).price,
+                                imageName: ProductsHelper.productsHelper.getProduct(id: 4).image!))
+        cartDetailItems.append((productID: 2,
+                                productName: ProductsHelper.productsHelper.getProduct(id: 2).name!,
+                                stockQty: ProductsHelper.productsHelper.getProduct(id: 2).quantity,
+                                cartQty: 1,
+                                price: ProductsHelper.productsHelper.getProduct(id: 2).price,
+                                imageName: ProductsHelper.productsHelper.getProduct(id: 2).image!))
+        cartDetailItems.append((productID: 5,
+                                productName: ProductsHelper.productsHelper.getProduct(id: 5).name!,
+                                stockQty: ProductsHelper.productsHelper.getProduct(id: 5).quantity,
+                                cartQty: 1,
+                                price: ProductsHelper.productsHelper.getProduct(id: 5).price,
+                                imageName: ProductsHelper.productsHelper.getProduct(id: 5).image!))
+        cartDetailItems.append((productID: 7,
+                                productName: ProductsHelper.productsHelper.getProduct(id: 7).name!,
+                                stockQty: ProductsHelper.productsHelper.getProduct(id: 7).quantity,
+                                cartQty: 1,
+                                price: ProductsHelper.productsHelper.getProduct(id: 7).price,
+                                imageName: ProductsHelper.productsHelper.getProduct(id: 7).image!))
+        cartDetailItems.append((productID: 8,
+                                productName: ProductsHelper.productsHelper.getProduct(id: 8).name!,
+                                stockQty: ProductsHelper.productsHelper.getProduct(id: 8).quantity,
+                                cartQty: 1,
+                                price: ProductsHelper.productsHelper.getProduct(id: 8).price,
+                                imageName: ProductsHelper.productsHelper.getProduct(id: 8).image!))
+        shoppingCartSummaryView_ReloadData()
+        
     }
 }
 // MARK: CART SUMMARY VIEW CONFIGURATION
@@ -107,7 +134,7 @@ extension ShoppingCartView_UIViewController {
             
             AMOUNT_TAX = (AMOUNT_ITEMS + AMOUNT_SHIPPING) * 0.13
             AMOUNT_GRDTTL = AMOUNT_ITEMS + AMOUNT_SHIPPING + AMOUNT_TAX
-
+            
             
             return (
                 AMOUNT_ITEMS,
@@ -142,16 +169,17 @@ extension ShoppingCartView_UIViewController {
     
     func buttonProceedToCheckOut_DidTouchUpInside() {
         print("buttonProceedToCheckOut_DidTouchUpInside")
-        if !shoppingCartView_GetCartSummary().hasInsufficientStock {
-            //TODO: PRESENT PAYMENT SELECTION SCREEN
-            print("PRESENT PAYMENT SELECTION SCREEN.")
-            let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
-            let paymentMethodVC = storyboard.instantiateViewController(withIdentifier: "paymentMethodVC")
-            paymentMethodVC.modalPresentationStyle = .fullScreen
-            self.present(paymentMethodVC, animated: true)
-        } else {
-            print("USER INTERACTION DISABLED.")
-        }
+//        if !shoppingCartView_GetCartSummary().hasInsufficientStock {
+//            //TODO: PRESENT PAYMENT SELECTION SCREEN
+//            print("PRESENT PAYMENT SELECTION SCREEN.")
+//            let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
+//            let paymentMethodVC = storyboard.instantiateViewController(withIdentifier: "paymentMethodVC")
+//            paymentMethodVC.modalPresentationStyle = .fullScreen
+//            self.present(paymentMethodVC, animated: true)
+//            //self.performSegue(withIdentifier: "cartToTender", sender: self)
+//        } else {
+//            print("USER INTERACTION DISABLED.")
+//        }
     }
 }
 
@@ -167,6 +195,7 @@ extension ShoppingCartView_UIViewController: UITableViewDataSource, UITableViewD
         cartDetailCell.configRow(currentRow: indexPath.row)
         cartDetailCell.selectionStyle = .none
         let productAtRow = cartDetailItems[indexPath.row]
+        cartDetailCell.imageCartDetailItemImg.image = UIImage(named: productAtRow.imageName)
         cartDetailCell.labelCartDetailDesc.text = productAtRow.productName
         cartDetailCell.labelCartDetailPrice.text = "$" + String(format: "%.2f", productAtRow.price)
         cartDetailCell.labelCartDetailCartQty.text = String(productAtRow.cartQty)
@@ -176,7 +205,7 @@ extension ShoppingCartView_UIViewController: UITableViewDataSource, UITableViewD
         } else {
             cartDetailCell.buttonDecreaseQtyOutlet.setImage(UIImage(systemName: "minus.circle"), for: .normal)
         }
-
+        
         if productAtRow.cartQty > productAtRow.stockQty {
             cartDetailCell.labelCartDetailInStock.text = "Insufficient stock"
             cartDetailCell.labelCartDetailInStock.textColor = .red
@@ -239,7 +268,7 @@ extension ShoppingCartView_UIViewController: ShoppingCartView_UITableViewCellDel
         }
     }
     func buttonDeleteItem_DidTouchUpInside(currentRow: Int) {
-
+        
         let alertBeforeRemoval = UIAlertController(title: "Delete Item?", message: "You're about to delete the item from your cart. Please select Confirm to proceed or Cancel to go back.", preferredStyle: .alert)
         let alertBeforeRemoval_ActionContinue = UIAlertAction(title: "Continue", style: .destructive, handler: {_ in
             cartDetailItems.remove(at: currentRow)

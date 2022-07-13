@@ -32,6 +32,7 @@ class ShoppingCartView_UITableViewCell: UITableViewCell {
     @IBAction func buttonDeleteItem(_ sender: Any) {
         delegate?.buttonDidTouchUpInside(buttonType: 2, currentRow: self.currentRow)
     }
+    @IBOutlet weak var imageCartDetailItemImg: UIImageView!
     @IBOutlet weak var labelCartDetailCartQty: UILabel!
     @IBOutlet weak var labelCartDetailInStock: UILabel!
     @IBOutlet weak var labelCartDetailFreeShipping: UILabel!

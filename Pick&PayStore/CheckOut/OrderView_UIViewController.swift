@@ -10,7 +10,25 @@ import PassKit
 
 var grandTotal: Float = 0.00
 class OrderView_UIViewController: UIViewController {
-    
+    var orderSummarySA: (
+        SA_NAME: String,
+        SA_ADDRLINE1: String,
+        SA_ADDRLINE2: String,
+        SA_CITY: String,
+        SA_PROVINCE: String,
+        SA_ZIPCODE: String,
+        SA_COUNTRY: String
+    ) = (
+        SA_NAME: "",
+        SA_ADDRLINE1: "",
+        SA_ADDRLINE2: "",
+        SA_CITY: "",
+        SA_PROVINCE: "",
+        SA_ZIPCODE: "",
+        SA_COUNTRY: ""
+    )
+    static var orderView = OrderView_UIViewController()
+    var isPaid = false
     @IBOutlet weak var textFieldSA_Country: UITextField!
     @IBOutlet weak var textFieldSA_PostalCode: UITextField!
     @IBOutlet weak var textFieldSA_City: UITextField!
@@ -19,7 +37,9 @@ class OrderView_UIViewController: UIViewController {
     @IBOutlet weak var textFieldSA_AddressL1: UITextField!
     @IBOutlet weak var textFieldSA_Name: UITextField!
     @IBAction func buttonPlaceOrder(_ sender: Any) {
-        buttonPlaceOrder_DidTouchUpInside()
+        if validateShippingAddress() {
+            buttonPlaceOrder_DidTouchUpInside()
+        }
     }
     @IBOutlet weak var buttonPlaceOrderLabel: UIButton!
     @IBOutlet weak var viewBillingAddress: UIView!
@@ -34,6 +54,15 @@ class OrderView_UIViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         grandTotal = orderSummary_PassTotal()
+        OrderView_UIViewController.orderView.orderSummarySA = (
+            SA_NAME: "",
+            SA_ADDRLINE1: "",
+            SA_ADDRLINE2: "",
+            SA_CITY: "",
+            SA_PROVINCE: "",
+            SA_ZIPCODE: "",
+            SA_COUNTRY: ""
+        )
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,6 +132,7 @@ class OrderView_UIViewController: UIViewController {
         switch selectedTenderType! {
         case 1:
             print("Billing address is required.")
+            buttonPlaceOrderLabel.setTitle("Continue", for: .normal)
         default:
             viewBillingAddress.removeFromSuperview()
             print("Switch is exhaustive.")
@@ -150,6 +180,7 @@ extension OrderView_UIViewController: PKPaymentAuthorizationViewControllerDelega
     func paymentAuthorizationViewControllerDidFinish(_ controller: PKPaymentAuthorizationViewController) {
         controller.dismiss(animated: true, completion: {() in
         })
+        presentOrderConfirmationVC()
     }
     func paymentAuthorizationViewController(_ controller: PKPaymentAuthorizationViewController, didAuthorizePayment payment: PKPayment, handler completion: @escaping (PKPaymentAuthorizationResult) -> Void) {
         completion(PKPaymentAuthorizationResult(status: .success, errors: nil))
@@ -166,6 +197,7 @@ extension OrderView_UIViewController: PKPaymentAuthorizationViewControllerDelega
                                                               SA_ZIPCODE: textFieldSA_PostalCode.text!,
                                                               SA_COUNTRY: textFieldSA_Country.text!,
                                                               ORDERH_TENDERTYPE: selectedTenderType!)
+        isPaid = true
     }
     
     func configureTenderType_ApplePay() {
@@ -200,9 +232,43 @@ extension OrderView_UIViewController: PKPaymentAuthorizationViewControllerDelega
     func buttonPlaceOrder_DidTouchUpInside() {
         print(selectedTenderType!)
         switch selectedTenderType! {
+        case 0: //cash on delivery
+            print("CoD selected.")
+            print("Payment authorized.")
+            OrderDBHelper.dbHelper.orderDB_CRUD_CreateOrderHeader(AMOUNT_ITEMS: orderSummary().AMOUNT_ITEMS,
+                                                                  AMOUNT_SHIPPING: orderSummary().AMOUNT_SHIPPING,
+                                                                  AMOUNT_TAX: orderSummary().AMOUNT_TAX,
+                                                                  AMOUNT_GRDTTL: orderSummary().AMOUNT_GRDTTL,
+                                                                  SA_NAME: textFieldSA_Name.text!,
+                                                                  SA_ADDRLINE1: textFieldSA_AddressL1.text!,
+                                                                  SA_ADDRLINE2: textFieldSA_AddressL2.text ?? "",
+                                                                  SA_CITY: textFieldSA_City.text!,
+                                                                  SA_PROVINCE: textFieldSA_Province.text!,
+                                                                  SA_ZIPCODE: textFieldSA_PostalCode.text!,
+                                                                  SA_COUNTRY: textFieldSA_Country.text!,
+                                                                  ORDERH_TENDERTYPE: selectedTenderType!)
+            isPaid = true
+            presentOrderConfirmationVC()
+        case 1: //credit/debit card
+            OrderView_UIViewController.orderView.orderSummarySA = (
+                SA_NAME: textFieldSA_Name.text!,
+                SA_ADDRLINE1: textFieldSA_AddressL1.text!,
+                SA_ADDRLINE2: textFieldSA_AddressL2.text ?? "",
+                SA_CITY: textFieldSA_City.text!,
+                SA_PROVINCE: textFieldSA_Province.text!,
+                SA_ZIPCODE: textFieldSA_PostalCode.text!,
+                SA_COUNTRY: textFieldSA_Country.text!
+            )
+            print("Credit/Debit Card selected.")
+            let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
+            let creditCardVC = storyboard.instantiateViewController(withIdentifier: "ccVC")
+//            creditCardVC.modalPresentationStyle = .fullScreen
+//            self.present(creditCardVC, animated: true)
+            navigationController?.pushViewController(creditCardVC, animated: true)
+            
         case 2: //apple pay
             configureTenderType_ApplePay()
-            print("Apple pay")
+            print("Apple pay selected.")
         default:
             print("Unknown tender type.")
         }
@@ -220,6 +286,7 @@ class OrderDBHelper {
     static var dbHelper = OrderDBHelper()
     var ordersOfUser: [Int] = []
     var itemsOfOrder: [Int] = []
+    var itemsOfOrderWithQty: [(Int, Int)] = []
     var dbpointer: OpaquePointer?
     var sqlStatement = ""
     
@@ -374,8 +441,6 @@ class OrderDBHelper {
                                                                             orderDB_CRUD_CreateOrderItem(ORDERH_ID: orderHID, ITEM_PRODUCTID: Int(item.productID), ITEM_CARTQTY: Int(item.cartQty))
                                                                         }
                                                                         
-                                                                        print("Items in order: \(orderDB_CRUD_ReadOrderItem_byOrderHID(orderID: orderHID))")
-                                                                        
                                                                     } else {
                                                                         printSQLiteErrorMsg()
                                                                     }
@@ -400,7 +465,7 @@ class OrderDBHelper {
         ordersOfUser.removeAll()
         if isFetchingLatest {
             sqlStatement = """
-                SELECT * FROM T_ORDER_H WHERE ORDERH_USERID = '\(userID)' AND ORDERH_ID = (SELECT MAX(ORDERH_ID) FROM T_ORDER_H)
+                SELECT * FROM T_ORDER_H WHERE ORDERH_ID = (SELECT MAX(ORDERH_ID) FROM T_ORDER_H WHERE ORDERH_USERID = \(userID))
             """
             var statement: OpaquePointer?
             
@@ -427,6 +492,7 @@ class OrderDBHelper {
                     print(amount_grdttl)
                     print(order_userID)
                     ordersOfUser.append(orderID)
+                    //ordersOfUser = [orderID]
                 } else {
                     print("No result")
                 }
@@ -450,13 +516,14 @@ class OrderDBHelper {
         return ordersOfUser
     }
     
-    func orderDB_CRUD_ReadOrderHeader_byOrderHID(orderID: Int) {
+    func orderDB_CRUD_ReadOrderHeader_byOrderHID(orderID: Int) -> Float {
         sqlStatement = """
             SELECT * FROM T_ORDER_H WHERE (ORDERH_ID = '\(orderID)')
         """
         
         var statement: OpaquePointer?
         
+        var amount_grandTotal: Float = 0
         
         if sqlite3_prepare(dbpointer, sqlStatement, -1, &statement, nil) == SQLITE_OK {
             if sqlite3_step(statement) == SQLITE_ROW {
@@ -479,8 +546,11 @@ class OrderDBHelper {
                 print(orderID)
                 print(amount_grdttl)
                 print(order_userID)
+                amount_grandTotal = amount_grdttl
+                
             }
         }
+        return amount_grandTotal
     }
     
     
@@ -530,19 +600,6 @@ class OrderDBHelper {
         """
         var statement: OpaquePointer?
         
-//        if sqlite3_prepare(dbpointer, sqlStatement, -1, &statement, nil) == SQLITE_OK {
-//            if sqlite3_step(statement) == SQLITE_ROW {
-//                let orderItem_ID = Int(sqlite3_column_int(statement, 0))
-//                let orderHeader_ID = Int(sqlite3_column_int(statement, 1))
-//                let order_createdAt = String(cString: sqlite3_column_text(statement, 2))
-//                let item_ProductID = String(cString: sqlite3_column_text(statement, 3))
-//                let item_CartQty = Int(sqlite3_column_int(statement, 4))
-//                itemsOfOrder.append(Int(item_ProductID)!)
-//            } else {
-//                print("No result")
-//            }
-//        }
-        
         if sqlite3_prepare(dbpointer, sqlStatement, -1, &statement, nil) != SQLITE_OK {
             printSQLiteErrorMsg()
         } else {
@@ -558,6 +615,30 @@ class OrderDBHelper {
         print(itemsOfOrder)
         return itemsOfOrder
     }
+    
+    func orderDB_CRUD_ReadOrderItem_byOrderHID(orderID: Int) -> [(Int, Int)] {
+        itemsOfOrderWithQty.removeAll()
+        
+        sqlStatement = """
+            SELECT * FROM T_ORDER_I WHERE ORDERH_ID = \(orderID)
+        """
+        var statement: OpaquePointer?
+        
+        if sqlite3_prepare(dbpointer, sqlStatement, -1, &statement, nil) != SQLITE_OK {
+            printSQLiteErrorMsg()
+        } else {
+            while sqlite3_step(statement) == SQLITE_ROW {
+                let orderItem_ID = Int(sqlite3_column_int(statement, 0))
+                let orderHeader_ID = Int(sqlite3_column_int(statement, 1))
+                let order_createdAt = String(cString: sqlite3_column_text(statement, 2))
+                let item_ProductID = String(cString: sqlite3_column_text(statement, 3))
+                let item_CartQty = Int(sqlite3_column_int(statement, 4))
+                itemsOfOrderWithQty.append((Int(item_ProductID)!, item_CartQty))
+            }
+        }
+        print(itemsOfOrderWithQty)
+        return itemsOfOrderWithQty
+    }
 }
 
 extension OrderDBHelper {
@@ -566,5 +647,76 @@ extension OrderDBHelper {
         dateFormatter.timeZone = TimeZone(abbreviation: "EST")
         dateFormatter.dateFormat = "yyyyMMddHHmmss"
         return dateFormatter.string(from: Date())
+    }
+}
+
+extension OrderView_UIViewController {
+    func presentOrderConfirmationVC() {
+        if isPaid {
+            
+            print("PRESENTING ORDER CONFIRMATION SCREEN.")
+            let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
+            let orderConfirmationVC = storyboard.instantiateViewController(withIdentifier: "orderConfirmationVC")
+            orderConfirmationVC.modalPresentationStyle = .fullScreen
+            self.present(orderConfirmationVC, animated: true)
+            //navigationController?.pushViewController(orderConfirmationVC, animated: true)
+            
+        }
+    }
+}
+
+extension OrderView_UIViewController {
+    func validateShippingAddress() -> Bool {
+        var SAIsValid = true
+        SAIsValid = SAIsValid && textFieldsValidation(textField: textFieldSA_Name, isRequired: true)
+        SAIsValid = SAIsValid && textFieldsValidation(textField: textFieldSA_AddressL1, isRequired: true)
+        SAIsValid = SAIsValid && textFieldsValidation(textField: textFieldSA_AddressL2, isRequired: false)
+        SAIsValid = SAIsValid && textFieldsValidation(textField: textFieldSA_Province, isRequired: true)
+        SAIsValid = SAIsValid && textFieldsValidation(textField: textFieldSA_City, isRequired: true)
+        SAIsValid = SAIsValid && textFieldsValidation(textField: textFieldSA_PostalCode, isRequired: true)
+        SAIsValid = SAIsValid && textFieldsValidation(textField: textFieldSA_Country, isRequired: true)
+        
+        print("SAIsValid: \(SAIsValid)")
+        return SAIsValid
+    }
+    func textFieldsValidation(textField: UITextField, isRequired: Bool) -> Bool {
+        let fieldName = textField.placeholder!
+        var textFieldIsValid: Bool = isRequired ? false : true
+        var alertMsg = ""
+        print(textField.text)
+        //1. if textField.text is nil
+        if textField.text! == nil {
+            alertMsg = "\(fieldName) is required."
+        } else {
+            //2. if textField.text is ""
+            if textField.text! == "" {
+                alertMsg = "\(fieldName) is required."
+            } else {
+                //3. if textField.text = "     "
+                var countOfSpace = 0
+                for char in textField.text! {
+                    if char == " " {
+                        countOfSpace += 1
+                    }
+                }
+                if countOfSpace == textField.text?.count {
+                    alertMsg = "\(fieldName) can't be blank."
+                } else {
+                    textFieldIsValid = true
+                    print("textFieldIsValid: \(textFieldIsValid)")
+                }
+            }
+        }
+        
+        if !textFieldIsValid {
+            let alert = UIAlertController(title: "Please check your shipping info.", message: alertMsg, preferredStyle: .alert)
+            
+            let ok = UIAlertAction(title: "OK", style: .default, handler: nil)
+            
+            alert.addAction(ok)
+            present(alert, animated: true)
+        }
+        
+        return textFieldIsValid
     }
 }
