@@ -159,7 +159,6 @@
 		258A8F6E2877297500A91621 /* CheckOut */ = {
 			isa = PBXGroup;
 			children = (
-				258A8F7328772DBA00A91621 /* CheckOut.storyboard */,
 				258A8F7528772E8B00A91621 /* EmptyCartView_UIViewController.swift */,
 				25AF154A287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift */,
 				2556F7962877306400312919 /* ShoppingCartView_UIViewController.swift */,
@@ -267,6 +266,7 @@
 				94E9E3B0286B92EE00B3CD2F /* CustomUILabel.swift */,
 				944DB0682872357900FDDE4C /* UITestViewController.swift */,
 				944DB06A2872370F00FDDE4C /* UITestTableViewCell.swift */,
+				258A8F7328772DBA00A91621 /* CheckOut.storyboard */,
 				94E9E3B2286B936400B3CD2F /* UITest.storyboard */,
 				944DB06C287247D500FDDE4C /* Account.storyboard */,
 				944DB070287247F800FDDE4C /* Products.storyboard */,
