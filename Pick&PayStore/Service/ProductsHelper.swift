@@ -25,7 +25,7 @@ class ProductsHelper{
         product.image = image
         product.id = id
        // product.id = Int64.random(in: 1...999)
-        product.reviews = nil
+        product.reviews = []
         
         do {
             try context?.save()
@@ -84,6 +84,23 @@ class ProductsHelper{
             }
         } catch {
             print("error in resetting products")
+        }
+    }
+    
+    func updateQuantity(id : Int64, amount : Int64) {
+        var product = Product()
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
+        
+        do {
+            let fetchedProduct = try context?.fetch(fetchRequest)
+            if fetchedProduct?.count != 0 {
+                product = fetchedProduct?.first as! Product
+                product.quantity = product.quantity - amount
+                try context?.save()
+                print("product stock updated")
+            }
+        } catch {
+            print("error updating stock of product")
         }
     }
     

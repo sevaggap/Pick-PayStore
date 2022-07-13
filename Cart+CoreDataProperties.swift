@@ -2,7 +2,7 @@
 //  Cart+CoreDataProperties.swift
 //  Pick&PayStore
 //
-//  Created by Sevag Gaprielian on 2022-06-30.
+//  Created by Sevag Gaprielian on 2022-07-12.
 //
 //
 
@@ -16,8 +16,9 @@ extension Cart {
         return NSFetchRequest<Cart>(entityName: "Cart")
     }
 
-    @NSManaged public var lastUpdated: Date?
     @NSManaged public var items: [NSNumber]?
+    @NSManaged public var lastUpdated: Date?
+    @NSManaged public var quantity: [NSNumber]?
 
 }
 
