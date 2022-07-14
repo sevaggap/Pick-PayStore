@@ -22,7 +22,7 @@ class HomeScreenViewController: UIViewController {
         
         ReviewService.reviewServiceInstance.addReview(text: "this is a test review", productID: 1)
 //        CartDBHelper.cartDBHelper.resetCarts()
-//        CartService.cartServiceInstance.resetCart()
+        CartService.cartServiceInstance.resetCart()
 //        CartService.cartServiceInstance.createCart()
         CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
         CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
