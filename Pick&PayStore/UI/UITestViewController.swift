@@ -11,19 +11,45 @@ import CoreLocation
 import AVFoundation
 
 class UITestViewController: UIViewController {
-     var productIds = [NSNumber]()
+    static var productIds = [NSNumber]()
     var productData = [Product]()
-
+    var productReviews = [Review]()
+    
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if productIds.count != 0{
-            for id in productIds{
-                let product = ProductsHelper.productsHelper.getProduct(id: Int64(id))
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        print("viewWillAppear")
+        productData = []
+        productReviews = []
+        if UITestViewController.productIds.count != 0{
+            for id in UITestViewController.productIds{
+                let product = ProductsService.productsServiceInstance.getOneProduct(id: Int64(id))
                 productData.append(product)
+            }
+            
+            for i in 0..<productData[0].reviews!.count {
+                let review = ReviewService.reviewServiceInstance.getReview(reviewId: Int64(productData[0].reviews![i]))
+                productReviews.append(review)
+            }
+            
+            let cart = CartService.cartServiceInstance.getCart()
+            print(productReviews.count)
+            // ProductsService.productsServiceInstance.updateProductStock(id: 1, amount: 3)
+            print(cart.items!, cart.quantity!, cart.lastUpdated!)
+            for product in productData {
+                print(product.quantity)
             }
         } else {
             productData = ProductsService.productsServiceInstance.getData()
         }
+        
+        tableView.reloadData()
         
     }
 
@@ -38,9 +64,10 @@ extension UITestViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! UITestTableViewCell
+        cell.selectionStyle = .none
         
         let model = productData[indexPath.row]
-        let viewModel = TestProductsViewModel(name: model.name!, price: model.price, image: model.image!)
+        let viewModel = TestProductsViewModel(name: model.name!, price: model.price, image: model.image!, id: model.id)
         
         cell.configure(with: viewModel)
         
