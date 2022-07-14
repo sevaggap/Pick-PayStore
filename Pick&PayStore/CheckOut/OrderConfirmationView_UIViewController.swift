@@ -9,6 +9,9 @@ import UIKit
 
 class OrderConfirmationView_UIViewController: UIViewController {
 
+    @IBAction func buttonHomePage(_ sender: Any) {
+        buttomHomePage_didTouchUpInside()
+    }
     @IBOutlet weak var labelOrderTotal: UILabel!
     @IBOutlet weak var labelOrderNumber: UILabel!
     
@@ -54,5 +57,12 @@ extension OrderConfirmationView_UIViewController: UITableViewDataSource {
         return orderConfItemCell
     }
     
+    func buttomHomePage_didTouchUpInside() {
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "mainVC")
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
     
 }

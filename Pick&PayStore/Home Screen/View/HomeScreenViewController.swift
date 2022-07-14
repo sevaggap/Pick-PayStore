@@ -24,10 +24,10 @@ class HomeScreenViewController: UIViewController {
 //        CartDBHelper.cartDBHelper.resetCarts()
 //        CartService.cartServiceInstance.resetCart()
 //        CartService.cartServiceInstance.createCart()
-        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
-        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
-        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
-        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 1, quantity: 5)
+//        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
+//        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
+//        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
+//        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 1, quantity: 5)
         
     }
     

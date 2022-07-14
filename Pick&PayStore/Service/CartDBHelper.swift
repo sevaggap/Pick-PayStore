@@ -101,6 +101,7 @@ class CartDBHelper {
                         cart.quantity?.remove(at: i)
                         try context?.save()
                         print("item removed from cart")
+                        return
                     }
                     
                 }

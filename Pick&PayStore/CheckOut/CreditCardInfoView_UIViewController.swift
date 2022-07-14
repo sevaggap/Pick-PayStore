@@ -39,9 +39,42 @@ class CreditCardInfoView_UIViewController: UIViewController {
             buttonPlaceOrder_DidTouchUpInside_createOrder()
         }
     }
+    private var expDatePickerView: UIDatePicker?
     override func viewDidLoad() {
         super.viewDidLoad()
         loadBAFromSA()
+        
+        //MARK: CONFIGURE PICKERVIEW FOR EXP DATE
+        expDatePickerView = UIDatePicker()
+        expDatePickerView?.preferredDatePickerStyle = .wheels
+        expDatePickerView?.datePickerMode = .date
+        
+        let toolBar = UIToolbar()
+        toolBar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        toolBar.setItems([doneButton], animated: true)
+        
+        textFieldCI_ExpDate.inputAccessoryView = toolBar
+        textFieldCI_ExpDate.inputView = expDatePickerView
+        
+    }
+    
+    @objc func donePressed() {
+        //populate date in textfield
+        
+        let date = expDatePickerView!.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "EST")
+        dateFormatter.dateFormat = "yyyy"
+        let stringYear = dateFormatter.string(from: date)
+        dateFormatter.dateFormat = "MM"
+        let stringMonth = dateFormatter.string(from: date)
+        
+        textFieldCI_ExpDate.text = "\(stringYear)/\(stringMonth)"
+        //close pickerview
+        self.view.endEditing(true)
+        
     }
 }
 
@@ -112,6 +145,7 @@ extension CreditCardInfoView_UIViewController {
                                                               SA_ZIPCODE: orderView.orderSummarySA.SA_ZIPCODE,
                                                               SA_COUNTRY: orderView.orderSummarySA.SA_COUNTRY,
                                                               ORDERH_TENDERTYPE: selectedTenderType!)
+        CartService.cartServiceInstance.resetCart()
         let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
         let orderConfirmationVC = storyboard.instantiateViewController(withIdentifier: "orderConfirmationVC")
         orderConfirmationVC.modalPresentationStyle = .fullScreen
