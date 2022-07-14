@@ -29,59 +29,20 @@ class ShoppingCartView_UIViewController: UIViewController {
     @IBOutlet weak var labelFreeShipping: UILabel!
     @IBOutlet weak var labelSubtotalAmount: UILabel!
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        // TODO: GET SHOPPING CART ITEMS
+        getDataFromCartAndProduct()
+
+        shoppingCartSummaryView_ReloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // TODO: GET SHOPPING CART ITEMS
-        ProductsService.productsServiceInstance.addData()
-        
-        getDataFromCartAndProduct()
-//
-//        cartDetailItems.append((productID: 20,
-//                                productName: ProductsHelper.productsHelper.getProduct(id: 20).name!,
-//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 20).quantity,
-//                                cartQty: 11,
-//                                price: ProductsHelper.productsHelper.getProduct(id: 20).price,
-//                                imageName: ProductsHelper.productsHelper.getProduct(id: 20).image!))
-//        cartDetailItems.append((productID: 3,
-//                                productName: ProductsHelper.productsHelper.getProduct(id: 3).name!,
-//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 3).quantity,
-//                                cartQty: 1,
-//                                price: ProductsHelper.productsHelper.getProduct(id: 3).price,
-//                                imageName: ProductsHelper.productsHelper.getProduct(id: 3).image!))
-//        cartDetailItems.append((productID: 4,
-//                                productName: ProductsHelper.productsHelper.getProduct(id: 4).name!,
-//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 4).quantity,
-//                                cartQty: 1,
-//                                price: ProductsHelper.productsHelper.getProduct(id: 4).price,
-//                                imageName: ProductsHelper.productsHelper.getProduct(id: 4).image!))
-//        cartDetailItems.append((productID: 2,
-//                                productName: ProductsHelper.productsHelper.getProduct(id: 2).name!,
-//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 2).quantity,
-//                                cartQty: 1,
-//                                price: ProductsHelper.productsHelper.getProduct(id: 2).price,
-//                                imageName: ProductsHelper.productsHelper.getProduct(id: 2).image!))
-//        cartDetailItems.append((productID: 5,
-//                                productName: ProductsHelper.productsHelper.getProduct(id: 5).name!,
-//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 5).quantity,
-//                                cartQty: 1,
-//                                price: ProductsHelper.productsHelper.getProduct(id: 5).price,
-//                                imageName: ProductsHelper.productsHelper.getProduct(id: 5).image!))
-//        cartDetailItems.append((productID: 7,
-//                                productName: ProductsHelper.productsHelper.getProduct(id: 7).name!,
-//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 7).quantity,
-//                                cartQty: 1,
-//                                price: ProductsHelper.productsHelper.getProduct(id: 7).price,
-//                                imageName: ProductsHelper.productsHelper.getProduct(id: 7).image!))
-//        cartDetailItems.append((productID: 8,
-//                                productName: ProductsHelper.productsHelper.getProduct(id: 8).name!,
-//                                stockQty: ProductsHelper.productsHelper.getProduct(id: 8).quantity,
-//                                cartQty: 1,
-//                                price: ProductsHelper.productsHelper.getProduct(id: 8).price,
-//                                imageName: ProductsHelper.productsHelper.getProduct(id: 8).image!))
-        shoppingCartSummaryView_ReloadData()
-        
+        let cartIsEmpty = true
+        if cartIsEmpty {
+            prepareChildVC()
+        }
+
     }
 }
 // MARK: CART SUMMARY VIEW CONFIGURATION
@@ -296,6 +257,7 @@ extension ShoppingCartView_UIViewController: ShoppingCartView_UITableViewCellDel
 extension ShoppingCartView_UIViewController {
 
     func getDataFromCartAndProduct() {
+        cartDetailItems.removeAll()
         let cart: Cart = CartService.cartServiceInstance.getCart()
         for i in 0...cart.items!.count-1 {
             let productID = cart.items![i] as! Int64
@@ -313,6 +275,7 @@ extension ShoppingCartView_UIViewController {
                                     price: price,
                                     imageName: imageName))
         }
+        tableViewCartDetail.reloadData()
     }
     
     func setDataToCart_UpdateStkQty(productID: Int64, updatedQty: Int64) {
@@ -323,5 +286,27 @@ extension ShoppingCartView_UIViewController {
     func setDataToCart_DeleteItemFromCart(productID: Int64) {
         CartService.cartServiceInstance.removeItemFromCart(itemId: productID)
         print("Item: \(productID) has been removed from cart.")
+    }
+}
+
+
+//MARK: CHILD VIEW CONTROLLER CONFIGURATION
+extension ShoppingCartView_UIViewController {
+    func prepareChildVC() {
+//        // Create a child view controller and add it to the current view controller.
+//        let storyboard = UIStoryboard(name: "CheckOut", bundle: .main)
+//        if let viewController = storyboard.instantiateViewController(identifier: "cartVC") as? EmptyCartView_UIViewController {
+//           // Add the view controller to the container.
+//           addChild(viewController)
+//           //view.addSubview(viewController.view)
+//            present(viewController, animated: true, completion: nil)
+//                    
+//           // Create and activate the constraints for the child’s view.
+//           //onscreenConstraints = configureConstraintsForContainedView(containedView: viewController.view, stage: .onscreen)
+//           //NSLayoutConstraint.activate(onscreenConstraints)
+//             
+//           // Notify the child view controller that the move is complete.
+//           viewController.didMove(toParent: self)
+//        }
     }
 }

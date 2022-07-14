@@ -16,6 +16,25 @@ class EmptyCartView_UIViewController: UIViewController {
     var isUserSignedIn: Bool = false
     
     @IBOutlet weak var viewButtonsEmptyCart: UIView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        //CartService.cartServiceInstance.resetCart()
+//        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 3, quantity: 5)
+//        CartService.cartServiceInstance.addUpdateItemToCart(itemId: 1, quantity: 2)
+
+    }
+
+    
+    func presentVC(storyboardName: String, vcStoryboardID: String) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: vcStoryboardID)
+//        viewController.modalPresentationStyle = .fullScreen
+//        self.present(viewController, animated: true)
+        present(viewController, animated: true, completion: nil)
+//        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![1]
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()

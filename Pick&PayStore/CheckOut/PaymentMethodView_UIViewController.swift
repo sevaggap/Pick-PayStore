@@ -46,11 +46,11 @@ extension PaymentMethodView_UIViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedTenderType = tenderTypes[indexPath.row].tenderTypeID
-        let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
-        let paymentVC = storyboard.instantiateViewController(withIdentifier: "orderVC")
-//        paymentVC.modalPresentationStyle = .fullScreen
-//        self.present(paymentVC, animated: true)
-        navigationController?.pushViewController(paymentVC, animated: true)
+//        let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
+//        let paymentVC = storyboard.instantiateViewController(withIdentifier: "orderVC")
+////        paymentVC.modalPresentationStyle = .fullScreen
+////        self.present(paymentVC, animated: true)
+//        navigationController?.pushViewController(paymentVC, animated: true)
     }
     
 }

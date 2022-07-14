@@ -36,6 +36,8 @@ class OrderView_UIViewController: UIViewController {
     @IBOutlet weak var textFieldSA_AddressL2: UITextField!
     @IBOutlet weak var textFieldSA_AddressL1: UITextField!
     @IBOutlet weak var textFieldSA_Name: UITextField!
+    //@IBOutlet weak var buttonPlaceOrderLabel: UIButton!
+    
     @IBAction func buttonPlaceOrder(_ sender: Any) {
         if validateShippingAddress() {
             buttonPlaceOrder_DidTouchUpInside()
@@ -198,6 +200,7 @@ extension OrderView_UIViewController: PKPaymentAuthorizationViewControllerDelega
                                                               SA_COUNTRY: textFieldSA_Country.text!,
                                                               ORDERH_TENDERTYPE: selectedTenderType!)
         isPaid = true
+        CartService.cartServiceInstance.resetCart()
     }
     
     func configureTenderType_ApplePay() {
@@ -248,6 +251,7 @@ extension OrderView_UIViewController: PKPaymentAuthorizationViewControllerDelega
                                                                   SA_COUNTRY: textFieldSA_Country.text!,
                                                                   ORDERH_TENDERTYPE: selectedTenderType!)
             isPaid = true
+            CartService.cartServiceInstance.resetCart()
             presentOrderConfirmationVC()
         case 1: //credit/debit card
             OrderView_UIViewController.orderView.orderSummarySA = (
@@ -264,7 +268,8 @@ extension OrderView_UIViewController: PKPaymentAuthorizationViewControllerDelega
             let creditCardVC = storyboard.instantiateViewController(withIdentifier: "ccVC")
 //            creditCardVC.modalPresentationStyle = .fullScreen
 //            self.present(creditCardVC, animated: true)
-            navigationController?.pushViewController(creditCardVC, animated: true)
+            //navigationController?.pushViewController(creditCardVC, animated: true)
+            performSegue(withIdentifier: "SAToBA", sender: self)
             
         case 2: //apple pay
             configureTenderType_ApplePay()
@@ -439,6 +444,10 @@ class OrderDBHelper {
                                                                         
                                                                         for item in cartDetailItems {
                                                                             orderDB_CRUD_CreateOrderItem(ORDERH_ID: orderHID, ITEM_PRODUCTID: Int(item.productID), ITEM_CARTQTY: Int(item.cartQty))
+                                                                            
+                                                                            ProductsService.productsServiceInstance.updateProductStock(id: Int64(item.productID), amount: Int64(item.cartQty))
+                                                                            
+                                                                            print("Product \(item.productID)'s stock qty is reduced by: \(item.cartQty)")
                                                                         }
                                                                         
                                                                     } else {
