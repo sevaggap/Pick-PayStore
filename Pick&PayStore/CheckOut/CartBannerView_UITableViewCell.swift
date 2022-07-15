@@ -10,7 +10,7 @@ import UIKit
 class CartBannerView_UITableViewCell: UITableViewCell {
 
     @IBOutlet weak var labelItemDesc: UILabel!
-    @IBOutlet weak var imageViewItemImg: UIImageView!
+    //@IBOutlet weak var imageViewItemImg: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

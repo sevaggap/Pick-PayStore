@@ -34,8 +34,8 @@ extension CartBannerView_UIViewController: UITableViewDelegate, UITableViewDataS
         let productID: Int64? = SingleProductViewController.vcForCartBanner.productIDForCartBanner
         cartBannerCell.selectionStyle = .none
         cartBannerCell.labelItemDesc.text = ProductsService.productsServiceInstance.getOneProduct(id: productID!).name
-        cartBannerCell.imageViewItemImg.tintColor = .white
-        cartBannerCell.imageViewItemImg.image = UIImage(systemName: "checkmark.circle.fill")
+        //cartBannerCell.imageViewItemImg.tintColor = .white
+        //cartBannerCell.imageViewItemImg.image = UIImage(systemName: "checkmark.circle.fill")
         return cartBannerCell
     }
     
@@ -43,8 +43,9 @@ extension CartBannerView_UIViewController: UITableViewDelegate, UITableViewDataS
         let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "shoppingCartVC")
 //        viewController.modalPresentationStyle = .fullScreen
-//        self.present(viewController, animated: true)
-        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![2]
+        viewController.modalTransitionStyle = .coverVertical
+        self.present(viewController, animated: true)
+        //self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![2]
     }
     
     
