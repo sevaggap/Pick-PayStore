@@ -96,6 +96,7 @@ class CartDBHelper {
                 cart = fetchedCart?.first as! Cart
                 
                 for i in 0..<cart.items!.count {
+                    print(cart.items?.count)
                     if cart.items![i] == NSNumber(value: itemId){
                         cart.items?.remove(at: i)
                         cart.quantity?.remove(at: i)

@@ -66,6 +66,8 @@ class CategoryDBHelper
 
             return category
         }
+    
+    
     func addProductToCategory(categoryId : Int, productId : Int) {
 
             var category =  Category()

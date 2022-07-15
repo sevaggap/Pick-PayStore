@@ -90,6 +90,7 @@ class ProductsHelper{
     func updateQuantity(id : Int64, amount : Int64) {
         var product = Product()
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
+        fetchRequest.predicate = NSPredicate(format: "id ==  %@", String(id))
         
         do {
             let fetchedProduct = try context?.fetch(fetchRequest)
