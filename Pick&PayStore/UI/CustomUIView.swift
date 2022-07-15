@@ -18,3 +18,13 @@ class CustomUIView: UIView {
     }
 
 }
+
+class ProductListView : UIView {
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        let gradient = CAGradientLayer()
+        gradient.frame = bounds
+        gradient.colors = [UIColor(named: "lightBlue")!.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.white.cgColor, UIColor.white.cgColor]
+        layer.insertSublayer(gradient, at: 0)
+    }
+}
