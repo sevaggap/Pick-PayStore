@@ -15,6 +15,9 @@ class UITestViewController: UIViewController {
     var productData = [Product]()
     var productReviews = [Review]()
     
+    
+    var productAtRow: Int64?
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -50,10 +53,12 @@ class UITestViewController: UIViewController {
         }
         
         tableView.reloadData()
-        
+
     }
 
 }
+
+
 
 extension UITestViewController : UITableViewDataSource {
         
