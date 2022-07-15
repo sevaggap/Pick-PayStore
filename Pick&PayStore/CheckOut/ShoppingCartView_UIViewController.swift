@@ -241,14 +241,23 @@ extension ShoppingCartView_UIViewController: ShoppingCartView_UITableViewCellDel
             
             self.setDataToCart_DeleteItemFromCart(productID: cartDetailItems[currentRow].productID)
             cartDetailItems.remove(at: currentRow)
-            self.tableViewCartDetail.reloadData()
-            self.shoppingCartSummaryView_ReloadData()
+            
+            if cartDetailItems.count != 0 {
+                self.tableViewCartDetail.reloadData()
+                self.shoppingCartSummaryView_ReloadData()
+            } else {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let vc = storyboard.instantiateViewController(withIdentifier: "mainVC")
+                vc.modalPresentationStyle = .fullScreen
+                vc.modalTransitionStyle = .crossDissolve
+                self.present(vc, animated: true)
+            }
+
         })
         let alertBeforeRemoval_ActionCancel = UIAlertAction(title: "Cancel", style: .default)
         alertBeforeRemoval.addAction(alertBeforeRemoval_ActionContinue)
         alertBeforeRemoval.addAction(alertBeforeRemoval_ActionCancel)
         present(alertBeforeRemoval, animated: true)
-        
     }
 }
 

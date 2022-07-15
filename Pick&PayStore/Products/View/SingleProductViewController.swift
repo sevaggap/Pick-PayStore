@@ -11,6 +11,9 @@ import MapKit
 class SingleProductViewController: UIViewController {
 
     static var productId = Int64()
+    static let cartBannerNotification = Notification.Name("cartBanner")
+    static let vcForCartBanner = SingleProductViewController()
+    var productIDForCartBanner: Int64?
     var productData = Product()
     var reviewData = [Review]()
     @IBOutlet weak var productStock: UILabel!
@@ -19,6 +22,7 @@ class SingleProductViewController: UIViewController {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var reviewText: UITextView!
     
+    @IBOutlet weak var cartBannerContainer: UIView!
     @IBOutlet weak var addToCartButton: YellowButton!
     
     @IBOutlet weak var reviewTable: UITableView!
@@ -53,6 +57,8 @@ class SingleProductViewController: UIViewController {
         }
         
         reloadButtonForStock()
+        
+        viewWillAppear_configCartBanner()
 
     }
     
@@ -69,6 +75,8 @@ class SingleProductViewController: UIViewController {
 
     @IBAction func addToCart(_ sender: Any) {
         CartService.cartServiceInstance.addUpdateItemToCart(itemId: SingleProductViewController.productId, quantity: 1)
+        publish(productID: SingleProductViewController.productId)
+        subscribe()
     }
    
     @IBAction func addReview(_ sender: Any) {
@@ -118,4 +126,52 @@ extension SingleProductViewController : UITableViewDelegate, UITableViewDataSour
     
     
     
+}
+
+//MARK: CONFIGURE CART BANNER
+extension SingleProductViewController {
+
+    func viewWillAppear_configCartBanner() {
+        view.addSubview(cartBannerContainer)
+        cartBannerContainer.removeFromSuperview()
+        NotificationCenter.default.addObserver(self, selector: #selector(subscribe(notification:)), name: SingleProductViewController.cartBannerNotification, object: nil)
+
+    }
+    func publish(productID: Int64) {
+        SingleProductViewController.vcForCartBanner.productIDForCartBanner = productID
+        NotificationCenter.default.post(name: SingleProductViewController.cartBannerNotification, object: nil)
+        
+    }
+    
+    func subscribe() {
+        
+        self.cartBannerContainer.layer.cornerRadius = 20
+        self.cartBannerContainer.layer.maskedCorners = [.layerMaxXMaxYCorner] //bottom right
+        self.cartBannerContainer.layer.maskedCorners = [.layerMinXMaxYCorner] //bottom left
+        self.cartBannerContainer.layer.maskedCorners = [.layerMaxXMinYCorner] //top right
+        self.cartBannerContainer.layer.maskedCorners = [.layerMinXMinYCorner] //top left
+
+        self.cartBannerContainer.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
+
+        self.cartBannerContainer.layer.masksToBounds = true
+        self.cartBannerContainer.alpha = 0.0
+        view.addSubview(cartBannerContainer)
+        UIView.animate(withDuration: 0.75) { () -> Void in
+            self.cartBannerContainer.alpha = 1.0
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            UIView.animate(withDuration: 0.75) { () -> Void in
+                self.cartBannerContainer.alpha = 0.0
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self.cartBannerContainer.removeFromSuperview()
+            }
+
+        }
+
+    }
+    @objc func subscribe(notification: Notification) {
+        subscribe()
+    }
 }

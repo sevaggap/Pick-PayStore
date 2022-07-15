@@ -285,12 +285,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1u8-FE-vIX">
+                                <rect key="frame" x="0.0" y="707" width="414" height="190"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <connections>
+                                    <segue destination="o8j-V3-hu5" kind="embed" id="05b-RC-A99"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="zVu-pI-i1G"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
                         <outlet property="addToCartButton" destination="SzY-BK-1I5" id="fbs-oy-gCA"/>
+                        <outlet property="cartBannerContainer" destination="1u8-FE-vIX" id="1bg-hs-hDr"/>
                         <outlet property="productImage" destination="sXP-iW-LtY" id="FUW-QK-uFi"/>
                         <outlet property="productName" destination="9QZ-wd-r1C" id="b8P-0R-taJ"/>
                         <outlet property="productPrice" destination="j6x-3l-6Zv" id="6dS-Lp-IZf"/>
@@ -302,6 +310,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m2Z-7n-5DN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2962.3188405797105" y="85.714285714285708"/>
+        </scene>
+        <!--cartBannerVC-->
+        <scene sceneID="VAU-W8-hCi">
+            <objects>
+                <viewControllerPlaceholder storyboardName="CheckOut" referencedIdentifier="cartBannerVC" id="o8j-V3-hu5" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JVR-88-wKy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3636" y="252"/>
         </scene>
     </scenes>
     <resources>
