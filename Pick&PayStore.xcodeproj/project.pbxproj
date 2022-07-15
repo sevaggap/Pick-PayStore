@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		25081543288081D10028F00A /* OrderHistoryView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25081542288081D10028F00A /* OrderHistoryView_UIViewController.swift */; };
+		25081545288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25081544288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift */; };
+		253D87782881353C00360C71 /* OrderDetailView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D87772881353C00360C71 /* OrderDetailView_UIViewController.swift */; };
+		253D877A2881354D00360C71 /* OrderDetailView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D87792881354D00360C71 /* OrderDetailView_UITableViewCell.swift */; };
+		253D879C2881C60D00360C71 /* CartBannerView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D879B2881C60D00360C71 /* CartBannerView_UIViewController.swift */; };
+		253D879E2881C62200360C71 /* CartBannerView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D879D2881C62200360C71 /* CartBannerView_UITableViewCell.swift */; };
 		2553B03C287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553B03B287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift */; };
 		2556F7972877306400312919 /* ShoppingCartView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556F7962877306400312919 /* ShoppingCartView_UIViewController.swift */; };
 		2556F7992877317C00312919 /* ShoppingCartView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2556F7982877317C00312919 /* ShoppingCartView_UITableViewCell.swift */; };
@@ -18,7 +24,7 @@
 		258A8F7628772E8B00A91621 /* EmptyCartView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258A8F7528772E8B00A91621 /* EmptyCartView_UIViewController.swift */; };
 		258FD813287899EB00BFD7A2 /* OrderConfirmationView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258FD812287899EB00BFD7A2 /* OrderConfirmationView_UIViewController.swift */; };
 		258FD81528789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 258FD81428789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift */; };
-		25AF154B287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF154A287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift */; };
+		25AF154B287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25AF154A287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift */; };
 		9401F0D12878AADE0092B93E /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9401F0D02878AADE0092B93E /* TabBarController.swift */; };
 		9419887B287DBCC80011238A /* ReviewDBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9419887A287DBCC80011238A /* ReviewDBHelper.swift */; };
 		9419887D287DC1CE0011238A /* ReviewService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9419887C287DC1CE0011238A /* ReviewService.swift */; };
@@ -83,6 +89,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		25081542288081D10028F00A /* OrderHistoryView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView_UIViewController.swift; sourceTree = "<group>"; };
+		25081544288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView_UITableViewCell.swift; sourceTree = "<group>"; };
+		253D87772881353C00360C71 /* OrderDetailView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView_UIViewController.swift; sourceTree = "<group>"; };
+		253D87792881354D00360C71 /* OrderDetailView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView_UITableViewCell.swift; sourceTree = "<group>"; };
+		253D879B2881C60D00360C71 /* CartBannerView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartBannerView_UIViewController.swift; sourceTree = "<group>"; };
+		253D879D2881C62200360C71 /* CartBannerView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartBannerView_UITableViewCell.swift; sourceTree = "<group>"; };
 		2553B03B287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfoView_UIViewController.swift; sourceTree = "<group>"; };
 		2556F7962877306400312919 /* ShoppingCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView_UIViewController.swift; sourceTree = "<group>"; };
 		2556F7982877317C00312919 /* ShoppingCartView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartView_UITableViewCell.swift; sourceTree = "<group>"; };
@@ -94,7 +106,7 @@
 		258A8F7528772E8B00A91621 /* EmptyCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartView_UIViewController.swift; sourceTree = "<group>"; };
 		258FD812287899EB00BFD7A2 /* OrderConfirmationView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView_UIViewController.swift; sourceTree = "<group>"; };
 		258FD81428789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationView_UITableViewCell.swift; sourceTree = "<group>"; };
-		25AF154A287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CongifurableCartView_UIViewController.swift; sourceTree = "<group>"; };
+		25AF154A287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigurableCartView_UIViewController.swift; sourceTree = "<group>"; };
 		9401F0D02878AADE0092B93E /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		9419887A287DBCC80011238A /* ReviewDBHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDBHelper.swift; sourceTree = "<group>"; };
 		9419887C287DC1CE0011238A /* ReviewService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewService.swift; sourceTree = "<group>"; };
@@ -174,7 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				258A8F7528772E8B00A91621 /* EmptyCartView_UIViewController.swift */,
-				25AF154A287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift */,
+				25AF154A287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift */,
 				2556F7962877306400312919 /* ShoppingCartView_UIViewController.swift */,
 				2556F7982877317C00312919 /* ShoppingCartView_UITableViewCell.swift */,
 				2556F79A287731C000312919 /* PaymentMethodView_UIViewController.swift */,
@@ -184,6 +196,12 @@
 				258FD812287899EB00BFD7A2 /* OrderConfirmationView_UIViewController.swift */,
 				258FD81428789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift */,
 				2553B03B287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift */,
+				25081542288081D10028F00A /* OrderHistoryView_UIViewController.swift */,
+				25081544288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift */,
+				253D87772881353C00360C71 /* OrderDetailView_UIViewController.swift */,
+				253D87792881354D00360C71 /* OrderDetailView_UITableViewCell.swift */,
+				253D879B2881C60D00360C71 /* CartBannerView_UIViewController.swift */,
+				253D879D2881C62200360C71 /* CartBannerView_UITableViewCell.swift */,
 			);
 			path = CheckOut;
 			sourceTree = "<group>";
@@ -472,10 +490,12 @@
 				94F83DCA286E31ED001DAEA2 /* Cart+CoreDataClass.swift in Sources */,
 				258FD81528789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift in Sources */,
 				94E9E3AD286B92C500B3CD2F /* CustomUIView.swift in Sources */,
-				25AF154B287F0D0B005967F4 /* CongifurableCartView_UIViewController.swift in Sources */,
+				25AF154B287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift in Sources */,
 				2556F7972877306400312919 /* ShoppingCartView_UIViewController.swift in Sources */,
 				94F83DC6286E31AC001DAEA2 /* User+CoreDataClass.swift in Sources */,
 				2556F79B287731C000312919 /* PaymentMethodView_UIViewController.swift in Sources */,
+				25081545288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift in Sources */,
+				253D879C2881C60D00360C71 /* CartBannerView_UIViewController.swift in Sources */,
 				EBAF571D28773EBF009D411D /* CategoryCollectionViewCell.swift in Sources */,
 				94F83DC5286E31AC001DAEA2 /* Product+CoreDataProperties.swift in Sources */,
 				2553B03C287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift in Sources */,
@@ -483,6 +503,7 @@
 				94F83DC4286E31AC001DAEA2 /* Product+CoreDataClass.swift in Sources */,
 				94198883287DCD090011238A /* CartService.swift in Sources */,
 				94BAB427287E21CD0068DA97 /* CheckOutTableViewCell.swift in Sources */,
+				253D877A2881354D00360C71 /* OrderDetailView_UITableViewCell.swift in Sources */,
 				9419887D287DC1CE0011238A /* ReviewService.swift in Sources */,
 				944DB0692872357900FDDE4C /* UITestViewController.swift in Sources */,
 				94E9E3AF286B92DF00B3CD2F /* CustomUIButton.swift in Sources */,
@@ -503,12 +524,15 @@
 				94F83DCE286E32DD001DAEA2 /* Review+CoreDataClass.swift in Sources */,
 				944DB065287233E400FDDE4C /* TestProductsViewModel.swift in Sources */,
 				94CF0B49286B44420093D0F4 /* Pick_PayStore.xcdatamodeld in Sources */,
+				253D879E2881C62200360C71 /* CartBannerView_UITableViewCell.swift in Sources */,
 				94F83DCB286E31ED001DAEA2 /* Cart+CoreDataProperties.swift in Sources */,
 				2556F7992877317C00312919 /* ShoppingCartView_UITableViewCell.swift in Sources */,
 				2556F7A12877327E00312919 /* OrderView_UITableViewCellShipping.swift in Sources */,
+				253D87782881353C00360C71 /* OrderDetailView_UIViewController.swift in Sources */,
 				94F83DC7286E31AC001DAEA2 /* User+CoreDataProperties.swift in Sources */,
 				944DB0612872322C00FDDE4C /* ProductsHelper.swift in Sources */,
 				9401F0D12878AADE0092B93E /* TabBarController.swift in Sources */,
+				25081543288081D10028F00A /* OrderHistoryView_UIViewController.swift in Sources */,
 				94F83DCF286E32DD001DAEA2 /* Review+CoreDataProperties.swift in Sources */,
 				258A8F7628772E8B00A91621 /* EmptyCartView_UIViewController.swift in Sources */,
 				94E9E3B1286B92EE00B3CD2F /* CustomUILabel.swift in Sources */,

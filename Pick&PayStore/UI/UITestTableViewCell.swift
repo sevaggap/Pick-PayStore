@@ -36,7 +36,16 @@ class UITestTableViewCell: UITableViewCell {
     @IBAction func addToCart(_ sender: Any) {
         print("adding to cart")
         CartService.cartServiceInstance.addUpdateItemToCart(itemId: productID, quantity: 1)
+        postCartBannerNotification()
     }
     
 
+}
+
+//MARK: CART BANNER CONFIGURATION
+extension UITestTableViewCell {
+    func postCartBannerNotification() {
+        UITestViewController.vc.productAtRow = productID
+        NotificationCenter.default.post(name: UITestViewController.cartBannerNotification, object: nil)
+    }
 }

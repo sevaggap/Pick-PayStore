@@ -209,13 +209,18 @@ extension OrderView_UIViewController: PKPaymentAuthorizationViewControllerDelega
             
             request.merchantIdentifier = "merchant.xavier.testapplepay"
             request.supportedNetworks = [.amex, .masterCard, .discover, .visa]
-            request.supportedCountries = ["US", "CA"]
+            request.supportedCountries = ["CA"]
             request.merchantCapabilities = .capability3DS
             request.countryCode = "CA"
             request.currencyCode = "CAD"
             
             
-            request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Pick&Pay Store CA", amount: NSDecimalNumber(value: roundFloatToTwoDecimal(amount: grandTotal)))]
+            //request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Pick&Pay Store CA", amount: NSDecimalNumber(value: roundFloatToTwoDecimal(amount: grandTotal)))]
+            let amountFloat = roundFloatToTwoDecimal(amount: grandTotal)
+            let amountDouble = Double(amountFloat)
+            let amountDecimal = Decimal(amountDouble)
+            let amountNSDecimalNumber = NSDecimalNumber(decimal: amountDecimal)
+            request.paymentSummaryItems = [PKPaymentSummaryItem(label: "Pick&Pay Store CA", amount: NSDecimalNumber(string: "\(amountFloat)"))]
             
             return request
         }()
@@ -282,6 +287,7 @@ extension OrderView_UIViewController: PKPaymentAuthorizationViewControllerDelega
     }
     
     func roundFloatToTwoDecimal(amount: Float) -> Float {
+        print(round(amount * 100) / 100.0)
         return round(amount * 100) / 100.0
     }
 }
@@ -294,6 +300,29 @@ class OrderDBHelper {
     var itemsOfOrderWithQty: [(Int, Int)] = []
     var dbpointer: OpaquePointer?
     var sqlStatement = ""
+    
+    func productBoughtByUser(userID: Int64, productID: Int64) -> Bool {
+        var productBoughtByUser = false
+        
+        let orders = OrderDBHelper.dbHelper.orderDB_CRUD_ReadOrderHeader_byUserID(userID: "\(userID)", isFetchingLatest: false)
+        
+        var products: [Int] = []
+        
+        for order in orders {
+            var productsInOrder: [Int] = []
+            productsInOrder = orderDB_CRUD_ReadOrderItem_byOrderHID(orderID: order)
+            
+            for product in productsInOrder {
+                products.append(product)
+            }
+        }
+        
+        if products.contains(Int(productID)) {
+            productBoughtByUser = true
+        }
+        
+        return productBoughtByUser
+    }
     
     /// Obtain SQLite3 error message and print it in the console
     func printSQLiteErrorMsg() {
@@ -373,6 +402,8 @@ class OrderDBHelper {
         SA_COUNTRY: String,
         ORDERH_TENDERTYPE: Int
     ) {
+        prepareDatabase()
+        prepareOrderTables()
         var textToInser = ""
         var statement: OpaquePointer?
         sqlStatement = """
@@ -439,6 +470,12 @@ class OrderDBHelper {
                                                                 } else {
                                                                     if sqlite3_step(statement) == SQLITE_DONE {
                                                                         print("Order Header Saved. Please create corresponding item records.")
+                                                                        
+                                                                        //reset statement once done
+                                                                        sqlite3_reset(statement)
+                                                                        sqlite3_finalize(statement)
+                                                                        sqlite3_close(dbpointer)
+                                                                        
                                                                         let orderHID = (OrderDBHelper.dbHelper.orderDB_CRUD_ReadOrderHeader_byUserID(userID: "54322", isFetchingLatest: true)[0])
 
                                                                         
@@ -472,6 +509,8 @@ class OrderDBHelper {
     
     func orderDB_CRUD_ReadOrderHeader_byUserID(userID: String, isFetchingLatest: Bool) -> [Int] {
         ordersOfUser.removeAll()
+        prepareDatabase()
+        prepareOrderTables()
         if isFetchingLatest {
             sqlStatement = """
                 SELECT * FROM T_ORDER_H WHERE ORDERH_ID = (SELECT MAX(ORDERH_ID) FROM T_ORDER_H WHERE ORDERH_USERID = \(userID))
@@ -502,6 +541,12 @@ class OrderDBHelper {
                     print(order_userID)
                     ordersOfUser.append(orderID)
                     //ordersOfUser = [orderID]
+                    
+                    //reset statement once done
+                    sqlite3_reset(statement)
+                    sqlite3_finalize(statement)
+                    sqlite3_close(dbpointer)
+                    
                 } else {
                     print("No result")
                 }
@@ -524,8 +569,73 @@ class OrderDBHelper {
         print(ordersOfUser)
         return ordersOfUser
     }
-    
+    func orderDB_CRUD_ReadOrderHeader_byOrderHID(orderID: Int) -> (
+        orderHeaderID: Int,
+        orderTotal: Float,
+        orderItemSubtotal: Float,
+        orderShippingFee: Float,
+        orderTax: Float,
+        orderTenderType: Int,
+        orderDate: String
+    )? {
+        prepareDatabase()
+        prepareOrderTables()
+        sqlStatement = """
+            SELECT * FROM T_ORDER_H WHERE (ORDERH_ID = '\(orderID)')
+        """
+        
+        var statement: OpaquePointer?
+        
+        var orderHeader: (
+            orderHeaderID: Int,
+            orderTotal: Float,
+            orderItemSubtotal: Float,
+            orderShippingFee: Float,
+            orderTax: Float,
+            orderTenderType: Int,
+            orderDate: String
+        )?
+        
+        if sqlite3_prepare(dbpointer, sqlStatement, -1, &statement, nil) == SQLITE_OK {
+            if sqlite3_step(statement) == SQLITE_ROW {
+                let orderID = Int(sqlite3_column_int(statement, 0))
+                let amount_items = Float(sqlite3_column_double(statement, 1))
+                let amount_shipping = Float(sqlite3_column_double(statement, 2))
+                let amount_tax = Float(sqlite3_column_double(statement, 3))
+                let amount_grdttl = Float(sqlite3_column_double(statement, 4))
+                let sa_name = String(cString: sqlite3_column_text(statement, 5))
+                let sa_addressLine1 = String(cString: sqlite3_column_text(statement, 6))
+                let sa_addressLine2 = String(cString: sqlite3_column_text(statement, 7))
+                let sa_city = String(cString: sqlite3_column_text(statement, 8))
+                let sa_province = String(cString: sqlite3_column_text(statement, 9))
+                let sa_zipcode = String(cString: sqlite3_column_text(statement, 10))
+                let sa_country = String(cString: sqlite3_column_text(statement, 11))
+                let order_tenderType = Int(sqlite3_column_int(statement, 12))
+                let order_createdAt = String(cString: sqlite3_column_text(statement, 13))
+                let order_userID = String(cString: sqlite3_column_text(statement, 14))
+                
+                orderHeader = (
+                    orderHeaderID: orderID,
+                    orderTotal: amount_grdttl,
+                    orderItemSubtotal: amount_items,
+                    orderShippingFee: amount_shipping,
+                    orderTax: amount_tax,
+                    orderTenderType: order_tenderType,
+                    orderDate: order_createdAt
+                )
+                
+            }
+            
+            //reset statement once done
+            sqlite3_reset(statement)
+            sqlite3_finalize(statement)
+            sqlite3_close(dbpointer)
+        }
+        return orderHeader
+    }
     func orderDB_CRUD_ReadOrderHeader_byOrderHID(orderID: Int) -> Float {
+        prepareDatabase()
+        prepareOrderTables()
         sqlStatement = """
             SELECT * FROM T_ORDER_H WHERE (ORDERH_ID = '\(orderID)')
         """
@@ -558,12 +668,19 @@ class OrderDBHelper {
                 amount_grandTotal = amount_grdttl
                 
             }
+            
+            //reset statement once done
+            sqlite3_reset(statement)
+            sqlite3_finalize(statement)
+            sqlite3_close(dbpointer)
         }
         return amount_grandTotal
     }
     
     
     func orderDB_CRUD_CreateOrderItem(ORDERH_ID: Int, ITEM_PRODUCTID: Int, ITEM_CARTQTY: Int) {
+        prepareDatabase()
+        prepareOrderTables()
         var statement: OpaquePointer?
         sqlStatement = """
             INSERT INTO T_ORDER_I (
@@ -592,6 +709,10 @@ class OrderDBHelper {
                                 printSQLiteErrorMsg()
                             } else {
                                 print("Order Item record created.")
+                                //reset statement once done
+                                sqlite3_reset(statement)
+                                sqlite3_finalize(statement)
+                                sqlite3_close(dbpointer)
                             }
                         }
                     }
@@ -602,6 +723,10 @@ class OrderDBHelper {
     
     
     func orderDB_CRUD_ReadOrderItem_byOrderHID(orderID: Int) -> [Int] {
+        
+        prepareDatabase()
+        prepareOrderTables()
+        
         itemsOfOrder.removeAll()
         
         sqlStatement = """
@@ -620,6 +745,12 @@ class OrderDBHelper {
                 let item_CartQty = Int(sqlite3_column_int(statement, 4))
                 itemsOfOrder.append(Int(item_ProductID)!)
             }
+            
+            //reset statement once done
+            sqlite3_reset(statement)
+            sqlite3_finalize(statement)
+            sqlite3_close(dbpointer)
+            
         }
         print(itemsOfOrder)
         return itemsOfOrder
@@ -627,7 +758,8 @@ class OrderDBHelper {
     
     func orderDB_CRUD_ReadOrderItem_byOrderHID(orderID: Int) -> [(Int, Int)] {
         itemsOfOrderWithQty.removeAll()
-        
+        prepareDatabase()
+        prepareOrderTables()
         sqlStatement = """
             SELECT * FROM T_ORDER_I WHERE ORDERH_ID = \(orderID)
         """
@@ -644,6 +776,11 @@ class OrderDBHelper {
                 let item_CartQty = Int(sqlite3_column_int(statement, 4))
                 itemsOfOrderWithQty.append((Int(item_ProductID)!, item_CartQty))
             }
+            
+            //reset statement once done
+            sqlite3_reset(statement)
+            sqlite3_finalize(statement)
+            sqlite3_close(dbpointer)
         }
         print(itemsOfOrderWithQty)
         return itemsOfOrderWithQty
