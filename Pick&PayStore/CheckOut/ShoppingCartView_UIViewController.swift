@@ -219,7 +219,7 @@ extension ShoppingCartView_UIViewController: ShoppingCartView_UITableViewCellDel
     func buttonIncreaseQty_DidTouchUpInside(currentRow: Int) {
         
         cartDetailItems[currentRow].cartQty += 1
-        setDataToCart_UpdateStkQty(productID: cartDetailItems[currentRow].productID, updatedQty: cartDetailItems[currentRow].cartQty)
+        setDataToCart_UpdateStkQty(productID: cartDetailItems[currentRow].productID, updatedQty: 1)
         print("Cart Qty of \(cartDetailItems[currentRow].productID) is updated.)")
         tableViewCartDetail.reloadData()
         shoppingCartSummaryView_ReloadData()
@@ -229,7 +229,7 @@ extension ShoppingCartView_UIViewController: ShoppingCartView_UITableViewCellDel
             buttonDeleteItem_DidTouchUpInside(currentRow: currentRow)
         } else {
             cartDetailItems[currentRow].cartQty -= 1
-            setDataToCart_UpdateStkQty(productID: cartDetailItems[currentRow].productID, updatedQty: cartDetailItems[currentRow].cartQty)
+            setDataToCart_UpdateStkQty(productID: cartDetailItems[currentRow].productID, updatedQty: -1)
             tableViewCartDetail.reloadData()
             shoppingCartSummaryView_ReloadData()
         }
