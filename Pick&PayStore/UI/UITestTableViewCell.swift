@@ -45,7 +45,7 @@ class UITestTableViewCell: UITableViewCell {
 //MARK: CART BANNER CONFIGURATION
 extension UITestTableViewCell {
     func postCartBannerNotification() {
-        UITestViewController.vc.productAtRow = productID
-        NotificationCenter.default.post(name: UITestViewController.cartBannerNotification, object: nil)
+        //UITestViewController.vc.productAtRow = productID
+        //NotificationCenter.default.post(name: UITestViewController.cartBannerNotification, object: nil)
     }
 }

@@ -30,8 +30,8 @@ extension CartBannerView_UIViewController: UITableViewDelegate, UITableViewDataS
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cartBannerCell = tableView.dequeueReusableCell(withIdentifier: "cartBannerCell", for: indexPath) as! CartBannerView_UITableViewCell
-        let productID = UITestViewController.vc.productAtRow
-        
+        //let productID = UITestViewController.vc.productAtRow
+        let productID: Int64? = SingleProductViewController.vcForCartBanner.productIDForCartBanner
         cartBannerCell.selectionStyle = .none
         cartBannerCell.labelItemDesc.text = ProductsService.productsServiceInstance.getOneProduct(id: productID!).name
         cartBannerCell.imageViewItemImg.tintColor = .white

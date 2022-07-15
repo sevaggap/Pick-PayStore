@@ -15,10 +15,9 @@ class UITestViewController: UIViewController {
     var productData = [Product]()
     var productReviews = [Review]()
     
-    static var vc = UITestViewController()
+    
     var productAtRow: Int64?
-    static let cartBannerNotification = Notification.Name("cartBanner")
-    @IBOutlet weak var cartBannerView: UIView!
+
     @IBOutlet weak var tableView: UITableView!
     
     override func viewDidLoad() {
@@ -54,46 +53,12 @@ class UITestViewController: UIViewController {
         }
         
         tableView.reloadData()
-        view.addSubview(cartBannerView)
-        cartBannerView.removeFromSuperview()
-        NotificationCenter.default.addObserver(self, selector: #selector(self.onNotification(notification:)), name: UITestViewController.cartBannerNotification, object: nil)
+
     }
 
 }
 
-//MARK: CONFIGURE CART BANNER
-extension UITestViewController {
-    @objc func onNotification(notification: Notification) {
-        
 
-        
-        
-        cartBannerView.layer.cornerRadius = 20
-        cartBannerView.layer.maskedCorners = [.layerMaxXMaxYCorner] //bottom right
-        cartBannerView.layer.maskedCorners = [.layerMinXMaxYCorner] //bottom left
-        cartBannerView.layer.maskedCorners = [.layerMaxXMinYCorner] //top right
-        cartBannerView.layer.maskedCorners = [.layerMinXMinYCorner] //top left
-        
-        cartBannerView.layer.maskedCorners = [.layerMaxXMinYCorner, .layerMinXMinYCorner]
-        
-        cartBannerView.layer.masksToBounds = true
-        cartBannerView.alpha = 0.0
-        view.addSubview(cartBannerView)
-        UIView.animate(withDuration: 0.75) { () -> Void in
-            self.cartBannerView.alpha = 1.0
-        }
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            UIView.animate(withDuration: 0.75) { () -> Void in
-                self.cartBannerView.alpha = 0.0
-            }
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-                self.cartBannerView.removeFromSuperview()
-            }
-            
-        }
-    }
-}
 
 extension UITestViewController : UITableViewDataSource {
         
