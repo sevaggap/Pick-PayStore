@@ -9,7 +9,16 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
 
+    
+    @IBOutlet weak var quCodeButton: UIButton!
+    //@IBOutlet weak var bannerCollectionView: UICollectionView!
+    //@IBOutlet weak var bannerPageControl: UIPageControl!
+    @IBOutlet weak var selectLocationButton: UIButton!
+    
     var categoryData = [Category]()
+    
+//    var bannerImage = [HomeBannerViewModel]()
+
     override func viewDidLoad() {
         super.viewDidLoad()
 //        CategoryService.categoryServiceInstance.resetData()
@@ -35,32 +44,47 @@ class HomeScreenViewController: UIViewController {
         UITestViewController.productIds = []
     }
     
+    
+    @IBAction func qrCodebuttonPressed(_ sender: Any) {
+        
+    }
+    @IBAction func selectLocationButtonPressed(_ sender: Any) {
+    }
+    
+    @IBAction func signInButtonPressed(_ sender: Any) {
+        
+        let storyboard = UIStoryboard(name: "Account", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "loginVC")
+        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![1]
+    }
+    
+    
 }
 
 extension HomeScreenViewController: UICollectionViewDelegate,
                                     UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-    
+
         categoryData.count
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-    
+
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for:indexPath) as! CategoryCollectionViewCell
         let model = categoryData[indexPath.row]
         let viewModel = HomeCategoryViewModel(id: model.id, name:model.name!, image: model.image!)
         cell.configure(with: viewModel)
-        
+
         return cell
-        
+
     }
-    
+
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let id = categoryData[indexPath.row].id
         let category = CategoryDBHelper.categoryDBHelper.getCategory(id: id)
         ProductListViewController.productIds = category.products!
         ProductListViewController.categoryId = id
-        
+
         self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![3]
     }
 }

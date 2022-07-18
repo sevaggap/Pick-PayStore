@@ -10,13 +10,10 @@ import UIKit
 class CarouselViewController: UIViewController {
 
     let carouselImages: [String] = [
-        "CoffeeTable",
-        "CutlerySet",
-        "DiningSet",
-        "CityOfBones2",
-        "CoffeeTable",
-        "CutlerySet",
-        "DiningSet"
+        "homeScreenCarouselImage1",
+        "homeScreenCarouselImage2",
+        "homeScreenCarouselImage3",
+        "homeScreenCarouselImage4"
     ]
     
     var timer = Timer()
@@ -28,7 +25,7 @@ class CarouselViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        pageControlCarousel.numberOfPages = 7
+        pageControlCarousel.numberOfPages = carouselImages.count
         pageControlCarousel.currentPage = 0
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 3, target: self, selector: #selector(self.changeCarouselImages2), userInfo: nil, repeats: true)

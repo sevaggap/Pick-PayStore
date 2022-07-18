@@ -10,10 +10,10 @@ import UIKit
 class HomeCarouselViewController: UIViewController {
 
     let carouselImages: [String] = [
-        "CoffeeTable",
-        "CutlerySet",
-        "DiningSet",
-        "CityOfBones2"
+        "homeScreenCarouselImage1",
+        "homeScreenCarouselImage2",
+        "homeScreenCarouselImage3",
+        "homeScreenCarouselImage4"
     ]
     
     var timer = Timer()
