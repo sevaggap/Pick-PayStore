@@ -2,7 +2,7 @@
 //  User+CoreDataClass.swift
 //  Pick&PayStore
 //
-//  Created by Sevag Gaprielian on 2022-06-30.
+//  Created by MAC on 2022-07-15.
 //
 //
 
