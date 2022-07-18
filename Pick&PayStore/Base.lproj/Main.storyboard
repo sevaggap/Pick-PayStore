@@ -88,7 +88,7 @@
         <!--homeVC-->
         <scene sceneID="6BD-9L-D4d">
             <objects>
-                <viewControllerPlaceholder storyboardName="HomeScreen" referencedIdentifier="homeVC" id="dTr-p1-XTo" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Home" referencedIdentifier="homeVC" id="dTr-p1-XTo" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Item" id="1d5-vI-xfA"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="861-Ev-ZZk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
