@@ -9,8 +9,11 @@ import UIKit
 
 class OrderConfirmationView_UIViewController: UIViewController {
 
+    @IBAction func buttonOrderHistory(_ sender: Any) {
+        buttonOrderHistory_didTouchUpInside()
+    }
     @IBAction func buttonHomePage(_ sender: Any) {
-        buttomHomePage_didTouchUpInside()
+        buttonHomePage_didTouchUpInside()
     }
     @IBOutlet weak var labelOrderTotal: UILabel!
     @IBOutlet weak var labelOrderNumber: UILabel!
@@ -57,11 +60,20 @@ extension OrderConfirmationView_UIViewController: UITableViewDataSource {
         return orderConfItemCell
     }
     
-    func buttomHomePage_didTouchUpInside() {
+    func buttonHomePage_didTouchUpInside() {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "mainVC")
         vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
+        present(vc, animated: true)
+    }
+    
+    func buttonOrderHistory_didTouchUpInside() {
+        let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "orderHistoryVC")
+        vc.modalPresentationStyle = .fullScreen
+        vc.modalTransitionStyle = .crossDissolve
         present(vc, animated: true)
     }
     
