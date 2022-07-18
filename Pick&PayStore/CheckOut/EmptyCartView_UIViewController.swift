@@ -15,6 +15,8 @@ class EmptyCartView_UIViewController: UIViewController {
     // TODO: UPDATE LOGIC TO GET VALUE
     var isUserSignedIn: Bool = false
     
+    
+    
     @IBOutlet weak var viewButtonsEmptyCart: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
