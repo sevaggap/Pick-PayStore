@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		25081543288081D10028F00A /* OrderHistoryView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25081542288081D10028F00A /* OrderHistoryView_UIViewController.swift */; };
 		25081545288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25081544288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift */; };
+		253052A22885A23E00DC5B29 /* UserCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253052A12885A23E00DC5B29 /* UserCartViewModel.swift */; };
 		253D87782881353C00360C71 /* OrderDetailView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D87772881353C00360C71 /* OrderDetailView_UIViewController.swift */; };
 		253D877A2881354D00360C71 /* OrderDetailView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D87792881354D00360C71 /* OrderDetailView_UITableViewCell.swift */; };
 		253D879C2881C60D00360C71 /* CartBannerView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D879B2881C60D00360C71 /* CartBannerView_UIViewController.swift */; };
@@ -21,7 +22,6 @@
 		255429292882872600CF3258 /* UserCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 255429282882872600CF3258 /* UserCartViewController.swift */; };
 		2554292B2882FEFE00CF3258 /* EmptyCartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2554292A2882FEFE00CF3258 /* EmptyCartViewController.swift */; };
 		2554292D288334F800CF3258 /* UserCartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2554292C288334F800CF3258 /* UserCartTableViewCell.swift */; };
-		2554292F2883667000CF3258 /* UserCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2554292E2883667000CF3258 /* UserCartViewModel.swift */; };
 		25551CB628853AF8001C6F8B /* TenderTypeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25551CB528853AF8001C6F8B /* TenderTypeModel.swift */; };
 		25551CB828853BEC001C6F8B /* TenderTypeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25551CB728853BEC001C6F8B /* TenderTypeViewModel.swift */; };
 		25551CBA28853D87001C6F8B /* TenderTypeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25551CB928853D87001C6F8B /* TenderTypeService.swift */; };
@@ -119,6 +119,7 @@
 /* Begin PBXFileReference section */
 		25081542288081D10028F00A /* OrderHistoryView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView_UIViewController.swift; sourceTree = "<group>"; };
 		25081544288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView_UITableViewCell.swift; sourceTree = "<group>"; };
+		253052A12885A23E00DC5B29 /* UserCartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCartViewModel.swift; sourceTree = "<group>"; };
 		253D87772881353C00360C71 /* OrderDetailView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView_UIViewController.swift; sourceTree = "<group>"; };
 		253D87792881354D00360C71 /* OrderDetailView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView_UITableViewCell.swift; sourceTree = "<group>"; };
 		253D879B2881C60D00360C71 /* CartBannerView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartBannerView_UIViewController.swift; sourceTree = "<group>"; };
@@ -131,7 +132,6 @@
 		255429282882872600CF3258 /* UserCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCartViewController.swift; sourceTree = "<group>"; };
 		2554292A2882FEFE00CF3258 /* EmptyCartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyCartViewController.swift; sourceTree = "<group>"; };
 		2554292C288334F800CF3258 /* UserCartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCartTableViewCell.swift; sourceTree = "<group>"; };
-		2554292E2883667000CF3258 /* UserCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCartViewModel.swift; sourceTree = "<group>"; };
 		25551CB528853AF8001C6F8B /* TenderTypeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenderTypeModel.swift; sourceTree = "<group>"; };
 		25551CB728853BEC001C6F8B /* TenderTypeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenderTypeViewModel.swift; sourceTree = "<group>"; };
 		25551CB928853D87001C6F8B /* TenderTypeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenderTypeService.swift; sourceTree = "<group>"; };
@@ -251,7 +251,7 @@
 		2554291728827E0C00CF3258 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				2554292E2883667000CF3258 /* UserCartViewModel.swift */,
+				253052A12885A23E00DC5B29 /* UserCartViewModel.swift */,
 				25551CB728853BEC001C6F8B /* TenderTypeViewModel.swift */,
 			);
 			path = ViewModel;
@@ -650,6 +650,7 @@
 				25A06BBE2884D98B00419908 /* CarouselCollectionViewCell.swift in Sources */,
 				94E9E3AD286B92C500B3CD2F /* CustomUIView.swift in Sources */,
 				25AF154B287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift in Sources */,
+				253052A22885A23E00DC5B29 /* UserCartViewModel.swift in Sources */,
 				25AF154B287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift in Sources */,
 				94DA7F3E28807751006C9381 /* SingleProductViewController.swift in Sources */,
 				2556F7972877306400312919 /* ShoppingCartView_UIViewController.swift in Sources */,
@@ -701,7 +702,6 @@
 				944DB065287233E400FDDE4C /* TestProductsViewModel.swift in Sources */,
 				2596EBE128859398006E65A2 /* OrderModel.swift in Sources */,
 				2554291F28827F7D00CF3258 /* SharedServices.swift in Sources */,
-				2554292F2883667000CF3258 /* UserCartViewModel.swift in Sources */,
 				2554292D288334F800CF3258 /* UserCartTableViewCell.swift in Sources */,
 				94CF0B49286B44420093D0F4 /* Pick_PayStore.xcdatamodeld in Sources */,
 				253D879E2881C62200360C71 /* CartBannerView_UITableViewCell.swift in Sources */,
