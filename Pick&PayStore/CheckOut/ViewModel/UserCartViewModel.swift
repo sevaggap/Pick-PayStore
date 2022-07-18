@@ -18,3 +18,4 @@ struct UserCartViewModel {
     var productCartQty: Int64
     var freeShipping: Bool
 }
+
