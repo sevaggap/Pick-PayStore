@@ -37,8 +37,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62a-no-Ia6">
-                                                    <rect key="frame" x="115" y="11" width="247" height="51"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="62a-no-Ia6">
+                                                    <rect key="frame" x="115" y="11" width="247" height="74"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <string key="text">*2022 Apple MacBook Pro Laptop with M2 chip: 13-inch Retina Display, 8GB RAM, 256GB ​​​​​​​SSD ​​​​​​​Storage, Backlit Keyboard, FaceTime HD Camera. Works with iPhone and iPad; Space Grey​</string>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
@@ -78,11 +78,11 @@
         <scene sceneID="pdE-bm-es2">
             <objects>
                 <viewController storyboardIdentifier="shoppingCartVC" id="BVL-hn-yQZ" customClass="ConfigurableCartView_UIViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="6If-wL-oYw" customClass="CustomUIView" customModule="Pick_PayStore" customModuleProvider="target">
+                    <view key="view" contentMode="scaleToFill" id="6If-wL-oYw" customClass="ProductListView" customModule="Pick_PayStore" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-DI-qrH">
+                            <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DYf-DI-qrH" customClass="ProductListView" customModule="Pick_PayStore" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
