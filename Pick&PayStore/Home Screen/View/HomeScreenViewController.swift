@@ -10,7 +10,7 @@ import UIKit
 class HomeScreenViewController: UIViewController {
 
     
-    @IBOutlet weak var quCodeButton: UIButton!
+    @IBOutlet weak var searchHistoryButton: UIButton!
     //@IBOutlet weak var bannerCollectionView: UICollectionView!
     //@IBOutlet weak var bannerPageControl: UIPageControl!
     @IBOutlet weak var selectLocationButton: UIButton!
@@ -45,7 +45,8 @@ class HomeScreenViewController: UIViewController {
     }
     
     
-    @IBAction func qrCodebuttonPressed(_ sender: Any) {
+    @IBAction func searchHistoryButtonPressed(_ sender: Any) {
+        print("searchHistoryButtonPressed")
         
     }
     @IBAction func selectLocationButtonPressed(_ sender: Any) {
