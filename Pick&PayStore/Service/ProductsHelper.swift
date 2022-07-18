@@ -70,6 +70,32 @@ class ProductsHelper{
             return product
         }
     
+    func getSearchedProducts(searchTerm : String) -> [Int64] {
+        
+        var product = Product()
+        var productIds = [Int64]()
+        
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
+        fetchRequest.predicate = NSPredicate(format: "name == %@", searchTerm)
+        
+        print(searchTerm)
+        do {
+            let fetchedProducts = try context?.fetch(fetchRequest)
+            print(fetchedProducts)
+            if fetchedProducts?.count != 0 {
+                for fetchedProduct in fetchedProducts! {
+                    product = fetchedProduct as! Product
+                    productIds.append(product.id)
+                }
+                print(productIds)
+            }
+        } catch {
+            print("error searching for products")
+        }
+
+        return productIds
+    }
+    
     func resetProdcuts(){
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Product")
         

@@ -9,7 +9,14 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    var searchResults = [NSNumber]()
+    
     var categoryData = [Category]()
+    
+    var searchHistory = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 //        CategoryService.categoryServiceInstance.resetData()
@@ -64,3 +71,33 @@ extension HomeScreenViewController: UICollectionViewDelegate,
         self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![3]
     }
 }
+
+extension HomeScreenViewController : UISearchBarDelegate {
+    
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print("in search bar text did change clicked")
+        searchResults.removeAll()
+        var products : [Product] = ProductsService.productsServiceInstance.getData()
+        
+        for product in products{
+            if product.name!.lowercased().contains(searchText.lowercased()) {
+                searchResults.append(NSNumber(value: product.id))
+            }
+        }
+        
+        print(searchResults)
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchHistory.append(searchBar.text!)
+        print(searchHistory)
+        ProductListViewController.productIds = searchResults
+        ProductListViewController.categoryId = 0
+        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![3]
+        
+    }
+    
+}
+
