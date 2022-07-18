@@ -20,8 +20,6 @@ class TabBarController: UITabBarController {
   
     
     @IBAction func loginRedirect(_ sender: UIButton) {
-        
-        
         let storyborad = UIStoryboard(name: "Account", bundle: nil)
         let loginScreen = storyborad.instantiateViewController(withIdentifier: "loginVC")
 //        navigationController?.pushViewController(loginScreen, animated: true)
