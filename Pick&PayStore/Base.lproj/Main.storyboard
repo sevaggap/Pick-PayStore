@@ -24,12 +24,12 @@
             </objects>
             <point key="canvasLocation" x="34.782608695652179" y="83.705357142857139"/>
         </scene>
-        <!--Log Out-->
+        <!--Pick & Pay-->
         <scene sceneID="DjN-9o-pkv">
             <objects>
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="hHY-u2-0iu" customClass="LogOut" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="6Ho-rC-X18">
+                    <navigationItem key="navigationItem" title="Pick &amp; Pay" id="6Ho-rC-X18">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="o6d-jS-K3T">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="857-0v-0TA">
                                 <rect key="frame" x="302" y="5" width="92" height="34.5"/>
@@ -48,10 +48,10 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="dTr-p1-XTo" kind="relationship" relationship="viewControllers" id="W4S-az-CTN"/>
-                        <segue destination="ZgK-YV-jCC" kind="relationship" relationship="viewControllers" id="TEi-om-CsX"/>
-                        <segue destination="JFB-gu-Ttg" kind="relationship" relationship="viewControllers" id="nAS-0P-clg"/>
-                        <segue destination="FDd-bD-8PK" kind="relationship" relationship="viewControllers" id="AeN-A6-neS"/>
+                        <segue destination="dTr-p1-XTo" kind="relationship" relationship="viewControllers" id="wXi-hk-5NL"/>
+                        <segue destination="FDd-bD-8PK" kind="relationship" relationship="viewControllers" id="C82-jb-a9T"/>
+                        <segue destination="JFB-gu-Ttg" kind="relationship" relationship="viewControllers" id="qDK-kl-aKC"/>
+                        <segue destination="ZgK-YV-jCC" kind="relationship" relationship="viewControllers" id="X9h-mG-JAK"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rQh-wc-9Kx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -66,7 +66,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p3s-W4-Onq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1656" y="31"/>
+            <point key="canvasLocation" x="1700" y="198"/>
         </scene>
         <!--shoppingCartVC-->
         <scene sceneID="2CV-ew-22c">
@@ -86,7 +86,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3ea-li-SIy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1622" y="143"/>
+            <point key="canvasLocation" x="1680" y="-7"/>
         </scene>
         <!--homeVC-->
         <scene sceneID="6BD-9L-D4d">
