@@ -303,6 +303,7 @@
                         <outlet property="productName" destination="9QZ-wd-r1C" id="b8P-0R-taJ"/>
                         <outlet property="productPrice" destination="j6x-3l-6Zv" id="6dS-Lp-IZf"/>
                         <outlet property="productStock" destination="a9J-Q4-GTX" id="s3H-Ma-lPV"/>
+                        <outlet property="reviewSubmitButton" destination="1wP-JT-MFV" id="r1B-hO-ajj"/>
                         <outlet property="reviewTable" destination="wCs-dd-Ux0" id="H64-nm-DTI"/>
                         <outlet property="reviewText" destination="CBd-T6-hTt" id="pSF-0c-vwp"/>
                     </connections>
