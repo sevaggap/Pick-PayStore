@@ -37,9 +37,13 @@ class ProductListViewController: UIViewController {
             productData.append(product)
         }
        
-        let category = CategoryService.categoryServiceInstance.getSingleCategory(id: ProductListViewController.categoryId)
-        categoryName.text = category.name
-        
+        if ProductListViewController.categoryId != 0{
+            let category = CategoryService.categoryServiceInstance.getSingleCategory(id: ProductListViewController.categoryId)
+            categoryName.text = category.name
+        } else {
+            categoryName.text = "Search Results"
+        }
+       
         for product in productData {
             print(product.quantity)
         }

@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -51,83 +52,29 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="769"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p8S-DE-56b" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="799"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="801"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rVb-zi-FeH">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="688"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="690"/>
                                                 <subviews>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2rO-iF-dSg" userLabel="searchView">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                                        <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7QS-WQ-yzL">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="50" id="5yM-dT-z5U"/>
-                                                                </constraints>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
-                                                            </textField>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="magnifyingglass" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fQV-aQ-ewT">
-                                                                <rect key="frame" x="0.0" y="15.5" width="50" height="18.5"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="50" id="Ptj-py-Odf"/>
-                                                                    <constraint firstAttribute="height" constant="20" id="n6G-pD-7HD"/>
-                                                                </constraints>
-                                                            </imageView>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AT-7x-6HM">
-                                                                <rect key="frame" x="379" y="9.5" width="30" height="31"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="width" constant="30" id="6Yq-Ej-3q8"/>
-                                                                    <constraint firstAttribute="height" constant="31" id="BAB-xd-FAm"/>
-                                                                </constraints>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="filled" image="clock.arrow.circlepath" catalog="system">
-                                                                    <color key="baseForegroundColor" name="darkBlue"/>
-                                                                    <color key="baseBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                </buttonConfiguration>
-                                                                <connections>
-                                                                    <action selector="searchHistoryButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="cCy-VA-TdX"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstItem="fQV-aQ-ewT" firstAttribute="centerY" secondItem="7QS-WQ-yzL" secondAttribute="centerY" id="91E-PM-Rjr"/>
-                                                            <constraint firstItem="7QS-WQ-yzL" firstAttribute="top" secondItem="2rO-iF-dSg" secondAttribute="top" id="Hsc-C7-zf7"/>
-                                                            <constraint firstItem="2AT-7x-6HM" firstAttribute="centerY" secondItem="7QS-WQ-yzL" secondAttribute="centerY" id="eBg-aA-A3B"/>
-                                                            <constraint firstAttribute="bottom" secondItem="7QS-WQ-yzL" secondAttribute="bottom" id="lJa-HR-tlg"/>
-                                                            <constraint firstAttribute="trailing" secondItem="7QS-WQ-yzL" secondAttribute="trailing" id="qeX-bY-kgw"/>
-                                                            <constraint firstItem="2AT-7x-6HM" firstAttribute="trailing" secondItem="7QS-WQ-yzL" secondAttribute="trailing" constant="-5" id="uXI-eI-42t"/>
-                                                            <constraint firstAttribute="height" constant="50" id="ug3-F0-Kel"/>
-                                                            <constraint firstItem="7QS-WQ-yzL" firstAttribute="leading" secondItem="2rO-iF-dSg" secondAttribute="leading" id="yK7-4P-2nQ"/>
-                                                            <constraint firstItem="fQV-aQ-ewT" firstAttribute="leading" secondItem="7QS-WQ-yzL" secondAttribute="leading" id="yOC-dc-Ka2"/>
-                                                        </constraints>
-                                                    </view>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y6b-4U-XDu">
-                                                        <rect key="frame" x="0.0" y="50" width="414" height="30"/>
-                                                        <subviews>
-                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mZa-F8-hzz">
-                                                                <rect key="frame" x="0.0" y="0.0" width="414" height="30"/>
-                                                                <state key="normal" title="Button"/>
-                                                                <buttonConfiguration key="configuration" style="tinted" title="Select Location" titleAlignment="leading">
-                                                                    <fontDescription key="titleFontDescription" type="system" pointSize="0.0"/>
-                                                                </buttonConfiguration>
-                                                                <connections>
-                                                                    <action selector="selectLocationButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pVq-Gy-4Cx"/>
-                                                                </connections>
-                                                            </button>
-                                                        </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="trailing" secondItem="mZa-F8-hzz" secondAttribute="trailing" id="77W-cT-JNM"/>
-                                                            <constraint firstItem="mZa-F8-hzz" firstAttribute="top" secondItem="Y6b-4U-XDu" secondAttribute="top" id="SOE-2m-yoC"/>
-                                                            <constraint firstItem="mZa-F8-hzz" firstAttribute="leading" secondItem="Y6b-4U-XDu" secondAttribute="leading" id="XJf-Ot-3eq"/>
-                                                            <constraint firstAttribute="bottom" secondItem="mZa-F8-hzz" secondAttribute="bottom" id="hy9-Ga-V55"/>
-                                                            <constraint firstAttribute="height" constant="30" id="iVR-Fy-8Mo"/>
-                                                        </constraints>
-                                                    </view>
+                                                    <searchBar contentMode="redraw" searchBarStyle="minimal" translatesAutoresizingMaskIntoConstraints="NO" id="JOj-90-2Sh">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                                        <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="Y6W-OH-hqX" id="nLZ-HJ-qcj"/>
+                                                        </connections>
+                                                    </searchBar>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Riy-ak-zaM">
+                                                        <rect key="frame" x="0.0" y="51" width="414" height="31"/>
+                                                        <color key="tintColor" name="darkBlue"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="clock.badge.checkmark" catalog="system" title=" Search History"/>
+                                                        <connections>
+                                                            <action selector="searchHistoryButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="ayC-Du-1g4"/>
+                                                        </connections>
+                                                    </button>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xYB-gY-hFU" userLabel="categotiesView">
-                                                        <rect key="frame" x="0.0" y="80" width="414" height="128"/>
+                                                        <rect key="frame" x="0.0" y="82" width="414" height="128"/>
                                                         <subviews>
                                                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="h0U-kM-s4W">
                                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="128"/>
@@ -188,7 +135,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="E8Q-wU-pRZ" userLabel="bannerView">
-                                                        <rect key="frame" x="0.0" y="208" width="414" height="240"/>
+                                                        <rect key="frame" x="0.0" y="210" width="414" height="240"/>
                                                         <subviews>
                                                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8OA-JE-PYP">
                                                                 <rect key="frame" x="0.0" y="8" width="414" height="224"/>
@@ -205,7 +152,7 @@
                                                         </constraints>
                                                     </view>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gVb-LW-G2O" userLabel="toolView">
-                                                        <rect key="frame" x="0.0" y="448" width="414" height="240"/>
+                                                        <rect key="frame" x="0.0" y="450" width="414" height="240"/>
                                                         <subviews>
                                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="PzL-bD-xzt">
                                                                 <rect key="frame" x="10" y="0.0" width="394" height="240"/>
@@ -429,10 +376,6 @@ experience</string>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="4e8-FH-gHE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="searchHistoryButton" destination="2AT-7x-6HM" id="PnP-o4-Udy"/>
-                        <outlet property="selectLocationButton" destination="mZa-F8-hzz" id="ynb-33-rK8"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -445,6 +388,73 @@ experience</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aag-Kd-EOS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="419" y="-272"/>
+        </scene>
+        <!--Search History View Controller-->
+        <scene sceneID="deH-YU-BU1">
+            <objects>
+                <viewController storyboardIdentifier="searchHistoryVC" id="K8K-xu-6pd" customClass="SearchHistoryViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bu4-dU-5FU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Search History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lAy-8t-0Gz">
+                                <rect key="frame" x="20" y="84" width="243" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="DamascusBold" family="Damascus" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gBx-PH-OAc">
+                                <rect key="frame" x="271" y="89" width="143" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Clear History"/>
+                                <connections>
+                                    <action selector="clearHistory:" destination="K8K-xu-6pd" eventType="touchUpInside" id="oRq-F7-rj9"/>
+                                </connections>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="7HV-Ey-cM6">
+                                <rect key="frame" x="20" y="203" width="374" height="604"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="searchCell" id="Xeh-ek-fX7" customClass="SearchHistoryTableViewCell" customModule="Pick_PayStore" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="374" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Xeh-ek-fX7" id="t6N-tr-zWv">
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="History" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sha-Ql-aME">
+                                                    <rect key="frame" x="8" y="11" width="224" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="searchHistory" destination="Sha-Ql-aME" id="gCV-MX-Yps"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="K8K-xu-6pd" id="CAn-PJ-G2U"/>
+                                    <outlet property="delegate" destination="K8K-xu-6pd" id="gfG-EE-j4O"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="LJg-eO-IVt"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <connections>
+                        <outlet property="searchHistoryTable" destination="7HV-Ey-cM6" id="Y1W-dd-qdB"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="65T-73-ZSV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="914.49275362318849" y="-263.16964285714283"/>
         </scene>
         <!--orderHistoryVC-->
         <scene sceneID="crG-fk-jBW">
@@ -474,12 +484,11 @@ experience</string>
     </scenes>
     <resources>
         <image name="banknote.fill" catalog="system" width="128" height="78"/>
-        <image name="clock.arrow.circlepath" catalog="system" width="128" height="110"/>
+        <image name="clock.badge.checkmark" catalog="system" width="128" height="113"/>
         <image name="creditcard.fill" catalog="system" width="128" height="88"/>
         <image name="doc.on.doc.fill" catalog="system" width="116" height="128"/>
         <image name="dollarsign.circle.fill" catalog="system" width="128" height="121"/>
         <image name="house" catalog="system" width="128" height="106"/>
-        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
         <namedColor name="darkBlue">
             <color red="0.40392156862745099" green="0.59607843137254901" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
