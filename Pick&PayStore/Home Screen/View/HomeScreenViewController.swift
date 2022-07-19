@@ -11,6 +11,7 @@ class HomeScreenViewController: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
     
+    @IBOutlet weak var welcomeMsg: UILabel!
     static var searchResults = [NSNumber]()
     
     var categoryData = [Category]()
@@ -23,7 +24,12 @@ class HomeScreenViewController: UIViewController {
             let vc = storyborard.instantiateViewController(withIdentifier: "orderHistoryVC")
             self.present(vc, animated: true)
         } else {
-            SharedServices.service.alertMessage(title: "You're not signed in yet.", message: "Please sign in first to view your order history.")
+            let alertController = UIAlertController(title: "You're not signed in yet.", message: "Please sign in first to view your order history.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction) in
+            }
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
+
         }
     }
     @IBOutlet weak var searchHistoryButton: UIButton!
@@ -57,6 +63,7 @@ class HomeScreenViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         UITestViewController.productIds = []
         HomeScreenViewController.searchHistory = SearchHistoryDBHelper.searchHistoryDBHelper.getSearchHistory()
+        configureWelcomeMsg()
     }
     
     
@@ -132,6 +139,14 @@ extension HomeScreenViewController : UISearchBarDelegate {
         
     }
     
+    func configureWelcomeMsg() {
+        if LoginStatus.status.isLoggedIn {
+            let user: User = LoginStatus.status.currentUser!
+            welcomeMsg.text = "\(user.firstName!)!"
+        } else {
+            welcomeMsg.text = "please sign in for better experience."
+        }
+    }
 }
 
 

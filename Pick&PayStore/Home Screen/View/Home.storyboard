@@ -279,24 +279,8 @@
                                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g1N-2E-HCX">
                                                                         <rect key="frame" x="202" y="0.0" width="192" height="240"/>
                                                                         <subviews>
-                                                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZC1-JS-1sR">
-                                                                                <rect key="frame" x="0.0" y="0.0" width="157" height="70"/>
-                                                                                <subviews>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vp6-fE-agi">
-                                                                                        <rect key="frame" x="0.0" y="0.0" width="97" height="29"/>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                                                        <nil key="textColor"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
-                                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92r-P1-Ycj">
-                                                                                        <rect key="frame" x="0.0" y="29" width="157" height="41"/>
-                                                                                        <string key="text">Sign in for your best 
-experience</string>
-                                                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                                                        <nil key="textColor"/>
-                                                                                        <nil key="highlightedColor"/>
-                                                                                    </label>
-                                                                                </subviews>
+                                                                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="ZC1-JS-1sR">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="97" height="29"/>
                                                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                             </stackView>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AkO-Qy-lpa">
@@ -305,18 +289,20 @@ experience</string>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
-                                                                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2w8-9f-kV7" customClass="YellowButton" customModule="Pick_PayStore" customModuleProvider="target">
-                                                                                <rect key="frame" x="8" y="102" width="191" height="50"/>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="please sign in for better experience" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="92r-P1-Ycj">
+                                                                                <rect key="frame" x="0.0" y="129" width="195" height="101"/>
                                                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                                                <state key="normal" title="Button"/>
-                                                                                <buttonConfiguration key="configuration" style="filled" title="Sign in securely">
-                                                                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="21"/>
-                                                                                    <color key="baseBackgroundColor" name="darkYellow"/>
-                                                                                </buttonConfiguration>
-                                                                                <connections>
-                                                                                    <action selector="signInButtonPressed:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Sn2-x7-7c3"/>
-                                                                                </connections>
-                                                                            </button>
+                                                                                <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="20"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
+                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome back," textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vp6-fE-agi">
+                                                                                <rect key="frame" x="32" y="51" width="131" height="76"/>
+                                                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                                                                <nil key="textColor"/>
+                                                                                <nil key="highlightedColor"/>
+                                                                            </label>
                                                                         </subviews>
                                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                         <constraints>
@@ -376,6 +362,9 @@ experience</string>
                     </view>
                     <tabBarItem key="tabBarItem" title="Home" image="house" catalog="system" id="4e8-FH-gHE"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="welcomeMsg" destination="92r-P1-Ycj" id="48w-wi-0L6"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -491,9 +480,6 @@ experience</string>
         <image name="house" catalog="system" width="128" height="106"/>
         <namedColor name="darkBlue">
             <color red="0.40392156862745099" green="0.59607843137254901" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="darkYellow">
-            <color red="0.99215686274509807" green="0.78823529411764703" blue="0.12941176470588237" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="lightBlue">
             <color red="0.59999999999999998" green="0.83921568627450982" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

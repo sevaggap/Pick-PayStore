@@ -11,23 +11,27 @@ struct SignInView: View {
     @State var email: String = ""
     @State var password: String = ""
     @State var rememberMe: Bool = true
+    @State var keepSession: Bool = true
     
     @State var OTP: Int?
     
     var body: some View {
         
         VStack {
-            Image("login")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 75, height: 75)
-                .cornerRadius(10)
-                .padding(.vertical, 30)
-            Text("Login to Place an Order & Access Order History")
-                .fontWeight(.heavy)
-                .font(.system(size: 21, weight: .bold, design: .default))
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
+            
+            VStack {
+                Image("login")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 75, height: 75)
+                    .cornerRadius(10)
+                    .padding(.vertical, 30)
+                Text("Login to Place an Order & Access Order History")
+                    .fontWeight(.heavy)
+                    .font(.system(size: 21, weight: .bold, design: .default))
+                    .multilineTextAlignment(.center)
+                    .lineLimit(2)
+            }
             
             HStack {
                 Spacer()
@@ -39,13 +43,22 @@ struct SignInView: View {
                 }
                 Spacer()
             }
-            
             HStack {
                 Spacer()
-                Toggle("Remember Me", isOn: $rememberMe)
-                    .padding()
+                VStack {
+
+                    Toggle("Save my password", isOn: $rememberMe)
+                        .padding()
+                    
+                    
+                    Toggle("Keep me logged in", isOn: $keepSession)
+                        .padding()
+
+                }.padding()
+
                 Spacer()
             }
+
             
             Button("Login") {
                 print("Pressed signin")
@@ -262,12 +275,18 @@ extension SignInView {
     func loginComplete() {
         print("loginComplete")
         //update User default
+        if keepSession {
+            rememberMe = true
+        }
         let userDefault = UserDefaults.standard
         userDefault.set(email, forKey: "lastUser")
         userDefault.set(rememberMe, forKey: "lastUserSwitchedOnRememberMe")
+        userDefault.set(keepSession, forKey: "lastUserSwitchedOnKeepLogin")
         print(userDefault.string(forKey: "lastUser"))
         print(userDefault.bool(forKey: "lastUserSwitchedOnRememberMe"))
+        print(userDefault.bool(forKey: "lastUserSwitchedOnKeepLogin"))
         // - remember me
+        
         if rememberMe {
             print("Remember me is on. Processing")
             saveKeyChain(theSwitch: rememberMe, email: email, password: password)
@@ -275,6 +294,7 @@ extension SignInView {
         // - update logged in status & current user
         LoginStatus.status.isLoggedIn = true
         LoginStatus.status.currentUser = DBHelper.dbHelper.getData(email: email)
+        
         // - present loggedin page
         
         //FIXME: present loggedin page

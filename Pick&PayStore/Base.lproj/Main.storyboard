@@ -48,6 +48,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <outlet property="buttonTitleSetter" destination="857-0v-0TA" id="p8y-gD-Wxo"/>
                         <segue destination="dTr-p1-XTo" kind="relationship" relationship="viewControllers" id="W4S-az-CTN"/>
                         <segue destination="ZgK-YV-jCC" kind="relationship" relationship="viewControllers" id="TEi-om-CsX"/>
                         <segue destination="JFB-gu-Ttg" kind="relationship" relationship="viewControllers" id="nAS-0P-clg"/>

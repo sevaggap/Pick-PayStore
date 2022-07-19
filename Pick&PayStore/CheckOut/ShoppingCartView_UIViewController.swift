@@ -30,7 +30,12 @@ class ShoppingCartView_UIViewController: UIViewController {
             
             navigationController?.pushViewController(vc, animated: false)
         } else {
-            SharedServices.service.alertMessage(title: "You're not signed in yet.", message: "Please sign in first to place an order.")
+            
+            let alertController = UIAlertController(title: "You're not signed in yet.", message: "Please sign in first to place an order.", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction) in
+            }
+            alertController.addAction(okAction)
+            present(alertController, animated: true)
         }
         
     }
