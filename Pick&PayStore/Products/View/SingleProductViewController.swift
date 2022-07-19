@@ -22,6 +22,7 @@ class SingleProductViewController: UIViewController {
     @IBOutlet weak var productImage: UIImageView!
     @IBOutlet weak var reviewText: UITextView!
     
+    @IBOutlet weak var reviewSubmitButton: YellowButton!
     @IBOutlet weak var cartBannerContainer: UIView!
     @IBOutlet weak var addToCartButton: YellowButton!
     
@@ -54,6 +55,20 @@ class SingleProductViewController: UIViewController {
                 let fetchedReview = ReviewService.reviewServiceInstance.getReview(reviewId: Int64(review))
                 reviewData.append(fetchedReview)
             }
+        }
+        
+        if LoginStatus.status.isLoggedIn {
+            reviewSubmitButton.isUserInteractionEnabled = true
+            reviewSubmitButton.tintColor = UIColor(named: "darkYellow")
+            reviewText.text = "Leave a Review!"
+            reviewText.isUserInteractionEnabled = true
+            reviewText.textColor = .black
+        } else {
+            reviewSubmitButton.isUserInteractionEnabled = false
+            reviewSubmitButton.tintColor = .lightGray
+            reviewText.text = "You must be logged in or sign up to leave a review!"
+            reviewText.isUserInteractionEnabled = false
+            reviewText.textColor = .lightGray
         }
         
         reloadButtonForStock()
