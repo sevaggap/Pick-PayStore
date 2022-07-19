@@ -17,6 +17,15 @@ class HomeScreenViewController: UIViewController {
     
     static var searchHistory = [SearchHistory]()
     
+    @IBAction func buttonOrderHistory(_ sender: Any) {
+        if LoginStatus.status.isLoggedIn {
+            let storyborard = UIStoryboard(name: "CheckOut", bundle: nil)
+            let vc = storyborard.instantiateViewController(withIdentifier: "orderHistoryVC")
+            self.present(vc, animated: true)
+        } else {
+            SharedServices.service.alertMessage(title: "You're not signed in yet.", message: "Please sign in first to view your order history.")
+        }
+    }
     @IBOutlet weak var searchHistoryButton: UIButton!
     //@IBOutlet weak var bannerCollectionView: UICollectionView!
     //@IBOutlet weak var bannerPageControl: UIPageControl!

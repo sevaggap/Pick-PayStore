@@ -9,9 +9,26 @@
     </dependencies>
     <scenes>
         <!--Account-->
+        <scene sceneID="hPu-Gg-jHd">
+            <objects>
+                <viewController id="lNg-2p-rlK" customClass="LogInViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="LVh-Ia-bkh" customClass="CustomUIView" customModule="Pick_PayStore" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="N24-3p-eEJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Account" image="person" catalog="system" id="bcs-hT-NKZ"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FC9-wD-9OR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-820" y="82"/>
+        </scene>
+        <!--Account-->
         <scene sceneID="s0d-6b-0kx">
             <objects>
-                <viewController storyboardIdentifier="loginVC" id="Y6W-OH-hqX" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="loginVC" id="Y6W-OH-hqX" customClass="AccountViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc" customClass="CustomUIView" customModule="Pick_PayStore" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,10 +106,10 @@
             </objects>
             <point key="canvasLocation" x="24.637681159420293" y="82.366071428571431"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign In View Controller-->
         <scene sceneID="fD6-tq-1Uq">
             <objects>
-                <viewController id="w9M-SD-FYG" sceneMemberID="viewController">
+                <viewController id="w9M-SD-FYG" customClass="SignInViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="n04-3e-BLe" customClass="CustomUIView" customModule="Pick_PayStore" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -123,6 +140,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="Login">
                                     <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="buttonLogin:" destination="w9M-SD-FYG" eventType="touchUpInside" id="mpt-Ql-FgQ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Want a faster way to login?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bQ2-MW-YYp" customClass="CustomAccountLabel" customModule="Pick_PayStore" customModuleProvider="target">
                                 <rect key="frame" x="20" y="460" width="374" height="48"/>
@@ -148,15 +168,19 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="SIw-QI-Tuz"/>
+                    <connections>
+                        <outlet property="textFieldEmail" destination="Y4C-PG-YIt" id="uRZ-Y4-hYP"/>
+                        <outletCollection property="textFieldPassword" destination="no9-O5-MUf" collectionClass="NSMutableArray" id="EZc-u0-cSt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qSk-4h-hAO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="711.59420289855075" y="81.696428571428569"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="40k-QG-BQ7">
             <objects>
-                <viewController id="oNF-ec-Jyf" sceneMemberID="viewController">
+                <viewController id="oNF-ec-Jyf" customClass="SignUpViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TZG-vI-Kgy" customClass="CustomUIView" customModule="Pick_PayStore" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

@@ -54,12 +54,12 @@ class EmptyCartView_UIViewController: UIViewController {
             viewButtonsEmptyCart.addSubview(buttonContinueShopping)
         } else {
             //button - sign up
-            let buttonSignUp = UIButton()
-            buttonSignUp.frame = CGRect(x: (self.viewButtonsEmptyCart.frame.width - 270) / 2, y: (self.viewButtonsEmptyCart.frame.height - 45) / 2, width: 270, height: 45)
-            buttonSignUp.backgroundColor = .lightGray
-            buttonSignUp.setTitle("Sign up now", for: .normal)
-            buttonSignUp.addTarget(self, action: #selector(buttonSignUp_DidTouchUpInside), for: .touchUpInside)
-            viewButtonsEmptyCart.addSubview(buttonSignUp)
+//            let buttonSignUp = UIButton()
+//            buttonSignUp.frame = CGRect(x: (self.viewButtonsEmptyCart.frame.width - 270) / 2, y: (self.viewButtonsEmptyCart.frame.height - 45) / 2, width: 270, height: 45)
+//            buttonSignUp.backgroundColor = .lightGray
+//            buttonSignUp.setTitle("Sign up now", for: .normal)
+//            buttonSignUp.addTarget(self, action: #selector(buttonSignUp_DidTouchUpInside), for: .touchUpInside)
+//            viewButtonsEmptyCart.addSubview(buttonSignUp)
             
             //button - continue shopping
             let buttonContinueShopping = UIButton()
@@ -71,13 +71,13 @@ class EmptyCartView_UIViewController: UIViewController {
             viewButtonsEmptyCart.addSubview(buttonContinueShopping)
             
             //button - sign in
-            let buttonSignIn = UIButton()
-            buttonSignIn.frame = CGRect(x: (self.viewButtonsEmptyCart.frame.width - 270) / 2, y: (self.viewButtonsEmptyCart.frame.height - 45) / 2 - 65, width: 270, height: 45)
-            buttonSignIn.backgroundColor = buttonColor
-            buttonSignIn.setTitle("Sign in to your account", for: .normal)
-            buttonSignIn.addTarget(self, action: #selector(buttonSignIn_DidTouchUpInside), for: .touchUpInside)
-            
-            viewButtonsEmptyCart.addSubview(buttonSignIn)
+//            let buttonSignIn = UIButton()
+//            buttonSignIn.frame = CGRect(x: (self.viewButtonsEmptyCart.frame.width - 270) / 2, y: (self.viewButtonsEmptyCart.frame.height - 45) / 2 - 65, width: 270, height: 45)
+//            buttonSignIn.backgroundColor = buttonColor
+//            buttonSignIn.setTitle("Sign in to your account", for: .normal)
+//            buttonSignIn.addTarget(self, action: #selector(buttonSignIn_DidTouchUpInside), for: .touchUpInside)
+//            
+//            viewButtonsEmptyCart.addSubview(buttonSignIn)
 
         }
     }
@@ -86,7 +86,7 @@ class EmptyCartView_UIViewController: UIViewController {
     @objc func buttonContinueShopping_DidTouchUpInside(sender: UIButton!) {
         print("buttonContinueShopping_DidTouchUpInside")
         // present home tab by switching the selected vc
-        let storyboard = UIStoryboard(name: "HomeScreen", bundle: nil)
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "homeVC")
         self.parent?.tabBarController?.selectedViewController = self.parent?.tabBarController?.viewControllers![0]
     }
