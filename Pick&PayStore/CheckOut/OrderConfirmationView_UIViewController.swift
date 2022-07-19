@@ -19,7 +19,7 @@ class OrderConfirmationView_UIViewController: UIViewController {
     @IBOutlet weak var labelOrderNumber: UILabel!
     
     var orderHID = 0
-    var userID = 54322
+    var userID = LoginStatus.status.currentUser!.userID
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,7 +37,7 @@ class OrderConfirmationView_UIViewController: UIViewController {
     }
     var orderItems: [(Int, Int)] = []
     func getOrderHID(user: Int) -> Int {
-        return (OrderDBHelper.dbHelper.orderDB_CRUD_ReadOrderHeader_byUserID(userID: String(userID), isFetchingLatest: true)[0])
+        return (OrderDBHelper.dbHelper.orderDB_CRUD_ReadOrderHeader_byUserID(userID: "\(userID)", isFetchingLatest: true)[0])
     }
 }
 
