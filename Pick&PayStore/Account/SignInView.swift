@@ -23,7 +23,7 @@ struct SignInView: View {
                 .frame(width: 75, height: 75)
                 .cornerRadius(10)
                 .padding(.vertical, 30)
-            Text("Login to Access Cart & Order History")
+            Text("Login to Place an Order & Access Order History")
                 .fontWeight(.heavy)
                 .font(.system(size: 21, weight: .bold, design: .default))
                 .multilineTextAlignment(.center)
