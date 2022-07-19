@@ -465,7 +465,8 @@ class OrderDBHelper {
                                                             if sqlite3_bind_text(statement, 13, (currentDate_FormattedForSQLDB() as! NSString).utf8String, -1, nil) != SQLITE_OK {
                                                                 printSQLiteErrorMsg()
                                                             } else {
-                                                                if sqlite3_bind_text(statement, 14, ("54322" as! NSString).utf8String, -1, nil) != SQLITE_OK {
+                                                                
+                                                                if sqlite3_bind_text(statement, 14, ("\(LoginStatus.status.currentUser!.userID)" as! NSString).utf8String, -1, nil) != SQLITE_OK {
                                                                     printSQLiteErrorMsg()
                                                                 } else {
                                                                     if sqlite3_step(statement) == SQLITE_DONE {
@@ -476,15 +477,21 @@ class OrderDBHelper {
                                                                         sqlite3_finalize(statement)
                                                                         sqlite3_close(dbpointer)
                                                                         
-                                                                        let orderHID = (OrderDBHelper.dbHelper.orderDB_CRUD_ReadOrderHeader_byUserID(userID: "54322", isFetchingLatest: true)[0])
-
                                                                         
-                                                                        for item in cartDetailItems {
-                                                                            orderDB_CRUD_CreateOrderItem(ORDERH_ID: orderHID, ITEM_PRODUCTID: Int(item.productID), ITEM_CARTQTY: Int(item.cartQty))
+                                                                        let countOfOrder = OrderDBHelper.dbHelper.orderDB_CRUD_ReadOrderHeader_byUserID(userID: "\(LoginStatus.status.currentUser!.userID)", isFetchingLatest: true).count
+                                                                        if countOfOrder == 0 {
                                                                             
-                                                                            ProductsService.productsServiceInstance.updateProductStock(id: Int64(item.productID), amount: Int64(item.cartQty))
+                                                                        } else {
+                                                                            let orderHID = (OrderDBHelper.dbHelper.orderDB_CRUD_ReadOrderHeader_byUserID(userID: "\(LoginStatus.status.currentUser!.userID)", isFetchingLatest: true)[0])
+
                                                                             
-                                                                            print("Product \(item.productID)'s stock qty is reduced by: \(item.cartQty)")
+                                                                            for item in cartDetailItems {
+                                                                                orderDB_CRUD_CreateOrderItem(ORDERH_ID: orderHID, ITEM_PRODUCTID: Int(item.productID), ITEM_CARTQTY: Int(item.cartQty))
+                                                                                
+                                                                                ProductsService.productsServiceInstance.updateProductStock(id: Int64(item.productID), amount: Int64(item.cartQty))
+                                                                                
+                                                                                print("Product \(item.productID)'s stock qty is reduced by: \(item.cartQty)")
+                                                                            }
                                                                         }
                                                                         
                                                                     } else {

@@ -16,9 +16,14 @@ class UserViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if LoginStatus.status.isLoggedIn {
+//            let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
+//            let vc = storyboard.instantiateViewController(withIdentifier: "orderHistoryVC")
+//            view.addSubview(vc.view)
             let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "orderHistoryVC")
-            view.addSubview(vc.view)
+            vc.modalPresentationStyle = .fullScreen
+            vc.modalTransitionStyle = .crossDissolve
+            present(vc, animated: true)
         }
     }
     override func viewDidLoad() {

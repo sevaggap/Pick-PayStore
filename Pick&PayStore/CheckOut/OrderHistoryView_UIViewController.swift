@@ -13,7 +13,8 @@ class OrderHistoryView_UIViewController: UIViewController {
     
     var orderHistory_selectedOrderHID: Int?
     
-    var userID = 54322
+    //var userID = 54322
+    var userID = LoginStatus.status.currentUser!.userID
     var orderHeaderArr: [(
         orderHeaderID: Int,
         orderTotal: Float,
