@@ -9,11 +9,29 @@
 /* Begin PBXBuildFile section */
 		25081543288081D10028F00A /* OrderHistoryView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25081542288081D10028F00A /* OrderHistoryView_UIViewController.swift */; };
 		25081545288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25081544288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift */; };
+		250C228A2885C703005348CE /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C22892885C703005348CE /* LogInViewController.swift */; };
+		250C228C2885C73A005348CE /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C228B2885C73A005348CE /* AccountView.swift */; };
+		250C228E2885C762005348CE /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C228D2885C762005348CE /* LoginView.swift */; };
+		250C22902885C775005348CE /* SignUpView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C228F2885C775005348CE /* SignUpView2.swift */; };
+		250C22942885C78D005348CE /* otpLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C22912885C78D005348CE /* otpLogin.swift */; };
+		250C22952885C78D005348CE /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C22922885C78D005348CE /* Shopping.swift */; };
+		250C22962885C78D005348CE /* DBHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C22932885C78D005348CE /* DBHelper.swift */; };
+		250C22982885C7ED005348CE /* LoginValidate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C22972885C7EC005348CE /* LoginValidate.swift */; };
+		250C229A2885D481005348CE /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C22992885D481005348CE /* SignInViewController.swift */; };
+		250C229C2885D48B005348CE /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C229B2885D48B005348CE /* SignUpViewController.swift */; };
+		250C229E2885D844005348CE /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C229D2885D844005348CE /* AccountViewController.swift */; };
+		250C22A22885DE8F005348CE /* User.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 250C22A12885DE8F005348CE /* User.storyboard */; };
+		250C22A42885DEC7005348CE /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C22A32885DEC7005348CE /* UserViewController.swift */; };
+		250C22A62885E079005348CE /* UserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C22A52885E079005348CE /* UserView.swift */; };
+		250C22AA2885EA0E005348CE /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250C22A92885EA0E005348CE /* SignInView.swift */; };
+		251FD1E42885EC520036A61B /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 251FD1E32885EC520036A61B /* SignUpView.swift */; };
 		253052A22885A23E00DC5B29 /* UserCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253052A12885A23E00DC5B29 /* UserCartViewModel.swift */; };
 		253D87782881353C00360C71 /* OrderDetailView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D87772881353C00360C71 /* OrderDetailView_UIViewController.swift */; };
 		253D877A2881354D00360C71 /* OrderDetailView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D87792881354D00360C71 /* OrderDetailView_UITableViewCell.swift */; };
 		253D879C2881C60D00360C71 /* CartBannerView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D879B2881C60D00360C71 /* CartBannerView_UIViewController.swift */; };
 		253D879E2881C62200360C71 /* CartBannerView_UITableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 253D879D2881C62200360C71 /* CartBannerView_UITableViewCell.swift */; };
+		2540E10A288694EF00F2D59B /* KeyChainHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540E109288694EF00F2D59B /* KeyChainHelper.swift */; };
+		2540E10C2886987100F2D59B /* LoginStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2540E10B2886987100F2D59B /* LoginStatus.swift */; };
 		2553B03C287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2553B03B287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift */; };
 		2554291F28827F7D00CF3258 /* SharedServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2554291E28827F7D00CF3258 /* SharedServices.swift */; };
 		255429232882816A00CF3258 /* CartToPay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 255429222882816A00CF3258 /* CartToPay.storyboard */; };
@@ -119,11 +137,29 @@
 /* Begin PBXFileReference section */
 		25081542288081D10028F00A /* OrderHistoryView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView_UIViewController.swift; sourceTree = "<group>"; };
 		25081544288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderHistoryView_UITableViewCell.swift; sourceTree = "<group>"; };
+		250C22892885C703005348CE /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		250C228B2885C73A005348CE /* AccountView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		250C228D2885C762005348CE /* LoginView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		250C228F2885C775005348CE /* SignUpView2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpView2.swift; sourceTree = "<group>"; };
+		250C22912885C78D005348CE /* otpLogin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = otpLogin.swift; sourceTree = "<group>"; };
+		250C22922885C78D005348CE /* Shopping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
+		250C22932885C78D005348CE /* DBHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBHelper.swift; sourceTree = "<group>"; };
+		250C22972885C7EC005348CE /* LoginValidate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginValidate.swift; sourceTree = "<group>"; };
+		250C22992885D481005348CE /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		250C229B2885D48B005348CE /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		250C229D2885D844005348CE /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		250C22A12885DE8F005348CE /* User.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = User.storyboard; sourceTree = "<group>"; };
+		250C22A32885DEC7005348CE /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		250C22A52885E079005348CE /* UserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserView.swift; sourceTree = "<group>"; };
+		250C22A92885EA0E005348CE /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		251FD1E32885EC520036A61B /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		253052A12885A23E00DC5B29 /* UserCartViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserCartViewModel.swift; sourceTree = "<group>"; };
 		253D87772881353C00360C71 /* OrderDetailView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView_UIViewController.swift; sourceTree = "<group>"; };
 		253D87792881354D00360C71 /* OrderDetailView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailView_UITableViewCell.swift; sourceTree = "<group>"; };
 		253D879B2881C60D00360C71 /* CartBannerView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartBannerView_UIViewController.swift; sourceTree = "<group>"; };
 		253D879D2881C62200360C71 /* CartBannerView_UITableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartBannerView_UITableViewCell.swift; sourceTree = "<group>"; };
+		2540E109288694EF00F2D59B /* KeyChainHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyChainHelper.swift; sourceTree = "<group>"; };
+		2540E10B2886987100F2D59B /* LoginStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginStatus.swift; sourceTree = "<group>"; };
 		2553B03B287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreditCardInfoView_UIViewController.swift; sourceTree = "<group>"; };
 		2554291E28827F7D00CF3258 /* SharedServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedServices.swift; sourceTree = "<group>"; };
 		255429222882816A00CF3258 /* CartToPay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CartToPay.storyboard; sourceTree = "<group>"; };
@@ -238,6 +274,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		250C22882885C6AD005348CE /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				944DB06C287247D500FDDE4C /* Account.storyboard */,
+				250C22A12885DE8F005348CE /* User.storyboard */,
+				250C22A52885E079005348CE /* UserView.swift */,
+				2540E10B2886987100F2D59B /* LoginStatus.swift */,
+				250C22A92885EA0E005348CE /* SignInView.swift */,
+				251FD1E32885EC520036A61B /* SignUpView.swift */,
+				2540E109288694EF00F2D59B /* KeyChainHelper.swift */,
+				250C22A32885DEC7005348CE /* UserViewController.swift */,
+				250C229D2885D844005348CE /* AccountViewController.swift */,
+				250C22892885C703005348CE /* LogInViewController.swift */,
+				250C22992885D481005348CE /* SignInViewController.swift */,
+				250C229B2885D48B005348CE /* SignUpViewController.swift */,
+				250C228B2885C73A005348CE /* AccountView.swift */,
+				250C228D2885C762005348CE /* LoginView.swift */,
+				250C228F2885C775005348CE /* SignUpView2.swift */,
+				250C22972885C7EC005348CE /* LoginValidate.swift */,
+				250C22932885C78D005348CE /* DBHelper.swift */,
+				250C22912885C78D005348CE /* otpLogin.swift */,
+				250C22922885C78D005348CE /* Shopping.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
 		2554291628827E0100CF3258 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -376,6 +438,7 @@
 		94CF0B3D286B44420093D0F4 /* Pick&PayStore */ = {
 			isa = PBXGroup;
 			children = (
+				250C22882885C6AD005348CE /* Account */,
 				94DA7F2C2880754C006C9381 /* Products */,
 				258A8F6E2877297500A91621 /* CheckOut */,
 				EBAF571228773BF5009D411D /* Home Screen */,
@@ -462,7 +525,6 @@
 				944DB0682872357900FDDE4C /* UITestViewController.swift */,
 				944DB06A2872370F00FDDE4C /* UITestTableViewCell.swift */,
 				94E9E3B2286B936400B3CD2F /* UITest.storyboard */,
-				944DB06C287247D500FDDE4C /* Account.storyboard */,
 				94BAB424287E208A0068DA97 /* CheckOutTestViewController.swift */,
 				94BAB426287E21CD0068DA97 /* CheckOutTableViewCell.swift */,
 			);
@@ -611,6 +673,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				255429232882816A00CF3258 /* CartToPay.storyboard in Resources */,
+				250C22A22885DE8F005348CE /* User.storyboard in Resources */,
 				258A8F7428772DBA00A91621 /* CheckOut.storyboard in Resources */,
 				94CF0B4E286B44460093D0F4 /* LaunchScreen.storyboard in Resources */,
 				94CF0B4B286B44460093D0F4 /* Assets.xcassets in Resources */,
@@ -649,8 +712,10 @@
 				258FD81528789A0700BFD7A2 /* OrderConfirmationView_UITableViewCell.swift in Sources */,
 				25A06BBE2884D98B00419908 /* CarouselCollectionViewCell.swift in Sources */,
 				94E9E3AD286B92C500B3CD2F /* CustomUIView.swift in Sources */,
+				250C228C2885C73A005348CE /* AccountView.swift in Sources */,
 				25AF154B287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift in Sources */,
 				253052A22885A23E00DC5B29 /* UserCartViewModel.swift in Sources */,
+				250C22942885C78D005348CE /* otpLogin.swift in Sources */,
 				25AF154B287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift in Sources */,
 				94DA7F3E28807751006C9381 /* SingleProductViewController.swift in Sources */,
 				2556F7972877306400312919 /* ShoppingCartView_UIViewController.swift in Sources */,
@@ -660,19 +725,29 @@
 				25A06BC428850F5000419908 /* HomeCarouselCollectionViewCell.swift in Sources */,
 				2556F79B287731C000312919 /* PaymentMethodView_UIViewController.swift in Sources */,
 				25081545288090DF0028F00A /* OrderHistoryView_UITableViewCell.swift in Sources */,
+				250C22952885C78D005348CE /* Shopping.swift in Sources */,
 				253D879C2881C60D00360C71 /* CartBannerView_UIViewController.swift in Sources */,
 				EBAF571D28773EBF009D411D /* CategoryCollectionViewCell.swift in Sources */,
+				250C229C2885D48B005348CE /* SignUpViewController.swift in Sources */,
 				94DA7F33288075CF006C9381 /* ProductPageViewModel.swift in Sources */,
 				94F83DC5286E31AC001DAEA2 /* Product+CoreDataProperties.swift in Sources */,
 				2553B03C287DF95C0015F5FB /* CreditCardInfoView_UIViewController.swift in Sources */,
+				250C229E2885D844005348CE /* AccountViewController.swift in Sources */,
+				250C22A62885E079005348CE /* UserView.swift in Sources */,
 				94BAB425287E208A0068DA97 /* CheckOutTestViewController.swift in Sources */,
+				250C22A42885DEC7005348CE /* UserViewController.swift in Sources */,
+				250C22AA2885EA0E005348CE /* SignInView.swift in Sources */,
 				94F83DC4286E31AC001DAEA2 /* Product+CoreDataClass.swift in Sources */,
 				25551CBC2885413F001C6F8B /* TenderTypeTableViewCell.swift in Sources */,
 				94DA7F31288075C5006C9381 /* CategoryPageViewModel.swift in Sources */,
 				2554292B2882FEFE00CF3258 /* EmptyCartViewController.swift in Sources */,
 				94198883287DCD090011238A /* CartService.swift in Sources */,
+				2540E10A288694EF00F2D59B /* KeyChainHelper.swift in Sources */,
+				250C228A2885C703005348CE /* LogInViewController.swift in Sources */,
 				94BAB427287E21CD0068DA97 /* CheckOutTableViewCell.swift in Sources */,
+				250C22962885C78D005348CE /* DBHelper.swift in Sources */,
 				253D877A2881354D00360C71 /* OrderDetailView_UITableViewCell.swift in Sources */,
+				251FD1E42885EC520036A61B /* SignUpView.swift in Sources */,
 				9419887D287DC1CE0011238A /* ReviewService.swift in Sources */,
 				944DB0692872357900FDDE4C /* UITestViewController.swift in Sources */,
 				94E9E3AF286B92DF00B3CD2F /* CustomUIButton.swift in Sources */,
@@ -682,6 +757,7 @@
 				EBAF5711287732E9009D411D /* CategoryDBHelper.swift in Sources */,
 				9419887B287DBCC80011238A /* ReviewDBHelper.swift in Sources */,
 				94F83DD3286E3423001DAEA2 /* Category+CoreDataProperties.swift in Sources */,
+				250C229A2885D481005348CE /* SignInViewController.swift in Sources */,
 				94808AF12880A0C000B61CCD /* ReviewViewModel.swift in Sources */,
 				EBAF570D2877324F009D411D /* HomeCategoryViewModel.swift in Sources */,
 				944DB0672872340F00FDDE4C /* ProductsService.swift in Sources */,
@@ -692,6 +768,7 @@
 				25551CBE2885414F001C6F8B /* TenderTypeViewController.swift in Sources */,
 				94DA7F4028807AA2006C9381 /* ProductCategoryCollectionViewCell.swift in Sources */,
 				2556F79D287731F100312919 /* PaymentMethodView_UITableViewCell.swift in Sources */,
+				250C22902885C775005348CE /* SignUpView2.swift in Sources */,
 				2556F79F2877326600312919 /* OrderView_UIViewController.swift in Sources */,
 				94F83DD2286E3423001DAEA2 /* Category+CoreDataClass.swift in Sources */,
 				EBAF570F287732D2009D411D /* CategoryService.swift in Sources */,
@@ -702,12 +779,14 @@
 				944DB065287233E400FDDE4C /* TestProductsViewModel.swift in Sources */,
 				2596EBE128859398006E65A2 /* OrderModel.swift in Sources */,
 				2554291F28827F7D00CF3258 /* SharedServices.swift in Sources */,
+				2540E10C2886987100F2D59B /* LoginStatus.swift in Sources */,
 				2554292D288334F800CF3258 /* UserCartTableViewCell.swift in Sources */,
 				94CF0B49286B44420093D0F4 /* Pick_PayStore.xcdatamodeld in Sources */,
 				253D879E2881C62200360C71 /* CartBannerView_UITableViewCell.swift in Sources */,
 				94F83DCB286E31ED001DAEA2 /* Cart+CoreDataProperties.swift in Sources */,
 				2556F7992877317C00312919 /* ShoppingCartView_UITableViewCell.swift in Sources */,
 				25A06BC228850F4100419908 /* HomeCarouselViewController.swift in Sources */,
+				250C22982885C7ED005348CE /* LoginValidate.swift in Sources */,
 				2556F7A12877327E00312919 /* OrderView_UITableViewCellShipping.swift in Sources */,
 				253D87782881353C00360C71 /* OrderDetailView_UIViewController.swift in Sources */,
 				94DA7F37288076AA006C9381 /* ProductsListTableViewCell.swift in Sources */,
@@ -721,6 +800,7 @@
 				25551CB828853BEC001C6F8B /* TenderTypeViewModel.swift in Sources */,
 				94E9E3B1286B92EE00B3CD2F /* CustomUILabel.swift in Sources */,
 				25551CB628853AF8001C6F8B /* TenderTypeModel.swift in Sources */,
+				250C228E2885C762005348CE /* LoginView.swift in Sources */,
 				94198881287DCCFE0011238A /* CartDBHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -50,4 +50,34 @@ class SharedServices {
      let y = Double(round(1000*x)/1000)
      print(y)  // 1.236
      */
+    
+    func alertMessage(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAction = UIAlertAction(title: "OK", style: .default) { (action: UIAlertAction) in
+        }
+        alertController.addAction(okAction)
+        
+        let viewController = UIApplication.shared.windows.first!.rootViewController!
+        viewController.present(alertController, animated: true, completion: nil)
+    }
+    
+    func currentDate_FormattedForDB() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "EST")
+        dateFormatter.dateFormat = "yyyyMMddHHmmss"
+        return dateFormatter.string(from: Date())
+    }
+}
+
+
+extension String {
+
+  var isValidEmail: Bool {
+    let name = "[A-Z0-9a-z]([A-Z0-9a-z._%+-]{0,30}[A-Z0-9a-z])?"
+    let domain = "([A-Z0-9a-z]([A-Z0-9a-z-]{0,30}[A-Z0-9a-z])?\\.){1,5}"
+    let emailRegEx = name + "@" + domain + "[A-Za-z]{2,8}"
+    let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
+    return emailPredicate.evaluate(with: self)
+  }
+
 }

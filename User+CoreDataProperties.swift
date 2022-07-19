@@ -2,7 +2,7 @@
 //  User+CoreDataProperties.swift
 //  Pick&PayStore
 //
-//  Created by Sevag Gaprielian on 2022-07-13.
+//  Created by Xavier on 7/18/22.
 //
 //
 
@@ -20,6 +20,8 @@ extension User {
     @NSManaged public var firstName: String?
     @NSManaged public var lastName: String?
     @NSManaged public var password: String?
+    @NSManaged public var verifyPassword: String?
+    @NSManaged public var userID: Int64
 
 }
 

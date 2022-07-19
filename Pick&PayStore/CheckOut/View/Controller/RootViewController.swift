@@ -9,7 +9,7 @@ import UIKit
 
 class RootViewController: UIViewController {
     
-    var userDidLogIn: Bool = true
+    var userDidLogIn: Bool = false
     var cartIsEmpty: Bool = true
     
     //MARK: PART 1 - Referencing Outlets for the Container Views
@@ -19,8 +19,9 @@ class RootViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         
-        //FIXME: GET USER LOGIN STATUS
+        
         //MARK: PART 2 - GET LOGIN & CART STATUS
+        userDidLogIn = LoginStatus.status.isLoggedIn
         
         let cart = CartService.cartServiceInstance.getCart()
         cartIsEmpty = cart.items?.count == 0

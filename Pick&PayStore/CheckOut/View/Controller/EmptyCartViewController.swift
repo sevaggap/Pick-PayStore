@@ -11,7 +11,7 @@ class EmptyCartViewController: UIViewController {
 
     @IBAction func buttonContinueShopping(_ sender: Any) {
         // present home tab by switching the selected vc
-        let storyboard = UIStoryboard(name: "HomeScreen", bundle: nil)
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
         let vc = storyboard.instantiateViewController(withIdentifier: "homeVC")
         self.parent?.tabBarController?.selectedViewController = self.parent?.tabBarController?.viewControllers![0]
     }

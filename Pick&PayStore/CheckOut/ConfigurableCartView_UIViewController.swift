@@ -8,14 +8,19 @@
 import UIKit
 
 class ConfigurableCartView_UIViewController: UIViewController {
-    //var cartIsEmpty: Bool = false
+    
+    var userDidLogedIn: Bool = false
+    
     static var configurator = ConfigurableCartView_UIViewController()
     @IBOutlet weak var cartContainerView: UIView!
     @IBOutlet weak var emptyCartContainerView: UIView!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        userDidLogedIn = LoginStatus.status.isLoggedIn
+        if userDidLogedIn {
+            self.parent?.tabBarController?.selectedViewController = self.parent?.tabBarController?.viewControllers![0]
+        }
         configContainerViews()
     }
     override func viewDidLoad() {
