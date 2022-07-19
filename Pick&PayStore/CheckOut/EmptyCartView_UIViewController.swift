@@ -85,6 +85,10 @@ class EmptyCartView_UIViewController: UIViewController {
     // TODO: UPDATE BUTTON EVENTS
     @objc func buttonContinueShopping_DidTouchUpInside(sender: UIButton!) {
         print("buttonContinueShopping_DidTouchUpInside")
+        // present home tab by switching the selected vc
+        let storyboard = UIStoryboard(name: "HomeScreen", bundle: nil)
+        let vc = storyboard.instantiateViewController(withIdentifier: "homeVC")
+        self.parent?.tabBarController?.selectedViewController = self.parent?.tabBarController?.viewControllers![0]
     }
     
     @objc func buttonSignIn_DidTouchUpInside(sender: UIButton!) {
