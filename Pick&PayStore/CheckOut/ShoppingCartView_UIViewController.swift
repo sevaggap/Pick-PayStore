@@ -23,7 +23,16 @@ class ShoppingCartView_UIViewController: UIViewController {
     
     @IBOutlet weak var tableViewCartDetail: UITableView!
     @IBAction func buttonProceedToCheckOut(_ sender: Any) {
-        buttonProceedToCheckOut_DidTouchUpInside()
+        
+        if LoginStatus.status.isLoggedIn {
+            let storyboard = UIStoryboard(name: "CheckOut", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "paymentMethodVC")
+            
+            navigationController?.pushViewController(vc, animated: false)
+        } else {
+            SharedServices.service.alertMessage(title: "You're not signed in yet.", message: "Please sign in first to place an order.")
+        }
+        
     }
     @IBOutlet weak var buttonProceedToCheckOut: UIButton!
     @IBOutlet weak var labelFreeShipping: UILabel!

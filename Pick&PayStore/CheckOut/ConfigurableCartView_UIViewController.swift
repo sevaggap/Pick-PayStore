@@ -18,9 +18,7 @@ class ConfigurableCartView_UIViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         userDidLogedIn = LoginStatus.status.isLoggedIn
-        if userDidLogedIn {
-            self.parent?.tabBarController?.selectedViewController = self.parent?.tabBarController?.viewControllers![0]
-        }
+
         configContainerViews()
     }
     override func viewDidLoad() {
@@ -47,6 +45,7 @@ class ConfigurableCartView_UIViewController: UIViewController {
     }
     
     func configContainerViews() {
+
         view.addSubview(cartContainerView)
         view.addSubview(emptyCartContainerView)
         if cartIsEmpty() {

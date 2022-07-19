@@ -91,7 +91,7 @@
                                 </connections>
                             </containerView>
                             <containerView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="STW-ax-cO5">
-                                <rect key="frame" x="20" y="601" width="374" height="153"/>
+                                <rect key="frame" x="20" y="377" width="374" height="377"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -447,7 +447,7 @@ Number:</string>
             <objects>
                 <viewController storyboardIdentifier="emptyCartVC" id="Bsg-8b-7ze" userLabel="Empty Cart" customClass="EmptyCartView_UIViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="F4O-CI-NCb">
-                        <rect key="frame" x="0.0" y="0.0" width="374" height="153"/>
+                        <rect key="frame" x="0.0" y="0.0" width="374" height="377"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Your Pick&amp;Pay Cart is empty" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lt8-xg-73J">
@@ -751,7 +751,6 @@ Simple, fast and secure.</string>
                                         </buttonConfiguration>
                                         <connections>
                                             <action selector="buttonProceedToCheckOut:" destination="XsU-Tz-nzc" eventType="touchUpInside" id="4L6-QP-hkP"/>
-                                            <segue destination="oAm-vf-UMI" kind="show" animates="NO" id="FI6-Tp-87p"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*$3,399.98" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5sK-kB-VX8">
@@ -994,7 +993,7 @@ Simple, fast and secure.</string>
             <objects>
                 <viewController storyboardIdentifier="orderVC" id="riJ-Mb-NUT" customClass="OrderView_UIViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="kHb-5e-d4a">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZj-rG-NQA">
@@ -1515,7 +1514,7 @@ Simple, fast and secure.</string>
             <objects>
                 <viewController storyboardIdentifier="ccVC" id="R2w-5j-fHX" customClass="CreditCardInfoView_UIViewController" customModule="Pick_PayStore" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="2F8-Kj-Q6B">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Recipient Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lDt-ce-Krv">

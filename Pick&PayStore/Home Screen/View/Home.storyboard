@@ -176,7 +176,7 @@
                                                                                                             <color key="baseBackgroundColor" name="lightBlue"/>
                                                                                                         </buttonConfiguration>
                                                                                                         <connections>
-                                                                                                            <segue destination="6fQ-80-v5T" kind="show" id="6v0-4B-gQK"/>
+                                                                                                            <action selector="buttonOrderHistory:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IT1-Wz-apH"/>
                                                                                                         </connections>
                                                                                                     </button>
                                                                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Orders History" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j8C-hk-wcs">
