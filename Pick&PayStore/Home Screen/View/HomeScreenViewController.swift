@@ -9,6 +9,13 @@ import UIKit
 
 class HomeScreenViewController: UIViewController {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    static var searchResults = [NSNumber]()
+    
+    var categoryData = [Category]()
+    
+    static var searchHistory = [SearchHistory]()
     
     @IBAction func buttonOrderHistory(_ sender: Any) {
         if LoginStatus.status.isLoggedIn {
@@ -23,9 +30,7 @@ class HomeScreenViewController: UIViewController {
     //@IBOutlet weak var bannerCollectionView: UICollectionView!
     //@IBOutlet weak var bannerPageControl: UIPageControl!
     @IBOutlet weak var selectLocationButton: UIButton!
-    
-    var categoryData = [Category]()
-    
+        
 //    var bannerImage = [HomeBannerViewModel]()
 
     override func viewDidLoad() {
@@ -51,13 +56,18 @@ class HomeScreenViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         UITestViewController.productIds = []
+        HomeScreenViewController.searchHistory = SearchHistoryDBHelper.searchHistoryDBHelper.getSearchHistory()
     }
     
     
     @IBAction func searchHistoryButtonPressed(_ sender: Any) {
-        print("searchHistoryButtonPressed")
         
+        let storyboard = UIStoryboard(name: "Home", bundle: nil)
+        let searchHistoryVC = storyboard.instantiateViewController(withIdentifier: "searchHistoryVC")
+    
+        self.present(searchHistoryVC, animated: true)
     }
+    
     @IBAction func selectLocationButtonPressed(_ sender: Any) {
     }
     
@@ -98,3 +108,31 @@ extension HomeScreenViewController: UICollectionViewDelegate,
         self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![3]
     }
 }
+
+extension HomeScreenViewController : UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        HomeScreenViewController.searchResults.removeAll()
+        var products : [Product] = ProductsService.productsServiceInstance.getData()
+        
+        for product in products{
+            if product.name!.lowercased().contains(searchText.lowercased()) {
+                HomeScreenViewController.searchResults.append(NSNumber(value: product.id))
+            }
+        }
+        
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        SearchHistoryDBHelper.searchHistoryDBHelper.addSearchTerm(name: searchBar.text!)
+        ProductListViewController.productIds = HomeScreenViewController.searchResults
+        ProductListViewController.categoryId = 0
+        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![3]
+        
+    }
+    
+}
+
+
+
