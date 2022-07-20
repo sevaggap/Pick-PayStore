@@ -11,6 +11,7 @@ import UserNotifications
 
 struct SignUpView: View {
     
+    let lightBlueView = UIColor(red: 153 / 225, green: 214 / 255, blue: 234 / 255, alpha: 1.0)
     
     @State var firstName: String = ""
     @State var lastName: String = ""
@@ -25,99 +26,92 @@ struct SignUpView: View {
     @State private var alertMsg: String = ""
     
     var body: some View {
-        VStack {
-            VStack {
+        ZStack {
+            LinearGradient(colors: [Color(lightBlueView), .white, .white], startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+            VStack(spacing: 4) {
                 Image("people")
+                    .renderingMode(.original)
                     .resizable()
-                    .scaledToFit()
-                    .frame(width: 200, height: 200)
-                    .cornerRadius(10)
-                    .padding(.vertical, 30)
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 120, height: 120)
+                
+                Text("Sign Up")
+                    .font(.system(size: 35, weight: .bold, design: .default))
                 Text("Join the Pick n' Pay Community")
-                    .fontWeight(.heavy)
-                    .font(.system(size: 21, weight: .bold, design: .default))
-                    .multilineTextAlignment(.center)
-            }
-            
-            VStack {
-                HStack {
-                    Spacer()
-                    TextField("First Name", text: $firstName)
-                        .overlay(RoundedRectangle(cornerRadius: 7).stroke(Color.gray, lineWidth: 1))
-                    Spacer()
+                    .font(.system(size: 17, weight: .semibold, design: .default))
+                    .padding(.top)
+                VStack {
+                    TextField("  First Name", text: $firstName)
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .frame(width: 340, height: 30, alignment: .center)
+                        .border(.gray, width: 2)
+                        .cornerRadius(5)
+                        
+                    TextField("  Last Name", text: $lastName)
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .frame(width: 340, height: 30, alignment: .center)
+                        .border(.gray, width: 2)
+                        .cornerRadius(5)
+                        
+                    TextField("  Email", text: $email)
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .frame(width: 340, height: 30, alignment: .center)
+                        .border(.gray, width: 2)
+                        .cornerRadius(5)
+                        
+                    TextField("  Password (Not required for OTP)", text: $password)
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .frame(width: 340, height: 30, alignment: .center)
+                        .border(.gray, width: 2)
+                        .cornerRadius(5)
+                        
+                    TextField("  Re-Enter your Password (Not required for OTP)", text: $passwordConfirm)
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .frame(width: 340, height: 30, alignment: .center)
+                        .border(.gray, width: 2)
+                        .cornerRadius(5)
                 }
-                HStack {
-                    Spacer()
-                    TextField("Last Name", text: $lastName)
-                        .overlay(RoundedRectangle(cornerRadius: 7).stroke(Color.gray, lineWidth: 1))
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    TextField("Email", text: $email)
-                        .overlay(RoundedRectangle(cornerRadius: 7).stroke(Color.gray, lineWidth: 1))
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    TextField("Password (Not required for OTP)", text: $password)
-                        .overlay(RoundedRectangle(cornerRadius: 7).stroke(Color.gray, lineWidth: 1))
-                    Spacer()
-                }
-                HStack {
-                    Spacer()
-                    TextField("Re-Enter your Password (Not required for OTP)", text: $passwordConfirm)
-                        .overlay(RoundedRectangle(cornerRadius: 7).stroke(Color.gray, lineWidth: 1))
-                    Spacer()
-                }
-            }
-            
-            VStack {
-                
-                
-                Button("Sign up") {
-                    
-                    if inputValidation() {
-                        if regexValidation(fname: firstName, lname: lastName, email: email, password: password, password2: passwordConfirm) {
-                            if credentialValidtion(email: email) {
-                                createUser()
-                            } else {
-                                alertExistingUser()
+                .padding()
+                VStack {
+                    Button("Sign up") {
+                        if inputValidation() {
+                            if regexValidation(fname: firstName, lname: lastName, email: email, password: password, password2: passwordConfirm) {
+                                if credentialValidtion(email: email) {
+                                    createUser()
+                                } else {
+                                    alertExistingUser()
+                                }
                             }
                         }
                     }
-                    
-                }
-                .font(.system(size: 18, weight: .bold, design: .default))
-                .frame(width: 240, height: 49, alignment: .center)
-                .foregroundColor(.white)
-                .background(Color.yellow)
-                .cornerRadius(15)
-                
-                Text("Don't want to remember another password?")
-                Text("Sign up with a One-Time Password (OTP) instead!")
-
-                Button("Sign up with OTP") {
-                    print("Pressed signup with OTP")
-                    myPrint()
-                    if inputValidadtionOTP() {
-                        if regexValidationOTP(fname: firstName, lname: lastName, email: email) {
-                            if credentialValidtion(email: email) {
-                                processOTP()
-                            } else {
-                                alertExistingUser()
+                    .frame(width: 200, height: 40, alignment: .center)
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20, weight: .bold, design: .default))
+                    .cornerRadius(10)
+                    Text("Don't want to remember another password?")
+                    Text("Sign up with a One-Time Password (OTP) instead!")
+                    Button("Sign up with OTP") {
+                        print("Pressed signup with OTP")
+                        myPrint()
+                        if inputValidadtionOTP() {
+                            if regexValidationOTP(fname: firstName, lname: lastName, email: email) {
+                                if credentialValidtion(email: email) {
+                                    processOTP()
+                                } else {
+                                    alertExistingUser()
+                                }
                             }
                         }
                     }
+                    .frame(width: 200, height: 40, alignment: .center)
+                    .background(.orange)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20, weight: .bold, design: .default))
+                    .cornerRadius(10)
                 }
-                .font(.system(size: 18, weight: .bold, design: .default))
-                .frame(width: 240, height: 49, alignment: .center)
-                .foregroundColor(.white)
-                .background(Color.blue)
-                .cornerRadius(15)
-
             }
-            
         }
         .offset(y: -150)
     }
@@ -133,7 +127,7 @@ extension UserViewController : UNUserNotificationCenterDelegate {
 
 
 extension SignUpView {
-
+    
     
     func processOTP() {
         sendNotification()
@@ -154,7 +148,7 @@ extension SignUpView {
             self.confirmOTP(userOTP: Int(inputedOTP)!)
             
         })
-
+        
         let cancel =  UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         
         alert.addTextField { field in
@@ -169,7 +163,7 @@ extension SignUpView {
     }
     
     func confirmOTP(userOTP : Int) {
-                
+        
         if(userOTP == OTP!){
             createUserOTP()
             
@@ -182,9 +176,9 @@ extension SignUpView {
             
             let viewController = UIApplication.shared.windows.first!.rootViewController!
             viewController.present(wrongOTPAlert, animated: true, completion: nil)
-
+            
         }
-      
+        
     }
     
     func myPrint() {
@@ -229,7 +223,7 @@ extension SignUpView {
             }
         })
     }
-
+    
     func createUserOTP() {
         print("Create new user")
         DBHelper.dbHelper.saveData(first_Name: firstName, last_Name: lastName, e_email: email, p_password: "", v_verifyPassword: password)

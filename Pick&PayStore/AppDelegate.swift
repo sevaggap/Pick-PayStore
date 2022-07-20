@@ -15,6 +15,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let userDefault = UserDefaults.standard
+        print(userDefault.string(forKey: "lastUser"))
+        print(userDefault.bool(forKey: "lastUserSwitchedOnRememberMe"))
+        print(userDefault.bool(forKey: "lastUserSwitchedOnKeepLogin"))
+        if userDefault.bool(forKey: "lastUserSwitchedOnKeepLogin") {
+            LoginStatus.status.currentUser = DBHelper.dbHelper.getData(email: userDefault.string(forKey: "lastUser")!)!
+            LoginStatus.status.isLoggedIn = true
+        }
         return true
     }
 

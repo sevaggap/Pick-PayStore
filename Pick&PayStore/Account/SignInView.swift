@@ -8,72 +8,97 @@
 import SwiftUI
 
 struct SignInView: View {
+    
+    let lightBlueView = UIColor(red: 153 / 225, green: 214 / 255, blue: 234 / 255, alpha: 1.0)
+    
+    
     @State var email: String = ""
     @State var password: String = ""
     @State var rememberMe: Bool = true
+    @State var keepSession: Bool = true
     
     @State var OTP: Int?
     
     var body: some View {
-        
-        VStack {
-            Image("login")
-                .resizable()
-                .scaledToFit()
-                .frame(width: 75, height: 75)
-                .cornerRadius(10)
-                .padding(.vertical, 30)
-            Text("Login to Place an Order & Access Order History")
-                .fontWeight(.heavy)
-                .font(.system(size: 21, weight: .bold, design: .default))
-                .multilineTextAlignment(.center)
-                .lineLimit(2)
-            
-            HStack {
-                Spacer()
+        ZStack {
+            LinearGradient(colors: [Color(lightBlueView), .white, .white], startPoint: .top, endPoint: .bottom)
+                .edgesIgnoringSafeArea(.all)
+            VStack(spacing: 4) {
                 VStack {
-                    TextField("Email", text: $email)
-                        .padding()
-                    TextField("Password (Not required for OTP)", text: $password)
-                        .padding()
+                    Image("login")
+                        .renderingMode(.original)
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: 120, height: 120)
+                    Text("Sign In")
+                        .font(.system(size: 35, weight: .bold, design: .default))
+                    Text("To place an order & access order history")
+                        .font(.system(size: 17, weight: .semibold, design: .default))
+                        .padding(.top)
                 }
-                Spacer()
-            }
-            
-            HStack {
-                Spacer()
-                Toggle("Remember Me", isOn: $rememberMe)
-                    .padding()
-                Spacer()
-            }
-            
-            Button("Login") {
-                print("Pressed signin")
-                login()
-            }
-            .padding()
-            Text("Want a faster way to login?")
-                .fontWeight(.semibold)
-                .lineLimit(2)
-                .minimumScaleFactor(0.5)
+                
+                VStack{
+
+                    TextField("  Email", text: $email)
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .frame(width: 340, height: 30, alignment: .center)
+                        .border(.gray, width: 2)
+                        .cornerRadius(5)
+                    SecureField("  Password (Not required for OTP)", text: $password)
+                        .font(.system(size: 14, weight: .medium, design: .default))
+                        .frame(width: 340, height: 30, alignment: .center)
+                        .border(.gray, width: 2)
+                        .cornerRadius(5)
+                }
                 .padding()
-            Button("Login with OTP") {
-                print("Pressed signin with OTP")
-                loginOTP()
+                
+                VStack{
+                    Toggle("Save my password", isOn: $rememberMe)
+                        .frame(width: 210, height: 40, alignment: .center)
+                    Toggle("Keep me logged in", isOn: $keepSession)
+                        .frame(width: 210, height: 40, alignment: .center)
+                }
+                .padding()
+                
+                VStack {
+                    Button("Login") {
+                        print("Pressed signin")
+                        login()
+                    }
+                    .frame(width: 200, height: 40, alignment: .center)
+                    .background(.blue)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20, weight: .bold, design: .default))
+                    .cornerRadius(10)
+
+                    
+                    Text("Want a faster way to login?")
+                    
+                    Button("Login with OTP") {
+                        print("Pressed signin with OTP")
+                        loginOTP()
+                    }
+                    .frame(width: 200, height: 40, alignment: .center)
+                    .background(.orange)
+                    .foregroundColor(.white)
+                    .font(.system(size: 20, weight: .bold, design: .default))
+                    .cornerRadius(10)
+                }
             }
-            .padding()
+            .offset(y: -150)
+            .onAppear(perform: {
+                print("viewDidLoad")
+                populateCredentials()
+            })
         }
-        .offset(y: -150)
-        .onAppear(perform: {
-            print("viewDidLoad")
-            populateCredentials()
-        })
     }
 }
 
 struct SignInView_Previews: PreviewProvider {
     static var previews: some View {
-        SignInView()
+        Group {
+            SignInView()
+        }
     }
 }
 
@@ -262,12 +287,18 @@ extension SignInView {
     func loginComplete() {
         print("loginComplete")
         //update User default
+        if keepSession {
+            rememberMe = true
+        }
         let userDefault = UserDefaults.standard
         userDefault.set(email, forKey: "lastUser")
         userDefault.set(rememberMe, forKey: "lastUserSwitchedOnRememberMe")
+        userDefault.set(keepSession, forKey: "lastUserSwitchedOnKeepLogin")
         print(userDefault.string(forKey: "lastUser"))
         print(userDefault.bool(forKey: "lastUserSwitchedOnRememberMe"))
+        print(userDefault.bool(forKey: "lastUserSwitchedOnKeepLogin"))
         // - remember me
+        
         if rememberMe {
             print("Remember me is on. Processing")
             saveKeyChain(theSwitch: rememberMe, email: email, password: password)
@@ -275,6 +306,7 @@ extension SignInView {
         // - update logged in status & current user
         LoginStatus.status.isLoggedIn = true
         LoginStatus.status.currentUser = DBHelper.dbHelper.getData(email: email)
+        
         // - present loggedin page
         
         //FIXME: present loggedin page

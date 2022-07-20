@@ -8,96 +8,81 @@
 import SwiftUI
 
 struct UserView: View {
+    //184222236
+    let lightBlueApp = UIColor(named: "lightBlue")!.cgColor
+    
+    let lightBlueView = UIColor(red: 153 / 225, green: 214 / 255, blue: 234 / 255, alpha: 1.0)
     
     var body: some View {
-
-        ZStack {
-            
-            NavigationView {
+        NavigationView {
+            ZStack {
+                LinearGradient(colors: [Color(lightBlueView), .white, .white], startPoint: .top, endPoint: .bottom)
+                    .edgesIgnoringSafeArea(.all)
                 VStack {
-                    Text("Taking advantage of Pick n' Pay perks is just a step away!")
-                        .fontWeight(.heavy)
-                        .font(.system(size: 21, weight: .bold, design: .default))
-                        .multilineTextAlignment(.center)
-                    
-                    NavigationLink(destination: SignUpView()) {
-                        Text("Sign Up")
-                            .font(.system(size: 18, weight: .bold, design: .default))
-                            .frame(width: 240, height: 49, alignment: .center)
-                            .foregroundColor(.white)
-                            .background(Color.blue)
-                            .cornerRadius(15)
-                    }
-                    
-                    NavigationLink(destination: SignInView()) {
-                        Text("Sign In")
-                            .font(.system(size: 18, weight: .bold, design: .default))
-                            .frame(width: 240, height: 49, alignment: .center)
-                            .foregroundColor(.white)
-                            .background(Color.yellow)
-                            .cornerRadius(15)
-                    }
-                    
+                    Spacer()
+                        .frame(width: 150, height: 80, alignment: .center)
                     VStack {
-                        HStack {
-                            
-                            Image("open-box")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 75, height: 75)
-                                .cornerRadius(10)
-                                .padding(.vertical, 30)
-                            Text("Check order status and track, change, or return items.")
-                                .fontWeight(.semibold)
-                                .lineLimit(2)
-                                .minimumScaleFactor(0.5)
-                                .padding()
-                            
-                        }
-                        HStack {
-                            
-                            Image("online-shopping")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 75, height: 75)
-                                .cornerRadius(10)
-                                .padding(.vertical, 30)
-                            Text("Shop past purchases and everyday essentials.")
-                                .fontWeight(.semibold)
-                                .lineLimit(2)
-                                .minimumScaleFactor(0.5)
-                                .padding()
-                            
-                        }
-                        HStack {
-                            Image("list")
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 75, height: 75)
-                                .cornerRadius(10)
-                                .padding(.vertical, 30)
-                            Text("Create lists with items you want, now or later")
-                                .fontWeight(.semibold)
-                                .lineLimit(2)
-                                .minimumScaleFactor(0.5)
-                                .padding()
-                        }
+                        Text("Taking advantage of Pick n' Pay perks is just a step away!")
+                            .font(.system(size: 21, weight: .bold, design: .default))
+                            .frame(width: 350, height: 100, alignment: .center)
+                            .multilineTextAlignment(.center)
+                            .padding(15)
                         
+                        NavigationLink(destination: SignUpView()) {
+                            Text("Sign Up")
+                                .frame(width: 200, height: 40, alignment: .center)
+                                .background(.blue)
+                                .foregroundColor(.white)
+                                .font(.system(size: 20, weight: .bold, design: .default))
+                                .cornerRadius(10)
+                                .padding(.top)
+                        }
+                        NavigationLink(destination: SignInView()) {
+                            Text("Sign In")
+                                .frame(width: 200, height: 40, alignment: .center)
+                                .background(.orange)
+                                .foregroundColor(.white)
+                                .font(.system(size: 20, weight: .bold, design: .default))
+                                .cornerRadius(10)
+                                .padding(.top)
+                        }
                     }
-                    
+
+                    VStack(spacing: 25) {
+                        LogInFeatureView(imageName: "open-box", featureDesc: "Check order status and track, change, or return items.")
+                        LogInFeatureView(imageName: "online-shopping", featureDesc: "Shop past purchases and everyday essentials.")
+                        LogInFeatureView(imageName: "list", featureDesc: "Add faviroute items to cart, now or later")
+                    }
                 }
                 .offset(y: -150)
             }
-            
         }
         .background(.ultraThinMaterial)
     }
-        
-        
 }
 
 struct UserView_Previews: PreviewProvider {
     static var previews: some View {
         UserView()
+    }
+}
+
+struct LogInFeatureView: View {
+    
+    var imageName: String
+    var featureDesc: String
+    
+    var body: some View {
+        HStack {
+            Image(imageName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 60, height: 60)
+                .padding()
+            Text(featureDesc)
+                .font(.system(size: 15, weight: .bold, design: .default))
+                .frame(width: 210, height: 80, alignment: .center)
+                .padding()
+        }
     }
 }
