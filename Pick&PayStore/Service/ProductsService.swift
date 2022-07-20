@@ -70,11 +70,11 @@ class ProductsService {
         ProductsHelper.productsHelper.addProduct(name: "18 Piece Dinnerware Set", price: 59.99, quantity: 10, category: 9, image: "Dinnerware", id:44)
         ProductsHelper.productsHelper.addProduct(name: "Clear Glass Set", price: 8.99, quantity: 10, category: 9, image: "GlassSet", id:45)
 
-        ProductsHelper.productsHelper.addProduct(name: "White Fabric Right Sectional Sofa", price: 8.99, quantity: 10, category: 10, image: "Sofa", id:46)
-        ProductsHelper.productsHelper.addProduct(name: "Footstoll with Storage", price: 8.99, quantity: 10, category: 10, image: "Footstooll", id:47)
-        ProductsHelper.productsHelper.addProduct(name: "Tan Recliner", price: 8.99, quantity: 10, category: 10, image: "Recliner", id:48)
-        ProductsHelper.productsHelper.addProduct(name: "Wodden Dinning Room Table Set", price: 8.99, quantity: 10, category: 10, image: "DiningSet", id:49)
-        ProductsHelper.productsHelper.addProduct(name: "Coffee Table", price: 8.99, quantity: 10, category: 10, image: "CoffeTable", id:50)
+        ProductsHelper.productsHelper.addProduct(name: "White Fabric Right Sectional Sofa", price: 999.99, quantity: 10, category: 10, image: "Sofa", id:46)
+        ProductsHelper.productsHelper.addProduct(name: "Footstoll with Storage", price: 99.99, quantity: 10, category: 10, image: "Footstooll", id:47)
+        ProductsHelper.productsHelper.addProduct(name: "Tan Recliner", price: 399.99, quantity: 10, category: 10, image: "Recliner", id:48)
+        ProductsHelper.productsHelper.addProduct(name: "Wodden Dinning Room Table Set", price: 689.99, quantity: 10, category: 10, image: "DiningSet", id:49)
+        ProductsHelper.productsHelper.addProduct(name: "Coffee Table", price: 69.99, quantity: 10, category: 10, image: "CoffeeTable", id:50)
 
         ProductsHelper.productsHelper.addProduct(name: "Jumbo Poly Leaf Rake", price: 19.99, quantity: 10, category: 11, image: "LeafRake", id:51)
         ProductsHelper.productsHelper.addProduct(name: "Garden Hose", price: 99.99, quantity: 10, category: 11, image: "GardenHose", id:52)
