@@ -42,8 +42,8 @@ class UserViewController: UIViewController {
             hostingController.view.widthAnchor.constraint(equalToConstant: view.bounds.width).isActive = true
             hostingController.view.heightAnchor.constraint(equalToConstant: view.bounds.height).isActive = true
             
-            hostingController.view.isOpaque = false
-            hostingController.view?.backgroundColor = .clear
+//            hostingController.view.isOpaque = false
+//            hostingController.view?.backgroundColor = .clear
         }
 
         

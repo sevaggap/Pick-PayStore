@@ -372,8 +372,6 @@
 				2554291728827E0C00CF3258 /* ViewModel */,
 				2554291628827E0100CF3258 /* View */,
 				258A8F7528772E8B00A91621 /* EmptyCartView_UIViewController.swift */,
-				25A06BBD2884D98B00419908 /* CarouselCollectionViewCell.swift */,
-				25A06BBF2884D99B00419908 /* CarouselViewController.swift */,
 				25AF154A287F0D0B005967F4 /* ConfigurableCartView_UIViewController.swift */,
 				2556F7962877306400312919 /* ShoppingCartView_UIViewController.swift */,
 				2556F7982877317C00312919 /* ShoppingCartView_UITableViewCell.swift */,
@@ -575,6 +573,8 @@
 			isa = PBXGroup;
 			children = (
 				25D05E682885A70A003DBB7A /* Home.storyboard */,
+				25A06BBD2884D98B00419908 /* CarouselCollectionViewCell.swift */,
+				25A06BBF2884D99B00419908 /* CarouselViewController.swift */,
 				EBAF571828773D31009D411D /* HomeScreenViewController.swift */,
 				EBAF571C28773EBF009D411D /* CategoryCollectionViewCell.swift */,
 				94FB931B2886FFD6002C041A /* SearchHistoryViewController.swift */,

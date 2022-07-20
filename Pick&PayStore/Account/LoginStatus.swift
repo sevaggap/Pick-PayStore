@@ -49,7 +49,7 @@ class LogOut: UITabBarController {
             //buttonTitleSetter.setTitle("Sign Out", for: .normal)
             let storyboard = UIStoryboard(name: "User", bundle: nil)
             let vc = storyboard.instantiateViewController(withIdentifier: "userVC")
-            self.selectedViewController = self.viewControllers![1]
+            self.selectedViewController = self.viewControllers![3]
         }
         
     }

@@ -112,7 +112,7 @@ extension HomeScreenViewController: UICollectionViewDelegate,
         ProductListViewController.productIds = category.products!
         ProductListViewController.categoryId = id
 
-        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![3]
+        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![1]
     }
 }
 
@@ -135,7 +135,7 @@ extension HomeScreenViewController : UISearchBarDelegate {
         SearchHistoryDBHelper.searchHistoryDBHelper.addSearchTerm(name: searchBar.text!)
         ProductListViewController.productIds = HomeScreenViewController.searchResults
         ProductListViewController.categoryId = 0
-        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![3]
+        self.tabBarController?.selectedViewController = self.tabBarController?.viewControllers![1]
         
     }
     
