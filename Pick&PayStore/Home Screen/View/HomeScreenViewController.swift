@@ -39,8 +39,18 @@ class HomeScreenViewController: UIViewController {
         
 //    var bannerImage = [HomeBannerViewModel]()
 
+    func prepareData() {
+        CategoryService.categoryServiceInstance.resetData()
+        CategoryService.categoryServiceInstance.addCategoryData()
+        CategoryService.categoryServiceInstance.addProductsToCategories()
+        categoryData = CategoryService.categoryServiceInstance.getData()
+        ProductsService.productsServiceInstance.resetData()
+        ProductsService.productsServiceInstance.addData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //prepareData()
 //        CategoryService.categoryServiceInstance.resetData()
 //        CategoryService.categoryServiceInstance.addCategoryData()
 //        CategoryService.categoryServiceInstance.addProductsToCategories()
